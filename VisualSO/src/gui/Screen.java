@@ -33,7 +33,7 @@ public class Screen {
 	protected int curStep = 0;
 	private String curSortType;
 	
-	public void run() {
+	public Screen() {
 		File directory = new File("").getAbsoluteFile();
 		//WINDOW
 		JFrame window = new JFrame("Sorting Visualizer");
@@ -142,8 +142,8 @@ public class Screen {
 		        });
 		
 		//play button
-		Icon pauseicon= new ImageIcon(new ImageIcon(directory+"\\src\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-		Icon playicon = new ImageIcon(new ImageIcon(directory+"\\src\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+		Icon pauseicon= new ImageIcon(new ImageIcon(directory+"\\screen\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon playicon = new ImageIcon(new ImageIcon(directory+"\\screen\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 		JButton playbutton = new JButton(pauseicon);
 		playbutton.setModel(new FixedStateButtonModel());
 		playbutton.setRolloverEnabled(false);
@@ -179,7 +179,7 @@ public class Screen {
 			}
 		});
 		//forward button
-		Icon forwardicon = new ImageIcon(new ImageIcon(directory +"\\src\\forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon forwardicon = new ImageIcon(new ImageIcon(directory +"\\screen\\forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		JButton forwardbutton = new JButton(forwardicon);
 		forwardbutton.setModel(new FixedStateButtonModel());
 		forwardbutton.setRolloverEnabled(false);
@@ -196,7 +196,7 @@ public class Screen {
 			}
 		});
 		//backward button
-		Icon backwardicon = new ImageIcon(new ImageIcon(directory+"\\src\\backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon backwardicon = new ImageIcon(new ImageIcon(directory+"\\screen\\backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		JButton backwardbutton = new JButton(backwardicon);
 		backwardbutton.setModel(new FixedStateButtonModel());
 		backwardbutton.setRolloverEnabled(false);
@@ -213,7 +213,7 @@ public class Screen {
 			}
 		});
 		//end button
-		Icon endicon = new ImageIcon(new ImageIcon(directory+"\\src\\end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon endicon = new ImageIcon(new ImageIcon(directory+"\\screen\\end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		JButton endbutton = new JButton(endicon);
 		endbutton.setModel(new FixedStateButtonModel());
 		endbutton.setRolloverEnabled(false);
@@ -230,7 +230,7 @@ public class Screen {
 			}
 		});
 		//start button
-		Icon starticon = new ImageIcon(new ImageIcon(directory+"\\src\\start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon starticon = new ImageIcon(new ImageIcon(directory+"\\screen\\start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		JButton startbutton = new JButton(starticon);
 		startbutton.setModel(new FixedStateButtonModel());
 		startbutton.setRolloverEnabled(false);
