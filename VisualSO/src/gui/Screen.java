@@ -14,6 +14,7 @@ public abstract class Screen extends JFrame {
 	protected static final Color myORANGE = new Color(255,102,0);
 	protected static final Color myYELLOW =new Color(255,204,0);
 	protected static final Color myPINK = new Color(255,51,153);
+	JPanel topbar = new JPanel(new BorderLayout());
 	
 	public Screen() {
 		setTitle("Sorting Visualizer");
@@ -22,7 +23,6 @@ public abstract class Screen extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(true);
 		
-		JPanel topbar = new JPanel(new BorderLayout());
 		topbar.setBackground(Color.BLACK);
 		topbar.setPreferredSize(new Dimension(1000,45));
 		topbar.setBorder(BorderFactory.createEmptyBorder(0, 35, 0, 0));
