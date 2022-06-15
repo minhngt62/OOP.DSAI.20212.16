@@ -476,6 +476,11 @@ public abstract class Demonstration extends Screen implements Visualizable{
 			setPreferredSize(new Dimension(x,y));
 		}
 	}
+
+	public abstract JPanel main(int[] array);
+	public abstract JPanel sub(int[] array);
+	public abstract JPanel animation(int[] array);
+
 	public int max(int... array) {
 		int max = array[0];
 		for (int i: array) {
