@@ -11,6 +11,26 @@ public abstract class SortingAlgorithm {
 	int numSteps = 0;
 	int[] inputArray;
 	
+	public int[][] getArrayLog() {
+		return arrayLog;
+	}
+
+	public int[][] getTempLog() {
+		return tempLog;
+	}
+
+	public int[][] getPointerLog() {
+		return pointerLog;
+	}
+
+	public String[] getGuideLog() {
+		return guideLog;
+	}
+
+	public int getNumSteps() {
+		return numSteps;
+	}
+	
 	public SortingAlgorithm(int[] inputArray) {
 		this.inputArray = inputArray;
 		
