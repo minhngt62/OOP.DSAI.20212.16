@@ -44,17 +44,19 @@ public class HomeController {
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if( name.equals("Merge Sort")) {
+			switch(name) {
+			case "Merge Sort":
 				new MergeSortScreen();
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
-			}
-			if( name.equals("Counting Sort")) {
+				break;
+			case "Counting Sort":
 				new CountingSortScreen();
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
-			}
-			if( name.equals("Radix Sort")) {
+				break;
+			case "Radix Sort":
 				new RadixSortScreen();
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
+				break;
 			}
 		}
 	}
@@ -69,7 +71,6 @@ public class HomeController {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println(SwingUtilities.windowForComponent(((JButton)e.getSource())).getClass());
 			if(!SwingUtilities.windowForComponent(((JButton)e.getSource())).getClass().equals(new HomeScreen().getClass())) {
 				new HomeScreen().setVisible(true);
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
