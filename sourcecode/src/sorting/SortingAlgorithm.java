@@ -1,6 +1,6 @@
 package sorting;
 
-import util.ArrayUtils;
+import utils.ArrayUtils;
 
 public abstract class SortingAlgorithm {
 	int[][] arrayLog;

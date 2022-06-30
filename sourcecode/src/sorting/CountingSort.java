@@ -1,6 +1,6 @@
 package sorting;
 
-import util.ArrayUtils;
+import utils.ArrayUtils;
 
 public class CountingSort extends SortingAlgorithm {
 	
@@ -27,7 +27,7 @@ public class CountingSort extends SortingAlgorithm {
 	private int[] counter() {
 		int max = ArrayUtils.max(inputArray);
 		int[] counts = new int[max + 1];
-		addLogs(inputArray, counts, new int[] {-1, -1},
+		addLogs(inputArray, counts, new int[] {-1, -1}, // no pointer
 				"Create key counting array" + " (" + 0 + " to " + max + ")");
 		
 		for (int i=0; i < inputArray.length; i++) {
