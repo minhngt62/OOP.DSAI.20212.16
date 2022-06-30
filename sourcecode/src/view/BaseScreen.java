@@ -6,7 +6,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import controller.HomeController.*;
+
+import controller.BaseController;
 
 public abstract class BaseScreen extends JFrame {
 	protected static final int WIDTH = 1000;
@@ -16,14 +17,16 @@ public abstract class BaseScreen extends JFrame {
 	protected static final Color myORANGE = new Color(255,102,0);
 	protected static final Color myYELLOW =new Color(255,204,0);
 	protected static final Color myPINK = new Color(255,51,153);
+	
+	BaseController controller;
 	//File directory
 	File directory = new File("").getAbsoluteFile();
 	protected String helpInfo = "Hello from the other side";
 	protected String aboutInfo = "At least i could say that i try";
 	
 	public BaseScreen() {
+		controller = new BaseController(this);
 		add(createTop(), "North");
-		
 		setTitle("Sorting Visualizer");
 		setSize(WIDTH,HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,14 +51,14 @@ public abstract class BaseScreen extends JFrame {
 		MyButton btnBack = new MyButton(80,45,Color.BLACK);
 		btnBack.setText("Back");
 		btnBack.setFont(new Font("Sans", Font.BOLD, 17));
-		btnBack.addActionListener(new BackListener());
+		btnBack.addActionListener(controller.new BackListener());
 		buttonGroup.add(btnBack);
 		
 		MyButton btnQuit = new MyButton(80,45,Color.RED);
 		btnQuit.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
 		btnQuit.setText("EXIT");
 		btnQuit.setFont(new Font("Sans", Font.BOLD, 17));
-		btnQuit.addActionListener(new ExitListener());
+		btnQuit.addActionListener(controller.new ExitListener());
 		buttonGroup.add(btnQuit);
 		
 		topBar.add(buttonGroup,"East");
@@ -80,8 +83,14 @@ public abstract class BaseScreen extends JFrame {
 			button.setBackground(myBLUE);
 		}
 	}
-	static class MyButton extends JButton{
-
+	public class MyButton extends JButton{
+		String id;
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getId() {
+			return this.id;
+		}
 		public MyButton(int x, int y, Color color) {
 			super();
 			setModel(new FixedStateButtonModel());
@@ -108,6 +117,7 @@ public abstract class BaseScreen extends JFrame {
 			setWrapStyleWord(true);
 			setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 			setPreferredSize(new Dimension(x,y));
+			setVisible(false);
 		}
 	}
 

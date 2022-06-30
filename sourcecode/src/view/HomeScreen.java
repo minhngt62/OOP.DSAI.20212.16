@@ -12,11 +12,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import controller.HomeController.*;
+
+import controller.BaseController;
+import controller.BaseController.*;
+import controller.HomeController;
 
 public class HomeScreen extends BaseScreen {
 	public HomeScreen() {
 		super();
+		controller = new HomeController(this);
 		JPanel homePane = new JPanel(new GridLayout(2,1));
 		add(homePane, BorderLayout.CENTER);
 		homePane.add(createInfoPanel());
@@ -49,11 +53,11 @@ public class HomeScreen extends BaseScreen {
 		JPanel helpPane = new JPanel();
 		MyButton btnHelp = new MyButton(50,30,Color.BLACK); 
 		btnHelp.setText("Help");
-		btnHelp.addActionListener(new HelpAboutListener("Help",helpInfo));
+		btnHelp.addActionListener(controller.new HelpAboutListener("Help",helpInfo));
 		helpPane.add(btnHelp);
 		MyButton btnAbout = new MyButton(50,30,Color.BLACK); 
 		btnAbout.setText("About");
-		btnAbout.addActionListener(new HelpAboutListener("About",aboutInfo));
+		btnAbout.addActionListener(controller.new HelpAboutListener("About",aboutInfo));
 		helpPane.add(btnAbout);
 		return helpPane;
 	}
@@ -81,7 +85,7 @@ public class HomeScreen extends BaseScreen {
 			setRolloverIcon(preSortIcon);
 			setIcon(SortIcon);
 			setFocusable(false);
-			addActionListener(new SortListener(name));
+			addActionListener(((HomeController)controller).new SortListener(name));
 		}
 	}
 	
