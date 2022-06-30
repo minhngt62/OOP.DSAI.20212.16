@@ -1,3 +1,5 @@
+package util;
+
 
 import java.util.Random;
 
@@ -9,6 +11,9 @@ public class RandomArray {
             int k = generator.nextInt(2*n) + 1;
             if (DataProcessing.notIncludes(result,k)){
                 result[i] = k;
+            }
+            else {
+            	result[i] = k+i;
             }
         }
         return result ;
