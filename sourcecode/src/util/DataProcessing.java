@@ -1,5 +1,4 @@
-package DATA;
-public class data_processing {
+public class DataProcessing {
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
@@ -29,7 +28,7 @@ public class data_processing {
         return result;
     }
 
-    public static boolean not_includes(int[] m, int n){
+    public static boolean notIncludes(int[] m, int n){
         for (int i = 0; i < m.length; i++){
             if (m[i] == n){
                 return false;

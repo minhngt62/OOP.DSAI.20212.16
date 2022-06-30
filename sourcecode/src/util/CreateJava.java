@@ -1,16 +1,15 @@
-package DATA;
 import java.util.Random;
 
-public class createdata{
+public class CreateJava{
     static Random generator = new Random();
     static int n = generator.nextInt(100) + 1;
     public static Object data_result(String arr){
         if (arr == "random"){
-            return random_arr.random_array(n);
+            return RandomArray.random_array(n);
         }
         else{
-            if (data_processing.isNullOrEmpty(arr) == false && data_processing.StringToIntArray(arr).length > 0){
-                return data_processing.StringToIntArray(arr);
+            if (DataProcessing.isNullOrEmpty(arr) == false && DataProcessing.StringToIntArray(arr).length > 0){
+                return DataProcessing.StringToIntArray(arr);
             }
         }
         
