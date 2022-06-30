@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,8 +20,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import sorting.RadixSort;
-import util.DataProcessing;
-import util.RandomArray;
+import utils.DataProcessing;
+import utils.RandomArray;
 import view.BaseScreen.*;
 import view.SortingScreen;
 

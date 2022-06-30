@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -23,8 +23,8 @@ import javax.swing.Timer;
 import javax.swing.event.ChangeListener;
 
 import sorting.SortingAlgorithm;
-import util.ArrayUtils;
-import util.RandomArray;
+import utils.ArrayUtils;
+import utils.RandomArray;
 import view.SortingScreen.Visualizer;
 import controller.SortingController;
 

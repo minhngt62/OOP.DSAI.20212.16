@@ -1,6 +1,6 @@
 package sorting;
 
-import util.ArrayUtils;
+import utils.ArrayUtils;
 
 public class RadixSort extends SortingAlgorithm {
 	private int max; 
