@@ -152,7 +152,7 @@ public class SortingController extends BaseController{
 		}
 	}
 	public class ControlBtnListener implements ActionListener{
-    	File directory = new File("").getAbsoluteFile();
+    	String directory = new File("").getAbsoluteFile() + "/sourcecode";
         Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 		Icon playIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
@@ -176,25 +176,11 @@ public class SortingController extends BaseController{
 			case "Forward":
 				if (((SortingScreen) window).isSorting()) {
 					    ((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getCurStep()+1);
-//						((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
-//
-//						((SortingScreen) window).setAnimation(((SortingScreen) window).animation(((SortingScreen) window).getMain(), ((SortingScreen) window).getSub(), 
-//								((SortingScreen) window).getAnimationArrayStep()[((SortingScreen) window).getCurStep()-1], true));
-//					    ((SortingScreen) window).getAnimation().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 520);
-//					    if (((SortingScreen) window).getCurStep()<((SortingScreen) window).getStep()-1) {
-//					    ((SortingScreen) window).getVisualizer().add(((SortingScreen) window).getAnimation(), JLayeredPane.DEFAULT_LAYER);}
 			    }
 				break;
 			case "Backward":
 				 if (((SortingScreen) window).isSorting())
 					 ((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getCurStep()-1);
-//					((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
-//					((SortingScreen) window).setAnimation(((SortingScreen) window).animation(((SortingScreen) window).getMain(), ((SortingScreen) window).getSub(), 
-//								((SortingScreen) window).getAnimationArrayStep()[((SortingScreen) window).getCurStep()], true));
-//					((SortingScreen) window).getAnimation().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 520);
-//					if(((SortingScreen) window).getCurStep()>0) {
-//					((SortingScreen) window).getVisualizer().add(((SortingScreen) window).getAnimation(), JLayeredPane.DEFAULT_LAYER);}
-					
 				break;
 			case "End":
 				if (((SortingScreen) window).isSorting()) {

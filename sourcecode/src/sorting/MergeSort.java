@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Arrays;
+
 import utils.ArrayUtils;
 
 public class MergeSort extends SortingAlgorithm {
@@ -80,6 +82,9 @@ public class MergeSort extends SortingAlgorithm {
 		int[] array = new int[] {3, 3, 2, 1, 1, 2, 0};
 		MergeSort sorter = new MergeSort(array);
 		sorter.sort();
+		System.out.println(Arrays.deepToString(sorter.arrayLog));
+		System.out.println(Arrays.deepToString(sorter.tempLog));
+		System.out.println(Arrays.deepToString(sorter.pointerLog));
 		for (String e : sorter.getGuideLog()) {
 			System.out.println(e);
 		}
