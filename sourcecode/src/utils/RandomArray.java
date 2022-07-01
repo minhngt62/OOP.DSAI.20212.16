@@ -12,7 +12,7 @@ public class RandomArray {
                 result[i] = k;
             }
             else {
-            	result[i] = k+i;
+            	result[i] = generator.nextInt(k)+1;
             }
         }
         return result ;

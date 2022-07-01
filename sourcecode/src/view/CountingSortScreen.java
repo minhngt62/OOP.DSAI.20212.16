@@ -86,7 +86,7 @@ public class CountingSortScreen extends SortingScreen {
 				    g.fillRect(subIndex*ArrayUtils.min(subWidth,60+padding)+30,getHeight()-60, ArrayUtils.min(subWidth-padding,60),30);
 				    g.setColor(Color.WHITE);
 				    g.setFont(new Font("Sans", Font.BOLD, 17));
-				    g.drawString(Integer.toString(sub.getArray()[subIndex]),subIndex*ArrayUtils.min(subWidth,60+padding)+56, getHeight()-40);
+				    g.drawString(Integer.toString(sub.getArray()[subIndex]),(subIndex)*ArrayUtils.min(subWidth,60+padding)+26+ArrayUtils.min(subWidth,60+padding)/2, getHeight()-40);
 				}
 				
 			}
@@ -108,5 +108,8 @@ public class CountingSortScreen extends SortingScreen {
 	@Override
 	public Color getColor() {
 		return myORANGE;
+	}
+	public int getMaxValue() {
+		return 40;
 	}
 }

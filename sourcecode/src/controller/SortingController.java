@@ -9,6 +9,7 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,10 +17,15 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import exception.DataTypeException;
+import exception.NullException;
+import exception.OutOfBoundException;
 import sorting.RadixSort;
+import utils.ArrayUtils;
 import utils.DataProcessing;
 import utils.RandomArray;
 import view.BaseScreen.*;
@@ -72,19 +78,50 @@ public class SortingController extends BaseController{
 				((SortingScreen) window).getBtnGo().setVisible(true);
 				break;
 			case "Random":
-				((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(100)+1));
+				if (((SortingScreen) window).getMaxValue() != 50) {
+					((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10));
+				}
+				else {
+					((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(10)+10));
+				}
 				((SortingScreen) window).setSorting(false);
 				break;
 			case "Go":
 				String arr = ((SortingScreen) window).getInputArrayField().getText();
 				((SortingScreen) window).setSorting(false);
-	            if (DataProcessing.isNullOrEmpty(arr) == false && DataProcessing.StringToIntArray(arr).length > 0){
-	            	((SortingScreen) window).updateMainArray(DataProcessing.StringToIntArray(arr));
-	            }
+	            try {
+					if (DataProcessing.isNullOrEmpty(arr) == true || DataProcessing.StringToIntArray(arr).length <= 0){
+						throw new NullException("Array is empty. Please type it");
+					}
+	            	int[] array = DataProcessing.StringToIntArray(arr);
+	            	int length = array.length;
+					if (length >SortingScreen.MAX_NUMBER) {
+						throw new OutOfBoundException("The array must has under "+SortingScreen.MAX_NUMBER+" components");
+					}
+					if (ArrayUtils.max(array) > ((SortingScreen) window).getMaxValue()) {
+						throw new OutOfBoundException("The the maximum number of the array is "+((SortingScreen) window).getMaxValue());
+					}
+					else {
+						((SortingScreen) window).updateMainArray(array);
+					}
+				} catch (DataTypeException e1) {
+					((SortingScreen) window).getErrorLabel().setText(e1.getMessage());
+					
+				} catch (NullException e2) {
+					((SortingScreen) window).getErrorLabel().setText(e2.getMessage());
+				} catch (OutOfBoundException e3) {
+					((SortingScreen) window).getErrorLabel().setText(e3.getMessage());
+				} catch (Exception e4) {
+					((SortingScreen) window).getErrorLabel().setText(e4.getMessage());
 
+				}finally {
+					((SortingScreen) window).getErrorLabel().setVisible(true);
+					((SortingScreen) window).repaint();
+				}
 				break;
 			case "Sort":
 				((SortingScreen) window).setSorting(true);
+				((SortingScreen) window).getErrorLabel().setVisible(false);
 				if (((SortingScreen) window).isPlay()) {
 				   ((SortingScreen) window).getTimer().stop();
 				   ((SortingScreen) window).getTimer().start();}		
@@ -152,9 +189,8 @@ public class SortingController extends BaseController{
 		}
 	}
 	public class ControlBtnListener implements ActionListener{
-    	String directory = new File("").getAbsoluteFile() + "/sourcecode";
-        Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-		Icon playIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        Icon pauseIcon= new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon playIcon = new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"\\resource\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -213,8 +249,7 @@ public class SortingController extends BaseController{
 				((SortingScreen) window).getContainer1().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 522);
 				((SortingScreen) window).getMain().setBounds(0, 0, ((SortingScreen) window).getWidth()-200, 250);
 				((SortingScreen) window).getSub().setBounds(0, 270, ((SortingScreen) window).getWidth()-200, 250);
-				//((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
-				
+				((SortingScreen) window).getErrorLabel().setBounds((((SortingScreen) window).getWidth()-450)/2, 5, 300, 20);
 	    }
 	}
 	

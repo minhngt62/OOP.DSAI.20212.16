@@ -105,4 +105,7 @@ public class MergeSortScreen extends SortingScreen{
 	public Color getColor() {
 		return myPINK;
 	}
+	public int getMaxValue() {
+		return 1000000000;
+	}
 }

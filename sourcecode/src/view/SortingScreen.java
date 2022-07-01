@@ -42,6 +42,7 @@ public abstract class SortingScreen extends BaseScreen {
 	protected boolean isPlay = true;    //if playing
 	protected boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
 	protected int curStep = 0;
+	public static final int MAX_NUMBER = 100;
 	
 	SortingAlgorithm algo;
 	
@@ -59,14 +60,14 @@ public abstract class SortingScreen extends BaseScreen {
 	MyTextField inputArrayField;
 	MySideButton btnGo;
 	MySideButton btnSort;
-	Color color;
+	MyLabel errorLabel;
 	
 	public SortingScreen(int[] array) {
 		super();
 		this.mainArray = array;
 		controller = new SortingController(this);
 		if (mainArray == null){
-			mainArray = RandomArray.random_array((new Random()).nextInt(100)+1);}
+			mainArray = RandomArray.random_array((new Random()).nextInt(10)+10);}
 		add(createCenter());
 		add(createRightSideBar(), BorderLayout.EAST);
 		add(createLeftSideBar(), BorderLayout.WEST);
@@ -86,6 +87,10 @@ public abstract class SortingScreen extends BaseScreen {
 		container.add(sub);
 		animation= new JPanel();
 		visualizer.add(container, JLayeredPane.DEFAULT_LAYER);
+		
+		errorLabel = new MyLabel("");
+		errorLabel.setForeground(Color.red);
+		visualizer.add(errorLabel, JLayeredPane.DRAG_LAYER);
 		//LEFTSIDEBAR
 		//create button "Create(A)" belong to generate data button
 		btnCreate = new MySideButton(150,33,myBLUE,"Create(A)",SwingConstants.LEFT);
@@ -228,7 +233,7 @@ public abstract class SortingScreen extends BaseScreen {
 	public class MyLabel extends JLabel{
 		public MyLabel(String name) {
 			super(name);
-			setBackground(Color.WHITE);
+			setBackground(new Color(0,0,0,0));
 			setHorizontalAlignment(SwingConstants.CENTER);
 			setPreferredSize(new Dimension(28,28));
 			setVisible(false);
@@ -474,5 +479,14 @@ public abstract class SortingScreen extends BaseScreen {
 	}
 
 	public abstract Color getColor();
+	public abstract int getMaxValue();
 
+	public MyLabel getErrorLabel() {
+		return errorLabel;
+	}
+
+	public void setErrorLabel(MyLabel errorLabel) {
+		this.errorLabel = errorLabel;
+	}
+	
 }
