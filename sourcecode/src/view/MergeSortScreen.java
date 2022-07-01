@@ -2,6 +2,7 @@ package view;
 
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,14 +10,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import sorting.CountingSort;
+import sorting.MergeSort;
 import utils.ArrayUtils;
 
 public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen(int[] array) {
 		super(array);
 		int[] array_copy = mainArray.clone();
-		algo = new CountingSort(array_copy);
+		algo = new MergeSort(array_copy);
 		algo.sort();
 		step = algo.getNumSteps();
 		mainArrayStep = algo.getArrayLog();
@@ -44,7 +45,7 @@ public class MergeSortScreen extends SortingScreen{
 				else {height = 0;}
 				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
-					g.setColor(myGREEN);
+					g.setColor(myPINK);
 				    g.fillRect(x, y-i*height+ getHeight(),ArrayUtils.min(width-padding,60),i*height);
 				    x += ArrayUtils.min(width,60+padding) ;
 				}
@@ -65,55 +66,30 @@ public class MergeSortScreen extends SortingScreen{
 		int padding = 5;
 		JPanel animation =  new JPanel() {
 			int mainIndex;
-			int y = 0;
-			int ys = 0;
-			int speedYs = -10;
-			int speedY = 10;
-			int delay;
-			Timer t = new Timer(0, new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					if (y> 238) {
-						speedY =0;
-						setVisible(false);
-					}
-					if (ys<-238) {
-						speedYs = 0;
-						setVisible(false);
-					}
-					y+=speedY;
-					ys+=speedYs;
-					repaint();
-				}
-			});
+			int subIndex;
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				for (int i = 1; i< step.length+1;i++) {
-					if(step[i-1] != 0) {
-						mainIndex =i-1;
-						delay = (int) ((speedY)*(1000-defaultSpeed*10)/238);
-						if (i == 1) {
-							  g.setColor(myGREEN);
-						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-sub.getArray()[mainIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),sub.getArray()[mainIndex]*height);
-						      g.setColor(myGREEN);
-						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, ys-main.getArray()[mainIndex]*height+ getHeight()-30, ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
-						}
-						else {
-							 g.setColor(myGREEN);
-						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-main.getArray()[mainIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
-						     g.setColor(myGREEN);
-						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, ys-sub.getArray()[mainIndex]*height+ getHeight()-30, ArrayUtils.min(width-padding,60),sub.getArray()[mainIndex]*height);			     
-						}
-
-					}
-					
+				if(step[0] >= 0&& step[1]>=0) {
+				    mainIndex =step[0];
+				    subIndex = step[1];
+					g.setColor(myGREEN);
+				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
+				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
+				    		   -main.getArray()[mainIndex]*height
+				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
+				    g.setColor(Color.red);
+				    g.fillRect(subIndex*ArrayUtils.min(width,60+padding)+(sub.getWidth()
+				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
+				    		   -sub.getArray()[subIndex]*height
+				    		   + sub.getHeight()+270,ArrayUtils.min(width-padding,60),sub.getArray()[subIndex]*height);
 				}
-				t.start();
-				t.setDelay(delay);
-		    }
-	     };
-	    return animation;
+				
+			}
+		};
+		animation.setBounds(45, 30,getWidth()-200, 520);
+		animation.setBackground(new Color(0,0,0,0));
+		return animation;
 	}
 	@Override
 	public void updateMainArray(int[] array) {
@@ -128,5 +104,8 @@ public class MergeSortScreen extends SortingScreen{
 	@Override
 	public Color getColor() {
 		return myPINK;
+	}
+	public int getMaxValue() {
+		return 1000000000;
 	}
 }

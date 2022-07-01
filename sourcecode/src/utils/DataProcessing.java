@@ -1,5 +1,7 @@
 package utils;
 
+import exception.DataTypeException;
+
 public class DataProcessing {
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
@@ -9,7 +11,7 @@ public class DataProcessing {
         return str.chars().allMatch(Character::isDigit);
     }
 
-    public static int[] StringToIntArray(String str) {
+    public static int[] StringToIntArray(String str) throws DataTypeException{
         String str1 = str;
         str1 = str1.replaceAll(" ","");
         String[] items = str1.split(",");
@@ -24,7 +26,7 @@ public class DataProcessing {
                 //System.out.println(items[i]);
             }
             else{
-                return new int[0];
+                throw new DataTypeException("There're not-number components");
             }
         }
         return result;

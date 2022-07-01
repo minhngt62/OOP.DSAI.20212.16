@@ -120,5 +120,12 @@ public abstract class BaseScreen extends JFrame {
 			setVisible(false);
 		}
 	}
+	public String getDirectory() {
+		return directory;
+	}
+
+	public void setDirectory(String directory) {
+		this.directory = directory;
+	}
 
 }

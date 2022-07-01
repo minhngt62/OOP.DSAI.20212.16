@@ -10,7 +10,6 @@ import sorting.RadixSort;
 import utils.ArrayUtils;
 
 public class RadixSortScreen extends SortingScreen {
-	
 	public RadixSortScreen(int[] array) {
 		super(array);
 		int[] array_copy = mainArray.clone();
@@ -108,6 +107,10 @@ public class RadixSortScreen extends SortingScreen {
 	@Override
 	public Color getColor() {
 		return myYELLOW;
+	}
+	@Override
+	public int getMaxValue() {
+		return 1000000000;
 	}
 //	@Override
 //	public JPanel animation(Visualizer main, Visualizer sub, int[] step,boolean reverse) {
