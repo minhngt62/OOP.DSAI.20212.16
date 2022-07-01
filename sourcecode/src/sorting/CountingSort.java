@@ -34,8 +34,6 @@ public class CountingSort extends SortingAlgorithm {
 			counts[inputArray[i]] += 1;
 			addLogs(inputArray, counts, new int[] {i, inputArray[i]},
 					"Increase the counter with key " + inputArray[i] + " by 1");
-			inputArray[i] = 0; // better demonstration
-			
 		}
 		
 		return counts;
