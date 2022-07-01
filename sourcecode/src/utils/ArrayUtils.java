@@ -11,6 +11,16 @@ public class ArrayUtils {
 		return max;
 	}
 	
+	public static int min(int ... array) {
+		int min = array[0];
+		for (int i: array) {
+			if (i <min) {
+				min =i;			
+			}	
+		}
+		return min;
+	}
+	
 	public static int[][] resizeIntegers(int[][] array) {
 		int[][] resizedArray = new int[array.length * 2][array[0].length];
 		for (int i = 0; i < array.length; i++) {

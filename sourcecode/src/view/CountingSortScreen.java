@@ -3,18 +3,11 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
-import controller.SortingController;
 import sorting.CountingSort;
-import sorting.RadixSort;
-import util.ArrayUtils;
-import view.SortingScreen.Visualizer;
+import utils.ArrayUtils;
 
 public class CountingSortScreen extends SortingScreen {
 	public CountingSortScreen(int[] array) {

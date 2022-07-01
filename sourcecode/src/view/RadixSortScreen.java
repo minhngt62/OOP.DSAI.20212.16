@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import sorting.RadixSort;
-import util.ArrayUtils;
+import utils.ArrayUtils;
 
 public class RadixSortScreen extends SortingScreen {
 	
@@ -22,7 +22,6 @@ public class RadixSortScreen extends SortingScreen {
 		animationArrayStep = algo.getPointerLog();
 		infoArrayStep = algo.getGuideLog();
 		processSlider.setMaximum(step-1);
-		color = myYELLOW;
 	}
 	
 	@Override

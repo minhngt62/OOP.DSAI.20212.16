@@ -16,6 +16,7 @@ public class HomeController extends BaseController {
 		super(window);
 	}
 	public class SortListener implements ActionListener{
+		int[] array;
 		String name;
 		public SortListener(String name) {
 			super();
@@ -25,15 +26,15 @@ public class HomeController extends BaseController {
 		public void actionPerformed(ActionEvent e) {
 			switch(name) {
 			case "Merge Sort":
-				new MergeSortScreen();
+				new MergeSortScreen(array);
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 				break;
 			case "Counting Sort":
-				new CountingSortScreen();
+				new CountingSortScreen(array);
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 				break;
 			case "Radix Sort":
-				new RadixSortScreen();
+				new RadixSortScreen(array);
 				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 				break;
 			}
