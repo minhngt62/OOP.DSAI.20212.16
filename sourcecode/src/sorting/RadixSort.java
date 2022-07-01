@@ -41,7 +41,6 @@ public class RadixSort extends SortingAlgorithm {
 			bucketBounds[1][digit]++;
 			addLogs(inputArray, bucketBounds[1], new int[] {i, digit},
 					"Moving " + inputArray[i] + " to bucket no " + digit);
-			inputArray[i] = 0; // better demonstration
 		}
 		
 		int numRestored = 0;
@@ -73,3 +72,4 @@ public class RadixSort extends SortingAlgorithm {
 	}
 
 }
+
