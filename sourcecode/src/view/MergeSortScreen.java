@@ -9,10 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import controller.SortingController;
 import sorting.CountingSort;
-import sorting.RadixSort;
-import util.ArrayUtils;
+import utils.ArrayUtils;
 
 public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen(int[] array) {

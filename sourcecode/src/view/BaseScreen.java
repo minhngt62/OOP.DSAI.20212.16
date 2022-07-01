@@ -20,7 +20,7 @@ public abstract class BaseScreen extends JFrame {
 	
 	BaseController controller;
 	//File directory
-	File directory = new File("").getAbsoluteFile();
+	String directory = new File("").getAbsoluteFile()+ "/sourcecode";
 	protected String helpInfo = "Hello from the other side";
 	protected String aboutInfo = "At least i could say that i try";
 	
