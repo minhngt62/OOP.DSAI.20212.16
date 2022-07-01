@@ -9,69 +9,46 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import controller.SortingController;
+import sorting.CountingSort;
+import sorting.RadixSort;
+import util.ArrayUtils;
+
 public class MergeSortScreen extends SortingScreen{
-	
-	@Override
-	public String[] infoArrayStep() {
-		return infoArrayStep;
+	public MergeSortScreen(int[] array) {
+		super(array);
+		int[] array_copy = mainArray.clone();
+		algo = new CountingSort(array_copy);
+		algo.sort();
+		step = algo.getNumSteps();
+		mainArrayStep = algo.getArrayLog();
+		subArrayStep = algo.getTempLog();
+		animationArrayStep = algo.getPointerLog();
+		infoArrayStep = algo.getGuideLog();
+		processSlider.setMaximum(step-1);
 	}
-	@Override
-	public int[][] mainArrayStep(){
-		return mainArrayStep;
-	}
-	@Override
-	public int[][] subArrayStep(){
-		return subArrayStep;
-	}
-	public int[][] animationArrayStep(){
-		return animationArrayStep;
-	}
-	
-	int x = 0;
-	int y = 0;
-	int width;
-	int height;
-	int padding = 5;
-	@Override
-	public Visualizer main(int[] array) {
-		Visualizer main =  new Visualizer(array) {
-			@Override
-			public void paintComponent(Graphics g) {
-				super.paintComponent(g);
-				width =(int) getWidth()/array.length;
-				if (max(array) !=0) {
-				height=(int) getHeight()/max(mainArray);}
-				else {height = 0;}
-				x = (getWidth()- min(width,60+padding)*array.length)/2;
-				for (int i:array) {
-					g.setColor(myPINK);
-				    g.fillRect(x, y-i*height+ getHeight(),min(width-padding,60),i*height);
-				    x += min(width,60+padding) ;
-				}
-				x = 0;
-			}
-			
-		};
-		main.setBounds(45, 30, getWidth()-200, 250);
-		main.setBackground(new Color(0,0,0,0));
-		return main;
-	}
-	
+
+
 	@Override
 	public Visualizer sub(int[] array) {
 		Visualizer sub =  new Visualizer(array) {
+			int x = 0;
+			int y = 0;
+			int width;
+			int height;
+			int padding = 5;
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				width =(int) getWidth()/array.length;
-				if (max(array) !=0) {
-				height=(int) getHeight()/max(mainArray);}
+				if (ArrayUtils.max(array) !=0) {
+				height=(int) getHeight()/ArrayUtils.max(mainArray);}
 				else {height = 0;}
-				x = (getWidth()- min(width,60+padding)*array.length)/2;
+				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
 					g.setColor(myGREEN);
-				    g.fillRect(x, y-i*height+ getHeight(),min(width-padding,60),i*height);
-				    x += min(width,60+padding) ;
+				    g.fillRect(x, y-i*height+ getHeight(),ArrayUtils.min(width-padding,60),i*height);
+				    x += ArrayUtils.min(width,60+padding) ;
 				}
 				x = 0;
 		    }
@@ -81,11 +58,11 @@ public class MergeSortScreen extends SortingScreen{
 	    return sub;
 	}
 	@Override
-	public JPanel animation(Visualizer main, Visualizer sub, int[] step,boolean reverse) {
+	public JPanel animation(Visualizer main, Visualizer sub, int[] step) {
 		int width =(int) main.getWidth()/mainArray.length;
 		int height;
-		if (max(mainArray) !=0) {
-			height=(int) main.getHeight()/max(mainArray);}
+		if (ArrayUtils.max(mainArray) !=0) {
+			height=(int) main.getHeight()/ArrayUtils.max(mainArray);}
 			else {height = 0;}
 		int padding = 5;
 		JPanel animation =  new JPanel() {
@@ -118,17 +95,17 @@ public class MergeSortScreen extends SortingScreen{
 					if(step[i-1] != 0) {
 						mainIndex =i-1;
 						delay = (int) ((speedY)*(1000-defaultSpeed*10)/238);
-						if (reverse) {
+						if (i == 1) {
 							  g.setColor(myGREEN);
-						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- min(width,60+padding)*mainArray.length)/2, y-sub.getArray()[mainIndex]*height+ main.getHeight(),min(width-padding,60),sub.getArray()[mainIndex]*height);
+						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-sub.getArray()[mainIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),sub.getArray()[mainIndex]*height);
 						      g.setColor(myGREEN);
-						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- min(width,60+padding)*mainArray.length)/2, ys-main.getArray()[mainIndex]*height+ getHeight()-30, min(width-padding,60),main.getArray()[mainIndex]*height);
+						      g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, ys-main.getArray()[mainIndex]*height+ getHeight()-30, ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
 						}
 						else {
 							 g.setColor(myGREEN);
-						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- min(width,60+padding)*mainArray.length)/2, y-main.getArray()[mainIndex]*height+ main.getHeight(),min(width-padding,60),main.getArray()[mainIndex]*height);
+						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-main.getArray()[mainIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
 						     g.setColor(myGREEN);
-						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- min(width,60+padding)*mainArray.length)/2, ys-sub.getArray()[mainIndex]*height+ getHeight()-30, min(width-padding,60),sub.getArray()[mainIndex]*height);			     
+						     g.fillRect(mainIndex*(60+padding)+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, ys-sub.getArray()[mainIndex]*height+ getHeight()-30, ArrayUtils.min(width-padding,60),sub.getArray()[mainIndex]*height);			     
 						}
 
 					}
@@ -139,5 +116,19 @@ public class MergeSortScreen extends SortingScreen{
 		    }
 	     };
 	    return animation;
+	}
+	@Override
+	public void updateMainArray(int[] array) {
+		MergeSortScreen a = new MergeSortScreen(array);
+		if (this.getExtendedState()==MAXIMIZED_BOTH) {
+			a.setExtendedState(MAXIMIZED_BOTH);
+		}
+		else {
+		    a.setSize(this.getWidth(),this.getHeight()); }
+		dispose();
+	}
+	@Override
+	public Color getColor() {
+		return myPINK;
 	}
 }
