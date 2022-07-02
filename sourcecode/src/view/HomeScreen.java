@@ -13,9 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import controller.BaseController;
-import controller.BaseController.*;
 import controller.HomeController;
+import myswing.MyButton;
 
 public class HomeScreen extends BaseScreen {
 	public HomeScreen() {
@@ -24,7 +23,6 @@ public class HomeScreen extends BaseScreen {
 		JPanel homePane = new JPanel(new GridLayout(2,1));
 		add(homePane, BorderLayout.CENTER);
 		homePane.add(createInfoPanel());
-		
 		homePane.add(createSortSelectionPane());
 		homePane.setBorder(BorderFactory.createEmptyBorder(0, 0, 45, 0));
 	}

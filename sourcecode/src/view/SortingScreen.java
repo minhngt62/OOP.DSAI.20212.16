@@ -8,11 +8,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Random;
-
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -20,13 +18,11 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import javax.swing.event.ChangeListener;
-
 import sorting.SortingAlgorithm;
 import utils.ArrayUtils;
 import utils.RandomArray;
-import view.SortingScreen.Visualizer;
 import controller.SortingController;
+import myswing.*;
 
 public abstract class SortingScreen extends BaseScreen {
 	protected int[] mainArray ;
@@ -93,11 +89,11 @@ public abstract class SortingScreen extends BaseScreen {
 		visualizer.add(errorLabel, JLayeredPane.DRAG_LAYER);
 		//LEFTSIDEBAR
 		//create button "Create(A)" belong to generate data button
-		btnCreate = new MySideButton(150,33,myBLUE,"Create(A)",SwingConstants.LEFT);
+		btnCreate = new MySideButton(150,33,MyColor.myBLUE,"Create(A)",SwingConstants.LEFT,(SortingController)controller);
 		btnCreate.setBorder(BorderFactory.createEmptyBorder(0,5,0,0));
 		visualizer.add(btnCreate,JLayeredPane.MODAL_LAYER);
 		//random button belong to create button
-		btnRandom = new MySideButton(78,28,myBLUE,"Random",SwingConstants.CENTER);
+		btnRandom = new MySideButton(78,28,MyColor.myBLUE,"Random",SwingConstants.CENTER,(SortingController)controller);
 		visualizer.add(btnRandom,JLayeredPane.MODAL_LAYER);
 		//A= label belong to create button
 		A = new MyLabel("A =");
@@ -106,14 +102,14 @@ public abstract class SortingScreen extends BaseScreen {
 		inputArrayField = new MyTextField();
 		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
 		//go button belong to create button
-		btnGo = new MySideButton(50,28,myBLUE,"Go",SwingConstants.CENTER);
+		btnGo = new MySideButton(50,28,MyColor.myBLUE,"Go",SwingConstants.CENTER,(SortingController)controller);
 		visualizer.add(btnGo,JLayeredPane.MODAL_LAYER);
 		//sort button belong to generate data button
-		btnSort =new MySideButton(150,32,myBLUE,"Sort",SwingConstants.LEFT);
+		btnSort =new MySideButton(150,32,MyColor.myBLUE,"Sort",SwingConstants.LEFT,(SortingController)controller);
 		btnSort.setBorder(BorderFactory.createEmptyBorder(0,5,0,0));
 		visualizer.add(btnSort,JLayeredPane.MODAL_LAYER);
 		//RIGHTSIDEBAR
-		demonstratePane =  new DemonstratePane(380,65,myGREEN, sortInfo);
+		demonstratePane =  new DemonstratePane(380,65,MyColor.myGREEN, sortInfo);
 		visualizer.add(demonstratePane,JLayeredPane.MODAL_LAYER);
 		return visualizer;
 	}
@@ -142,20 +138,20 @@ public abstract class SortingScreen extends BaseScreen {
 		
 		//play button
 		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-		MyControlButton btnPlay = new MyControlButton(30,45,Color.BLACK,pauseIcon,"Play");
+		MyControlButton btnPlay = new MyControlButton(30,45,Color.BLACK,pauseIcon,"Play",(SortingController)controller);
 		//forward button
 		Icon forwardIcon = new ImageIcon(new ImageIcon(directory +"\\resource\\forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
-		MyControlButton btnForward = new MyControlButton(30,45,Color.BLACK,forwardIcon,"Forward");
+		MyControlButton btnForward = new MyControlButton(30,45,Color.BLACK,forwardIcon,"Forward",(SortingController)controller);
 		//backward button
 		Icon backwardIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
-		MyControlButton btnBackward = new MyControlButton(30,45,Color.BLACK,backwardIcon,"Backward");
+		MyControlButton btnBackward = new MyControlButton(30,45,Color.BLACK,backwardIcon,"Backward",(SortingController)controller);
 		btnBackward.setIcon(backwardIcon);		
 		//end button
 		Icon endIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
-		MyControlButton btnEnd = new MyControlButton(30,45,Color.BLACK,endIcon,"End");
+		MyControlButton btnEnd = new MyControlButton(30,45,Color.BLACK,endIcon,"End",(SortingController)controller);
 		//start button
 		Icon startIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
-		MyControlButton btnStart = new MyControlButton(30,45,Color.BLACK,startIcon,"Start");
+		MyControlButton btnStart = new MyControlButton(30,45,Color.BLACK,startIcon,"Start",(SortingController)controller);
 				
 		controlPane.add(btnStart);
 		controlPane.add(btnBackward);
@@ -190,7 +186,7 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnHelp = new MyButton(50,45,Color.BLACK);
 		btnHelp.setText("Help");
 		btnHelp.setBorder(BorderFactory.createEmptyBorder(0,0,12,0));
-		btnHelp.addActionListener(((SortingController)controller).new HelpAboutListener("Help", helpInfo));
+		btnHelp.addActionListener(((SortingController)controller).new HelpAboutListener("Help", newHelpInfo()));
 		//About button
 		MyButton btnAbout = new MyButton(50,45,Color.BLACK);
 		btnAbout.setText("About");
@@ -208,7 +204,7 @@ public abstract class SortingScreen extends BaseScreen {
 		leftSideBar.setBackground(Color.BLACK);
 		leftSideBar.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
 		//Generate data button ">" belong to leftsidebar
-		MyButton btnGenData = new MyButton(45,65,myBLUE);
+		MyButton btnGenData = new MyButton(45,65,MyColor.myBLUE);
 		btnGenData.setText(">");
 		btnGenData.setFont(new Font("Sora",Font.BOLD,22));
 		btnGenData.addActionListener(((SortingController)controller).new LeftSideBarBtnListener());
@@ -223,69 +219,20 @@ public abstract class SortingScreen extends BaseScreen {
 		rightSideBar.setBackground(Color.BLACK);
 		rightSideBar.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
 		//demonstrate button "<" belong to rightsidebar
-		MyButton btnDemonstrate = new MyButton(45,65,myGREEN);
+		MyButton btnDemonstrate = new MyButton(45,65,MyColor.myGREEN);
 		btnDemonstrate.setText("<");
 		btnDemonstrate.setFont(new Font("Sora",Font.BOLD,22));
 		btnDemonstrate.addActionListener(((SortingController)controller).new DemonstrateListener());
 		rightSideBar.add(btnDemonstrate,"South");
 		return rightSideBar;
 	}
-	public class MyLabel extends JLabel{
-		public MyLabel(String name) {
-			super(name);
-			setBackground(new Color(0,0,0,0));
-			setHorizontalAlignment(SwingConstants.CENTER);
-			setPreferredSize(new Dimension(28,28));
-			setVisible(false);
-		}
+	public void createName(String sortType) {
+		MyLabel name = new MyLabel(sortType);
+		name.setForeground(Color.WHITE);
+		name.setFont(new Font("Sora",Font.BOLD,20));
+		name.setVisible(true);
+		topBar.add(name,BorderLayout.CENTER);
 	}
-	public class MyTextField extends JTextField {
-		public MyTextField() {
-			super();
-			setCaretColor(Color.WHITE);
-			setBackground(Color.BLACK);
-			setForeground(Color.WHITE);
-			setPreferredSize(new Dimension(228,28));
-			setVisible(false);
-		}
-	}
-	public class MySideButton extends MyButton{
-		public MySideButton(int x, int y, Color color, String text,int alignment) {
-			super(x,y,color);
-			setText(text);
-			setHorizontalAlignment(alignment);
-			addMouseListener(new HoverMouseAdapter(this));
-			addActionListener(((SortingController)controller).new LeftSideBarBtnListener());
-			setVisible(false);
-		}
-	}
-	public class MySlider extends JSlider{
-		public MySlider(int orientation, int min, int max, int value,int width, int height,ChangeListener change) {
-			super(orientation, min,max,value);
-			setBackground(Color.BLACK);
-			setPreferredSize(new Dimension(width,height));
-			addChangeListener(change);
-		}
-	}
-	public class MyControlButton extends MyButton{
-		public MyControlButton(int x, int y, Color color,Icon icon,String id) {
-			super(x,y,color);
-			setIcon(icon);
-			setId(id);
-			addActionListener(((SortingController)controller).new ControlBtnListener());
-		}
-	}
-	public class Visualizer extends JPanel{
-		private int[] array;
-		public Visualizer(int[] array) {
-			super();
-			this.array = array;
-		}
-		public int[] getArray() {
-			return this.array;
-		}
-	}
-	
 	public Visualizer main(int[] array, Color color) {
 		int width =((int) getWidth()-200)/mainArray.length;
 		int height;
@@ -313,6 +260,9 @@ public abstract class SortingScreen extends BaseScreen {
 	public abstract Visualizer sub(int[] array);
 	public abstract JPanel animation(Visualizer main, Visualizer sub,int[] step);
 	public abstract void updateMainArray(int[] array);
+	public abstract Color getColor();
+	public abstract int getMaxValue();
+	public abstract String newHelpInfo();
 		
 	public int[] getMainArray() {
 		return mainArray;
@@ -477,9 +427,6 @@ public abstract class SortingScreen extends BaseScreen {
 	public void setContainer(JPanel container) {
 		this.container = container;
 	}
-
-	public abstract Color getColor();
-	public abstract int getMaxValue();
 
 	public MyLabel getErrorLabel() {
 		return errorLabel;
