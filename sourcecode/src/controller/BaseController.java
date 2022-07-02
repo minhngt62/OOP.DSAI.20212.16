@@ -1,18 +1,22 @@
 package controller;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import view.BaseScreen;
-import view.CountingSortScreen;
 import view.HomeScreen;
-import view.MergeSortScreen;
-import view.RadixSortScreen;
+
 
 public class BaseController {
 	BaseScreen window;
@@ -31,13 +35,30 @@ public class BaseController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JFrame helpFrame = new JFrame(name);
-			JLabel helpContent = new JLabel(helpInfo, JLabel.CENTER);
-			helpFrame.setSize(800,500);
-			helpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+			JTextArea helpContent = new JTextArea(helpInfo);
+			helpContent.setOpaque(true);
+			helpContent.setBackground(Color.black);
+			helpContent.setForeground(Color.WHITE);
+			helpContent.setEditable(false);
+			helpContent.setFocusable(false);
+			helpContent.setLineWrap(true);
+			helpContent.setWrapStyleWord(true);
+			helpContent.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+			helpFrame.setSize(500,480);
+			helpFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			helpFrame.setLocationRelativeTo(null);
 			helpFrame.setResizable(false);
 			helpFrame.add(helpContent);
 			helpFrame.setVisible(true);
+			helpFrame.addWindowFocusListener(new WindowFocusListener() {
+				@Override
+				public void windowGainedFocus(WindowEvent e) {
+				}
+				@Override
+				public void windowLostFocus(WindowEvent a) {
+					((JFrame)a.getSource()).dispose();
+				}
+			});
 		}
 	}
 	

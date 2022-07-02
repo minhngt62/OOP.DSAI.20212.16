@@ -3,9 +3,9 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
-
+import myswing.MyColor;
+import myswing.Visualizer;
 import sorting.RadixSort;
 import utils.ArrayUtils;
 
@@ -38,7 +38,7 @@ public class RadixSortScreen extends SortingScreen {
 				else {height = 0;}
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
-					g.setColor(myYELLOW);
+					g.setColor(MyColor.myYELLOW);
 				    g.fillRect(x, getHeight()-60,60,30);
 				    g.setColor(Color.BLACK);
 				    g.drawLine(x,getHeight()-30 , x+60,getHeight()-30);
@@ -74,7 +74,7 @@ public class RadixSortScreen extends SortingScreen {
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(myGREEN);
+					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -main.getArray()[mainIndex]*height
@@ -106,96 +106,25 @@ public class RadixSortScreen extends SortingScreen {
 	
 	@Override
 	public Color getColor() {
-		return myYELLOW;
+		return MyColor.myYELLOW;
 	}
 	@Override
 	public int getMaxValue() {
 		return 1000000000;
 	}
-//	@Override
-//	public JPanel animation(Visualizer main, Visualizer sub, int[] step,boolean reverse) {
-//
-//		int width =(int) main.getWidth()/mainArray.length;
-//		int height;
-//		if (ArrayUtils.max(mainArray) !=0) {
-//			height=(int) main.getHeight()/ArrayUtils.max(mainArray);}
-//			else {height = 0;}
-//		int padding = 5;
-//		JPanel animation =  new JPanel() {
-//			int mainIndex;
-//			int subIndex;
-//			int x = 0; 
-//			int y = 0;
-//			int xs =0;
-//			int ys = 0;
-//			int speedXs;
-//			int speedYs = -10;
-//			int speedX;
-//			int speedY = 10;
-//			int delay;
-//			Timer t = new Timer(delay, new ActionListener() {
-//				@Override
-//				public void actionPerformed(ActionEvent e) {
-//					 speedX = speedY*Math.abs(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()-
-//			                  ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2)/238;
-//			         speedXs = -speedYs*Math.abs(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()-
-//			                   ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2)/238;
-//					if (Math.abs(x) >Math.abs(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()-
-//							          ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2)) {
-//						speedX = 0;
-//					}
-//					if (y> 238) {
-//						speedY =0;
-//						setVisible(false);
-//					}
-//					if (Math.abs(xs) >Math.abs(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()- 
-//							ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2)) {
-//						speedXs = 0;
-//					}
-//					if (ys<-238) {
-//						speedYs = 0;
-//						setVisible(false);
-//					}
-//					if (mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()-
-//			                   ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2>0) {
-//						x-=speedX;
-//						xs+=speedXs;
-//					}
-//					if(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()-
-//			                   ArrayUtils.min(width,60+padding)*mainArray.length)/2-subIndex*(60+padding)-30-2<0) {
-//						x +=speedX;
-//						xs -= speedXs;
-//					}
-//					y+=speedY;
-//					ys+=speedYs;
-//					repaint();
-//				}
-//			});
-//			@Override
-//			public void paintComponent(Graphics g) {
-//				super.paintComponent(g);
-//					if(step[0] >= 0&& step[1]>=0) {
-//						mainIndex =step[0];
-//						subIndex = step[1];
-//						delay = (int) ((speedY+1)*(1000-defaultSpeed*10)/Math.sqrt(Math.pow(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()- 
-//								ArrayUtils.min(width,60+padding)*mainArray.length)/2,2)+Math.pow(subIndex*(60+padding)-30-2,2)));
-//						if (reverse) {
-//							  g.setColor(Color.RED);
-//						      g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+x+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-sub.getArray()[subIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),sub.getArray()[subIndex]*height);
-//						      g.setColor(myGREEN);
-//						      g.fillRect(subIndex*(60+padding)+xs+30, ys-main.getArray()[mainIndex]*height+ getHeight()-30, 60,main.getArray()[mainIndex]*height);
-//						}
-//						else {
-//							 g.setColor(myGREEN);
-//						     g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+x+(main.getWidth()- ArrayUtils.min(width,60+padding)*mainArray.length)/2, y-main.getArray()[mainIndex]*height+ main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
-//						     g.setColor(Color.RED);
-//						     g.fillRect(subIndex*(60+padding)+xs+30, ys-sub.getArray()[subIndex]*height+ getHeight()-30, 60,sub.getArray()[subIndex]*height);			     
-//						}
-//						t.start();
-//						t.setDelay(delay);
-//					}
-//				}
-//	     };
-//	    return animation;
-//	}
+	public String newHelpInfo() {
+		//TODO modify the text 
+		return "\n\nRadix Sort\n\n\n"
+			 + "Radix sort algorithm is a non-comparative sorting algorithm in computer "
+			 + "science. It avoids comparison by creating and categorizing elements based "
+			 + "on their radix. For elements with more than one significant digit, it "
+			 + "repeats the bucketing process for each digit while preserving the previous "
+			 + "step's ordering until all digits have been considered.\n\n"
+			 + "Consider the Array has size n and the number of digits in the largest number d\n\n"
+			 + "Time Complexity:\n\n"
+			 + "     Worst Case:\n\n"
+			 + "     Best Case:\n\n"
+			 + "     Average case:\n\n"
+			 + "Space Complexity:\n\n";
+	}
 }

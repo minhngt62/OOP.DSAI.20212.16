@@ -3,26 +3,51 @@ package view;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
 
 import controller.BaseController;
+import myswing.MyButton;
 
-public abstract class BaseScreen extends JFrame {
+public abstract class BaseScreen extends JFrame {	
 	protected static final int WIDTH = 1000;
 	protected static final int HEIGHT = 700;
-	protected static final Color myGREEN = new Color(102,255,102);
-	protected static final Color myBLUE = new Color(102,102,255);
-	protected static final Color myORANGE = new Color(255,102,0);
-	protected static final Color myYELLOW =new Color(255,204,0);
-	protected static final Color myPINK = new Color(255,51,153);
-	
 	BaseController controller;
 	//File directory
 	String directory = new File("").getAbsoluteFile()+ "/sourcecode";
-	protected String helpInfo = "Hello from the other side";
-	protected String aboutInfo = "At least i could say that i try";
+	//TODO Help Content for home screen
+	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
+			                  + "programmer should have known.\n \n "
+			                  + "There are a a lot of sorting algorithms, "
+			                  + "but to be suitable with our project, we only focus on 3 algorithms: \n"
+			                  + "+ Merge Sort\n"
+			                  + "+ Counting Sort\n"
+			                  + "+ Radix Sort\n \n"
+			                  + "This's app invented aiming to the purpose of visualizing "
+			                  + "these alogrithms in a colorful way to help "
+			                  + "user understand this concept easier and meet our class "
+			                  + "project needs.\n \n"
+			                  + "Without loss of generality, we assume that we will sort only Integers, "
+			                  + "not necessarily distinct, in non-decreasing order in this visualization.\n\n"
+			                  + "Our app is inspired of Visualgo so we named it as VisualSO as "
+			                  + "Visual Sorting algOrithms.\n \n"
+			                  + "Everything you need is:\n "
+			                  + "1.Choosing one of 3 algorithms in the blocks to start your journey\n "
+			                  + "2.Create your own array or random array by the leftside button\n "
+			                  + "3.Click Sort and view it visualizes, the explanation will be demonstrate on "
+			                  + "the right side and flow controller at the bottom.\n"
+			                  + "Have fun!";
+	//TODO About content
+	protected String aboutInfo = "\nThis project is done by Team 16 in OOP class 2022 of Hanoi University of Science and Technology "
+			                   + "with the support of:\n\n"
+			                   + "1.Dr. Nguyen Thu Trang\n"
+			                   + "  Senior Lecture, Member of SOICT Coroperation.\n\n"
+			                   + "2.Ms. Nguyen Huong Giang and Mr. Vuong Dinh An\n"
+			                   + "  Student of Hanoi University of Science and Technology\n\n\n"
+			                   + "Our team includes:\n\n"
+			                   + "1. Nguyen Tong Minh\n     Leader, Sorting Alogrithms, Class Diagram, Usecase Diagram, Tester\n\n"
+			                   + "2. Ly Nhat Nam\n     Sorting Algorithms Visualizer, Class Diagram, Usecase Diagram, Tester\n\n"
+			                   + "3. Pham Thanh Nam\n     Home Screen, Class Diagram, Usecase Diagram, Tester\n\n"
+			                   + "4. Nguyen Xuan Nam\n     Data Validation, Class Diagram, Usecase Diagram, Tester";
 	
 	public BaseScreen() {
 		controller = new BaseController(this);
@@ -64,62 +89,7 @@ public abstract class BaseScreen extends JFrame {
 		topBar.add(buttonGroup,"East");
 		return topBar;
 	}
-	static class FixedStateButtonModel extends DefaultButtonModel  {
 
-		@Override
-        public boolean isPressed() {
-            return false;
-        }
-    }
-	class HoverMouseAdapter extends MouseAdapter{
-		JButton button;
-		public HoverMouseAdapter(JButton btn) {
-			this.button = btn;
-		}
-		public void mouseEntered(MouseEvent evt) {
-		    button.setBackground(Color.BLACK);
-		}
-		public void mouseExited(MouseEvent evt){
-			button.setBackground(myBLUE);
-		}
-	}
-	public class MyButton extends JButton{
-		String id;
-		public void setId(String id) {
-			this.id = id;
-		}
-		public String getId() {
-			return this.id;
-		}
-		public MyButton(int x, int y, Color color) {
-			super();
-			setModel(new FixedStateButtonModel());
-			setRolloverEnabled(false);
-			setMargin(new Insets(0,0,0,0));	
-			setFocusable(false);
-			setBackground(color);
-			setForeground(Color.WHITE);
-			setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-			setPreferredSize(new Dimension(x,y));			
-		}
-	}
-	public class DemonstratePane extends JTextArea{
-		
-		public DemonstratePane(int x, int y,Color color, String sortInfo) {
-			setOpaque(true);
-			setBackground(color);
-			setForeground(Color.WHITE);
-			//TODO sortinfo from sorting
-			setText(sortInfo);
-			setEditable(false);
-			setFocusable(false);
-			setLineWrap(true);
-			setWrapStyleWord(true);
-			setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-			setPreferredSize(new Dimension(x,y));
-			setVisible(false);
-		}
-	}
 	public String getDirectory() {
 		return directory;
 	}

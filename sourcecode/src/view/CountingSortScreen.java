@@ -6,6 +6,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import myswing.MyColor;
+import myswing.Visualizer;
 import sorting.CountingSort;
 import utils.ArrayUtils;
 
@@ -40,7 +42,7 @@ public class CountingSortScreen extends SortingScreen {
 				else {height = 0;}
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
-					g.setColor(myORANGE);
+					g.setColor(MyColor.myORANGE);
 				    g.fillRect(x, getHeight()-60,ArrayUtils.min(width-padding,60),30);
 				    g.setColor(Color.BLACK);
 				    g.drawLine(x,getHeight()-30 , x+ArrayUtils.min(width-padding,60),getHeight()-30);
@@ -77,7 +79,7 @@ public class CountingSortScreen extends SortingScreen {
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(myGREEN);
+					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(mainWidth,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(mainWidth,60+padding)*mainArray.length)/2,
 				    		   -main.getArray()[mainIndex]*height
@@ -107,9 +109,23 @@ public class CountingSortScreen extends SortingScreen {
 	}
 	@Override
 	public Color getColor() {
-		return myORANGE;
+		return MyColor.myORANGE;
 	}
 	public int getMaxValue() {
 		return 40;
+	}
+	public String newHelpInfo() {
+		 return "\n\nCounting Sort\n\n\n"
+				 + "Counting sort is a sorting algorithm that sorts the elements of"
+				 + " an array by counting the number of occurrences of each unique "
+				 + "element in the array. The count is stored in an auxiliary "
+				 + "array and the sorting is done by mapping the count as an index "
+				 + "of the auxiliary array.\n\n"
+				 + "Consider the Array has size n \n\n"
+				 + "Time Complexity:\n\n"
+				 + "     Worst Case:\n\n"
+				 + "     Best Case:\n\n"
+				 + "     Average case:\n\n"
+				 + "Space Complexity:\n\n";
 	}
 }

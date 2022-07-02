@@ -1,15 +1,11 @@
 package controller;
 
-import java.awt.Color; 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.io.File;
 import java.util.Random;
-
-import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,18 +13,15 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
 import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
-import sorting.RadixSort;
+import myswing.MyButton;
 import utils.ArrayUtils;
 import utils.DataProcessing;
 import utils.RandomArray;
-import view.BaseScreen.*;
 import view.SortingScreen;
 
 public class SortingController extends BaseController{
@@ -78,7 +71,7 @@ public class SortingController extends BaseController{
 				((SortingScreen) window).getBtnGo().setVisible(true);
 				break;
 			case "Random":
-				if (((SortingScreen) window).getMaxValue() != 50) {
+				if (((SortingScreen) window).getMaxValue() != 40) {
 					((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10));
 				}
 				else {

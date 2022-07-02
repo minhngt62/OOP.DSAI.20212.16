@@ -2,14 +2,10 @@ package view;
 
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JPanel;
-import javax.swing.Timer;
-
+import myswing.MyColor;
+import myswing.Visualizer;
 import sorting.MergeSort;
 import utils.ArrayUtils;
 
@@ -45,7 +41,7 @@ public class MergeSortScreen extends SortingScreen{
 				else {height = 0;}
 				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
-					g.setColor(myPINK);
+					g.setColor(MyColor.myPINK);
 				    g.fillRect(x, y-i*height+ getHeight(),ArrayUtils.min(width-padding,60),i*height);
 				    x += ArrayUtils.min(width,60+padding) ;
 				}
@@ -73,7 +69,7 @@ public class MergeSortScreen extends SortingScreen{
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(myGREEN);
+					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -main.getArray()[mainIndex]*height
@@ -103,9 +99,23 @@ public class MergeSortScreen extends SortingScreen{
 	}
 	@Override
 	public Color getColor() {
-		return myPINK;
+		return MyColor.myPINK;
 	}
 	public int getMaxValue() {
 		return 1000000000;
+	}
+	public String newHelpInfo() {
+		 return "\n\nMerge Sort\n\n\n"
+				 + "Merge sort is one of the most efficient sorting algorithms. "
+				 + "It is based on the divide-and-conquer strategy - breaks down a big problem into smaller,"
+				 + "more manageable pieces that look similar to the initial problem. "
+				 + "It then solves these subproblems recursively and puts their solutions "
+				 + "together to solve the original problem. Merge sort continuously cuts down a list into multiple sublists until each has only one item, then merges those sublists into a sorted list.\n\n"
+				 + "Consider the Array has size n \n\n"
+				 + "Time Complexity:\n\n"
+				 + "     Worst Case:\n\n"
+				 + "     Best Case:\n\n"
+				 + "     Average case:\n\n"
+				 + "Space Complexity:\n\n"; 
 	}
 }
