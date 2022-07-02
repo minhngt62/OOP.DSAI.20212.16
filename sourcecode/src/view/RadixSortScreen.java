@@ -1,10 +1,12 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import myswing.MyColor;
+import myswing.MyLabel;
 import myswing.Visualizer;
 import sorting.RadixSort;
 import utils.ArrayUtils;
@@ -12,6 +14,7 @@ import utils.ArrayUtils;
 public class RadixSortScreen extends SortingScreen {
 	public RadixSortScreen(int[] array) {
 		super(array);
+		createName("RADIX SORT");
 		int[] array_copy = mainArray.clone();
 		algo = new RadixSort(array_copy);
 		algo.sort();

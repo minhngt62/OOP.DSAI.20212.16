@@ -1,10 +1,13 @@
 package view;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import myswing.MyColor;
+import myswing.MyLabel;
 import myswing.Visualizer;
 import sorting.MergeSort;
 import utils.ArrayUtils;
@@ -12,6 +15,7 @@ import utils.ArrayUtils;
 public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen(int[] array) {
 		super(array);
+		createName("MERGE SORT");
 		int[] array_copy = mainArray.clone();
 		algo = new MergeSort(array_copy);
 		algo.sort();

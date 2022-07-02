@@ -11,6 +11,7 @@ import java.awt.event.WindowListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
@@ -67,7 +68,10 @@ public class BaseController {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
+			int option= JOptionPane.showConfirmDialog(null, "Do you really want to exit ?","Notification",JOptionPane.OK_CANCEL_OPTION);
+			if (option == JOptionPane.OK_OPTION) {
+				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
+			}
 		}
 	}
 	public class BackListener implements ActionListener{

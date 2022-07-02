@@ -12,6 +12,7 @@ public abstract class BaseScreen extends JFrame {
 	protected static final int WIDTH = 1000;
 	protected static final int HEIGHT = 700;
 	BaseController controller;
+	JPanel topBar;
 	//File directory
 	String directory = new File("").getAbsoluteFile()+ "/sourcecode";
 	//TODO Help Content for home screen
@@ -61,7 +62,7 @@ public abstract class BaseScreen extends JFrame {
 	}
 	
 	JPanel createTop() {
-		JPanel topBar = new JPanel(new BorderLayout());
+		topBar = new JPanel(new BorderLayout());
 		topBar.setBackground(Color.BLACK);
 		topBar.setPreferredSize(new Dimension(1000,45));
 		topBar.setBorder(BorderFactory.createEmptyBorder(0, 35, 0,40));

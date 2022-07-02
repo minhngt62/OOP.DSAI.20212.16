@@ -226,7 +226,13 @@ public abstract class SortingScreen extends BaseScreen {
 		rightSideBar.add(btnDemonstrate,"South");
 		return rightSideBar;
 	}
-
+	public void createName(String sortType) {
+		MyLabel name = new MyLabel(sortType);
+		name.setForeground(Color.WHITE);
+		name.setFont(new Font("Sora",Font.BOLD,20));
+		name.setVisible(true);
+		topBar.add(name,BorderLayout.CENTER);
+	}
 	public Visualizer main(int[] array, Color color) {
 		int width =((int) getWidth()-200)/mainArray.length;
 		int height;
