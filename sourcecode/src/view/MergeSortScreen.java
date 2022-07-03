@@ -117,9 +117,9 @@ public class MergeSortScreen extends SortingScreen{
 				 + "together to solve the original problem. Merge sort continuously cuts down a list into multiple sublists until each has only one item, then merges those sublists into a sorted list.\n\n"
 				 + "Consider the Array has size n \n\n"
 				 + "Time Complexity:\n\n"
-				 + "     Worst Case:\n\n"
-				 + "     Best Case:\n\n"
-				 + "     Average case:\n\n"
-				 + "Space Complexity:\n\n"; 
+				 + "     Worst Case: O(n*log(n))\n\n"
+				 + "     Best Case: O(n*log(n))\n\n"
+				 + "     Average case: O(n*log(n))\n\n"
+				 + "Space Complexity: O(n)\n\n"; 
 	}
 }
