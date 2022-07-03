@@ -24,7 +24,7 @@ public class MergeSortScreen extends SortingScreen{
 		subArrayStep = algo.getTempLog();
 		animationArrayStep = algo.getPointerLog();
 		infoArrayStep = algo.getGuideLog();
-		processSlider.setMaximum(step-1);
+		processSlider.setMaximum(step);
 	}
 
 
@@ -106,7 +106,7 @@ public class MergeSortScreen extends SortingScreen{
 		return MyColor.myPINK;
 	}
 	public int getMaxValue() {
-		return 1000000000;
+		return 250;
 	}
 	public String newHelpInfo() {
 		 return "\n\nMerge Sort\n\n\n"

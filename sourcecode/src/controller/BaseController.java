@@ -78,12 +78,8 @@ public class BaseController {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(!SwingUtilities.windowForComponent(((JButton)e.getSource())).getClass().equals(new HomeScreen().getClass())) {
-				new HomeScreen().setVisible(true);
-				SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
-
-			}
-			
+			new HomeScreen().setVisible(true);
+			SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();	
 		}
 	}
 }

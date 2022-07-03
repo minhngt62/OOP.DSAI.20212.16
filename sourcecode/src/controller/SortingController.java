@@ -155,7 +155,6 @@ public class SortingController extends BaseController{
 	public class ProgressSliderListener implements ChangeListener{
 		@Override
 		public void stateChanged(ChangeEvent e) {
-	        ((SortingScreen) window).setCurStep( ((SortingScreen) window).getProcessSlider().getValue());
 	        ((SortingScreen) window).getDemonstratePane().setText(((SortingScreen) window).getInfoArrayStep()[((SortingScreen) window).getCurStep()]);
 	        
 	        ((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
@@ -179,6 +178,7 @@ public class SortingController extends BaseController{
 		    ((SortingScreen) window).getContainer1().add(((SortingScreen) window).getMain());
 		    ((SortingScreen) window).getContainer1().add(((SortingScreen) window).getSub());
 		    ((SortingScreen) window).getVisualizer().add(((SortingScreen) window).getContainer1(), JLayeredPane.DEFAULT_LAYER);
+		    ((SortingScreen) window).setCurStep( ((SortingScreen) window).getProcessSlider().getValue());
 		}
 	}
 	public class ControlBtnListener implements ActionListener{

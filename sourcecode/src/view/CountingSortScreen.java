@@ -23,7 +23,7 @@ public class CountingSortScreen extends SortingScreen {
 		subArrayStep = algo.getTempLog();
 		animationArrayStep = algo.getPointerLog();
 		infoArrayStep = algo.getGuideLog();
-		processSlider.setMaximum(step-1);
+		processSlider.setMaximum(step);
 	}
 
 	@Override
@@ -31,16 +31,12 @@ public class CountingSortScreen extends SortingScreen {
 		Visualizer sub =  new Visualizer(array) {
 			int x =30;
 			int padding  = 5;
-			int height = 0;
 			int width;
 			int counter = 0;
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				width =(int) (getWidth()-30)/array.length;
-				if (ArrayUtils.max(array) !=0) {
-				height=(int) getHeight()/mainArray.length;}
-				else {height = 0;}
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
 					g.setColor(MyColor.myORANGE);
