@@ -13,8 +13,9 @@ public abstract class BaseScreen extends JFrame {
 	protected static final int HEIGHT = 700;
 	BaseController controller;
 	JPanel topBar;
+	JPanel buttonGroup;
 	//File directory
-	String directory = new File("").getAbsoluteFile()+ "/sourcecode";
+	String directory = new File("sourcecode")+"";
 	//TODO Help Content for home screen
 	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
@@ -71,21 +72,15 @@ public abstract class BaseScreen extends JFrame {
 		JLabel icon = new JLabel(visualSoIcon);
 		topBar.add(icon,"West");
 		
-		JPanel buttonGroup = new JPanel(new FlowLayout(FlowLayout.RIGHT,0,0));
+		buttonGroup = new JPanel(new GridLayout(1,2));
 		buttonGroup.setBackground(Color.BLACK);
-		
-		MyButton btnBack = new MyButton(80,45,Color.BLACK);
-		btnBack.setText("Back");
-		btnBack.setFont(new Font("Sans", Font.BOLD, 17));
-		btnBack.addActionListener(controller.new BackListener());
-		buttonGroup.add(btnBack);
-		
+				
 		MyButton btnQuit = new MyButton(80,45,Color.RED);
 		btnQuit.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
 		btnQuit.setText("EXIT");
 		btnQuit.setFont(new Font("Sans", Font.BOLD, 17));
 		btnQuit.addActionListener(controller.new ExitListener());
-		buttonGroup.add(btnQuit);
+		buttonGroup.add(btnQuit,1,0);
 		
 		topBar.add(buttonGroup,"East");
 		return topBar;

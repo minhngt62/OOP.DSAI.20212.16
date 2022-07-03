@@ -22,6 +22,7 @@ import sorting.SortingAlgorithm;
 import utils.ArrayUtils;
 import utils.RandomArray;
 import controller.SortingController;
+import controller.BaseController.BackListener;
 import myswing.*;
 
 public abstract class SortingScreen extends BaseScreen {
@@ -64,6 +65,7 @@ public abstract class SortingScreen extends BaseScreen {
 		controller = new SortingController(this);
 		if (mainArray == null){
 			mainArray = RandomArray.random_array((new Random()).nextInt(10)+10);}
+		addBackBtnToTopBar();
 		add(createCenter());
 		add(createRightSideBar(), BorderLayout.EAST);
 		add(createLeftSideBar(), BorderLayout.WEST);
@@ -233,11 +235,18 @@ public abstract class SortingScreen extends BaseScreen {
 		name.setVisible(true);
 		topBar.add(name,BorderLayout.CENTER);
 	}
+	public void addBackBtnToTopBar() {
+		MyButton btnBack = new MyButton(80,45,Color.BLACK);
+		btnBack.setText("Back");
+		btnBack.setFont(new Font("Sans", Font.BOLD, 17));
+		btnBack.addActionListener(controller.new BackListener());
+		buttonGroup.add(btnBack,2,0);
+	}
 	public Visualizer main(int[] array, Color color) {
 		int width =((int) getWidth()-200)/mainArray.length;
-		int height;
+		double height;
 		if (ArrayUtils.max(mainArray) !=0) {
-			height=(int) 250/ArrayUtils.max(mainArray);}
+			height= 250/ArrayUtils.max(mainArray);}
 			else {height = 0;}
 		int padding = 5;
 		Visualizer main =  new Visualizer(array) {
@@ -248,8 +257,8 @@ public abstract class SortingScreen extends BaseScreen {
 					g.setColor(color);
 				    g.fillRect(i*ArrayUtils.min(width,60+padding)+(getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
-				    		   -getArray()[i]*height
-				    		   + getHeight(),ArrayUtils.min(width-padding,60),getArray()[i]*height);
+				    		   -(int)(getArray()[i]*height)
+				    		   + getHeight(),ArrayUtils.min(width-padding,60),(int)(getArray()[i]*height));
 				}
 				
 			}
