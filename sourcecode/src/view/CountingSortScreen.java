@@ -17,13 +17,6 @@ public class CountingSortScreen extends SortingScreen {
 		createName("COUNTING SORT");
 		int[] array_copy = mainArray.clone();
 		algo = new CountingSort(array_copy);
-		algo.sort();
-		step = algo.getNumSteps();
-		mainArrayStep = algo.getArrayLog();
-		subArrayStep = algo.getTempLog();
-		animationArrayStep = algo.getPointerLog();
-		infoArrayStep = algo.getGuideLog();
-		processSlider.setMaximum(step);
 	}
 
 	@Override

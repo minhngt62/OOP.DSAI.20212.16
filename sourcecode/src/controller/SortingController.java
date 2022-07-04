@@ -25,9 +25,10 @@ import utils.DataProcessing;
 import utils.RandomArray;
 import view.SortingScreen;
 
-public class SortingController extends BaseController{
+public class SortingController{
+	SortingScreen window;
 	public SortingController(SortingScreen window) {
-		super(window);
+		this.window = window;
 	}
 	
 	public class DemonstrateListener implements ActionListener{
@@ -35,11 +36,11 @@ public class SortingController extends BaseController{
 		public void actionPerformed(ActionEvent e) {
 			if (((JButton)e.getSource()).getText().equals("<")) {
 				((JButton)e.getSource()).setText(">");
-				((SortingScreen) window).getDemonstratePane().setVisible(true);
+				window.getDemonstratePane().setVisible(true);
 			}
 			else {
 				((JButton )e.getSource()).setText("<");
-				((SortingScreen) window).getDemonstratePane().setVisible(false);
+				window.getDemonstratePane().setVisible(false);
 			}
 		}
 	}
@@ -53,36 +54,36 @@ public class SortingController extends BaseController{
 			switch(((JButton)e.getSource()).getText()) {
 			case ">":
 				((JButton)e.getSource()).setText("<");
-				((SortingScreen) window).getBtnCreate().setVisible(true);
-				((SortingScreen) window).getBtnSort().setVisible(true);
+				window.getBtnCreate().setVisible(true);
+				window.getBtnSort().setVisible(true);
 				break;
 			case "<":
 				((JButton)e.getSource()).setText(">");
-				((SortingScreen) window).getBtnCreate().setVisible(false);
-				((SortingScreen) window).getBtnSort().setVisible(false);
-				((SortingScreen) window).getBtnRandom().setVisible(false);
-				((SortingScreen) window).getA().setVisible(false);
-				((SortingScreen) window).getInputArrayField().setVisible(false);
-				((SortingScreen) window).getBtnGo().setVisible(false);
+				window.getBtnCreate().setVisible(false);
+				window.getBtnSort().setVisible(false);
+				window.getBtnRandom().setVisible(false);
+				window.getA().setVisible(false);
+				window.getInputArrayField().setVisible(false);
+				window.getBtnGo().setVisible(false);
 				break;
 			case "Create(A)":
-				((SortingScreen) window).getBtnRandom().setVisible(true);
-				((SortingScreen) window).getA().setVisible(true);
-				((SortingScreen) window).getInputArrayField().setVisible(true);
-				((SortingScreen) window).getBtnGo().setVisible(true);
+				window.getBtnRandom().setVisible(true);
+				window.getA().setVisible(true);
+				window.getInputArrayField().setVisible(true);
+				window.getBtnGo().setVisible(true);
 				break;
 			case "Random":
-				if (((SortingScreen) window).getMaxValue() != 40) {
-					((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10));
+				if (window.getMaxValue() != 40) {
+					window.updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10));
 				}
 				else {
-					((SortingScreen) window).updateMainArray(RandomArray.random_array((new Random()).nextInt(10)+10));
+					window.updateMainArray(RandomArray.random_array((new Random()).nextInt(10)+10));
 				}
-				((SortingScreen) window).setSorting(false);
+				window.setSorting(false);
 				break;
 			case "Go":
-				String arr = ((SortingScreen) window).getInputArrayField().getText();
-				((SortingScreen) window).setSorting(false);
+				String arr = window.getInputArrayField().getText();
+				window.setSorting(false);
 	            try {
 					if (DataProcessing.isNullOrEmpty(arr) == true || DataProcessing.StringToIntArray(arr).length <= 0){
 						throw new NullException("Array is empty. Please type it");
@@ -92,33 +93,40 @@ public class SortingController extends BaseController{
 					if (length >SortingScreen.MAX_NUMBER) {
 						throw new OutOfBoundException("The array must has under "+SortingScreen.MAX_NUMBER+" components");
 					}
-					if (ArrayUtils.max(array) > ((SortingScreen) window).getMaxValue()) {
-						throw new OutOfBoundException("The the maximum number of the array is "+((SortingScreen) window).getMaxValue());
+					if (ArrayUtils.max(array) > window.getMaxValue()) {
+						throw new OutOfBoundException("The the maximum number of the array is "+window.getMaxValue());
 					}
 					else {
-						((SortingScreen) window).updateMainArray(array);
+						window.updateMainArray(array);
 					}
 				} catch (DataTypeException e1) {
-					((SortingScreen) window).getErrorLabel().setText(e1.getMessage());
+					window.getErrorLabel().setText(e1.getMessage());
 					
 				} catch (NullException e2) {
-					((SortingScreen) window).getErrorLabel().setText(e2.getMessage());
+					window.getErrorLabel().setText(e2.getMessage());
 				} catch (OutOfBoundException e3) {
-					((SortingScreen) window).getErrorLabel().setText(e3.getMessage());
+					window.getErrorLabel().setText(e3.getMessage());
 				} catch (Exception e4) {
-					((SortingScreen) window).getErrorLabel().setText(e4.getMessage());
+					window.getErrorLabel().setText(e4.getMessage());
 
 				}finally {
-					((SortingScreen) window).getErrorLabel().setVisible(true);
-					((SortingScreen) window).repaint();
+					window.getErrorLabel().setVisible(true);
+					window.repaint();
 				}
 				break;
 			case "Sort":
-				((SortingScreen) window).setSorting(true);
-				((SortingScreen) window).getErrorLabel().setVisible(false);
-				if (((SortingScreen) window).isPlay()) {
-				   ((SortingScreen) window).getTimer().stop();
-				   ((SortingScreen) window).getTimer().start();}		
+				window.setSorting(true);
+				window.getErrorLabel().setVisible(false);
+				window.getAlgo().sort();
+				window.setStep(window.getAlgo().getNumSteps());
+				window.setMainArrayStep(window.getAlgo().getArrayLog());
+				window.setSubArrayStep(window.getAlgo().getTempLog());
+				window.setAnimationArrayStep(window.getAlgo().getPointerLog());
+				window.setInfoArrayStep(window.getAlgo().getGuideLog());
+				window.getProcessSlider().setMaximum(window.getStep());
+				if (window.isPlay()) {
+				   window.getTimer().stop();
+				   window.getTimer().start();}		
 				break;
 			}
 		}
@@ -127,8 +135,8 @@ public class SortingController extends BaseController{
 	public class TimerListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (((SortingScreen) window).isSorting() && ((SortingScreen) window).getCurStep() <((SortingScreen) window).getStep() ) {				
-			   ((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getCurStep()+1);	
+			if (window.isSorting() && window.getCurStep() <window.getStep() ) {				
+			   window.getProcessSlider().setValue(window.getCurStep()+1);	
 			}
 		}
 	}
@@ -141,14 +149,14 @@ public class SortingController extends BaseController{
 		}
 		@Override
 		public void stateChanged(ChangeEvent e) {
-			   ((SortingScreen) window).setDefaultSpeed(((JSlider) e.getSource()).getValue());
-			   count.setText(Integer.toString(((SortingScreen) window).getDefaultSpeed()));
-			   if (((SortingScreen) window).isSorting()) {
-			       ((SortingScreen) window).getTimer().stop();
-			       ((SortingScreen) window).getTimer().setDelay(1000-((SortingScreen) window).getDefaultSpeed()*10);
-			       ((SortingScreen) window).getTimer().start();
-			       if (!((SortingScreen) window).isPlay()) {
-			    	   ((SortingScreen) window).getTimer().stop();
+			   window.setDefaultSpeed(((JSlider) e.getSource()).getValue());
+			   count.setText(Integer.toString(window.getDefaultSpeed()));
+			   if (window.isSorting()) {
+			       window.getTimer().stop();
+			       window.getTimer().setDelay(1000-window.getDefaultSpeed()*10);
+			       window.getTimer().start();
+			       if (!window.isPlay()) {
+			    	   window.getTimer().stop();
 			       }
 			   }
 		}
@@ -156,73 +164,73 @@ public class SortingController extends BaseController{
 	public class ProgressSliderListener implements ChangeListener{
 		@Override
 		public void stateChanged(ChangeEvent e) {
-	        ((SortingScreen) window).getDemonstratePane().setText(((SortingScreen) window).getInfoArrayStep()[((SortingScreen) window).getCurStep()]);
+	        window.getDemonstratePane().setText(window.getInfoArrayStep()[window.getCurStep()]);
 	        
-	        ((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
-	        ((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getContainer1());
+	        window.getVisualizer().remove(window.getAnimation());
+	        window.getVisualizer().remove(window.getContainer1());
 		    
 		    
-		    ((SortingScreen) window).setMain(((SortingScreen) window).main(((SortingScreen) window).getMainArrayStep()[((SortingScreen) window).getCurStep()],((SortingScreen) window).getColor()));
-	        ((SortingScreen) window).getMain().setBounds(0, 0, ((SortingScreen) window).getWidth()-200, 250);
+		    window.setMain(window.main(window.getMainArrayStep()[window.getCurStep()],window.getColor()));
+	        window.getMain().setBounds(0, 0, window.getWidth()-200, 250);
 	        
-	        ((SortingScreen) window).setSub(((SortingScreen) window).sub(((SortingScreen) window).getSubArrayStep()[((SortingScreen) window).getCurStep()]));
-		    ((SortingScreen) window).getSub().setBounds(0, 270, ((SortingScreen) window).getWidth()-200, 250);
+	        window.setSub(window.sub(window.getSubArrayStep()[window.getCurStep()]));
+		    window.getSub().setBounds(0, 270, window.getWidth()-200, 250);
 		    
-		    ((SortingScreen) window).setContainer(new JPanel(null));
-		    ((SortingScreen) window).getContainer1().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 522);
+		    window.setContainer(new JPanel(null));
+		    window.getContainer1().setBounds(45, 30, window.getWidth()-200, 522);
 		    
-	        ((SortingScreen) window).setAnimation(((SortingScreen) window).animation(((SortingScreen) window).getMain(), ((SortingScreen) window).getSub()
-		    		, ((SortingScreen) window).getAnimationArrayStep()[((SortingScreen) window).getCurStep()]));
-			((SortingScreen) window).getAnimation().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 520);
+	        window.setAnimation(window.animation(window.getMain(), window.getSub()
+		    		, window.getAnimationArrayStep()[window.getCurStep()]));
+			window.getAnimation().setBounds(45, 30, window.getWidth()-200, 520);
 		    
-		    ((SortingScreen) window).getVisualizer().add(((SortingScreen) window).getAnimation(), JLayeredPane.PALETTE_LAYER);
-		    ((SortingScreen) window).getContainer1().add(((SortingScreen) window).getMain());
-		    ((SortingScreen) window).getContainer1().add(((SortingScreen) window).getSub());
-		    ((SortingScreen) window).getVisualizer().add(((SortingScreen) window).getContainer1(), JLayeredPane.DEFAULT_LAYER);
-		    ((SortingScreen) window).setCurStep( ((SortingScreen) window).getProcessSlider().getValue());
+		    window.getVisualizer().add(window.getAnimation(), JLayeredPane.PALETTE_LAYER);
+		    window.getContainer1().add(window.getMain());
+		    window.getContainer1().add(window.getSub());
+		    window.getVisualizer().add(window.getContainer1(), JLayeredPane.DEFAULT_LAYER);
+		    window.setCurStep( window.getProcessSlider().getValue());
 		}
 	}
 	public class ControlBtnListener implements ActionListener{
-        Icon pauseIcon= new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-		Icon playIcon = new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        Icon pauseIcon= new ImageIcon(new ImageIcon(window.getDirectory()+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon playIcon = new ImageIcon(new ImageIcon(window.getDirectory()+"play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			switch(((MyButton )e.getSource()).getId()) {
 			case "Play":
-				if (((SortingScreen) window).isSorting()) {
-					if (!((SortingScreen) window).isPlay()) {
+				if (window.isSorting()) {
+					if (!window.isPlay()) {
 						((JButton)e.getSource()).setIcon(pauseIcon);
-						((SortingScreen) window).setPlay(true);
-						((SortingScreen) window).getTimer().start();
+						window.setPlay(true);
+						window.getTimer().start();
 					}
 					else {
 						((JButton)e.getSource()).setIcon(playIcon);
-						((SortingScreen) window).setPlay(false);
-						((SortingScreen) window).getTimer().stop();
+						window.setPlay(false);
+						window.getTimer().stop();
 					}
 				}
 				break;
 			case "Forward":
-				if (((SortingScreen) window).isSorting()) {
-					    ((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getCurStep()+1);
+				if (window.isSorting()) {
+					    window.getProcessSlider().setValue(window.getCurStep()+1);
 			    }
 				break;
 			case "Backward":
-				 if (((SortingScreen) window).isSorting())
-					 ((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getCurStep()-1);
+				 if (window.isSorting())
+					 window.getProcessSlider().setValue(window.getCurStep()-1);
 				break;
 			case "End":
-				if (((SortingScreen) window).isSorting()) {
-					((SortingScreen) window).getProcessSlider().setValue(((SortingScreen) window).getStep());
-					((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
+				if (window.isSorting()) {
+					window.getProcessSlider().setValue(window.getStep());
+					window.getVisualizer().remove(window.getAnimation());
 					}
 				break;
 			case "Start":
-				if (((SortingScreen) window).isSorting()) {
-					((SortingScreen) window).getProcessSlider().setValue(0);
-					if(!((SortingScreen) window).isPlay()) {
-					   ((SortingScreen) window).getVisualizer().remove(((SortingScreen) window).getAnimation());
+				if (window.isSorting()) {
+					window.getProcessSlider().setValue(0);
+					if(!window.isPlay()) {
+					   window.getVisualizer().remove(window.getAnimation());
 					}
 				}
 				break;
@@ -232,18 +240,18 @@ public class SortingController extends BaseController{
 	public class WindowResize extends ComponentAdapter{
 	    @Override
 	    public void componentResized( ComponentEvent e ) {
-		    	((SortingScreen) window).getBtnSort().setBounds(3, ((SortingScreen) window).getHeight()-175 , 150, 32);
-				((SortingScreen) window).getBtnCreate().setBounds(3, ((SortingScreen) window).getHeight() -208, 150, 33);
-				((SortingScreen) window).getBtnRandom().setBounds(156, ((SortingScreen) window).getHeight()-205, 78,28);
-				((SortingScreen) window).getA().setBounds(236, ((SortingScreen) window).getHeight()-205, 28,28);
-				((SortingScreen) window).getInputArrayField().setBounds(266, ((SortingScreen) window).getHeight()-205, 228,28);
-				((SortingScreen) window).getBtnGo().setBounds(496, ((SortingScreen) window).getHeight()-205, 50,28);
-				((SortingScreen) window).getDemonstratePane().setBounds(((SortingScreen) window).getWidth()-490,  ((SortingScreen) window).getHeight() -208,380 , 65);
-				((SortingScreen) window).getAnimation().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 520);
-				((SortingScreen) window).getContainer1().setBounds(45, 30, ((SortingScreen) window).getWidth()-200, 522);
-				((SortingScreen) window).getMain().setBounds(0, 0, ((SortingScreen) window).getWidth()-200, 250);
-				((SortingScreen) window).getSub().setBounds(0, 270, ((SortingScreen) window).getWidth()-200, 250);
-				((SortingScreen) window).getErrorLabel().setBounds((((SortingScreen) window).getWidth()-450)/2, 5, 300, 20);
+		    	window.getBtnSort().setBounds(3, window.getHeight()-175 , 150, 32);
+				window.getBtnCreate().setBounds(3, window.getHeight() -208, 150, 33);
+				window.getBtnRandom().setBounds(156, window.getHeight()-205, 78,28);
+				window.getA().setBounds(236, window.getHeight()-205, 28,28);
+				window.getInputArrayField().setBounds(266, window.getHeight()-205, 228,28);
+				window.getBtnGo().setBounds(496, window.getHeight()-205, 50,28);
+				window.getDemonstratePane().setBounds(window.getWidth()-490,  window.getHeight() -208,380 , 65);
+				window.getAnimation().setBounds(45, 30, window.getWidth()-200, 520);
+				window.getContainer1().setBounds(45, 30, window.getWidth()-200, 522);
+				window.getMain().setBounds(0, 0, window.getWidth()-200, 250);
+				window.getSub().setBounds(0, 270, window.getWidth()-200, 250);
+				window.getErrorLabel().setBounds((window.getWidth()-450)/2, 5, 300, 20);
 	    }
 	}
 	

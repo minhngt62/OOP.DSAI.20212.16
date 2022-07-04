@@ -19,13 +19,6 @@ public class MergeSortScreen extends SortingScreen{
 		createName("MERGE SORT");
 		int[] array_copy = mainArray.clone();
 		algo = new MergeSort(array_copy);
-		algo.sort();
-		step = algo.getNumSteps();
-		mainArrayStep = algo.getArrayLog();
-		subArrayStep = algo.getTempLog();
-		animationArrayStep = algo.getPointerLog();
-		infoArrayStep = algo.getGuideLog();
-		processSlider.setMaximum(step);
 	}
 
 
