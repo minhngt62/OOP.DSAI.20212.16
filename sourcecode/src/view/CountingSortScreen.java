@@ -6,8 +6,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import myswing.MyColor;
-import myswing.Visualizer;
+import components.MyColor;
+import components.Visualizer;
 import sorting.CountingSort;
 import utils.ArrayUtils;
 
@@ -109,7 +109,7 @@ public class CountingSortScreen extends SortingScreen {
 		return MyColor.myORANGE;
 	}
 	public int getMaxValue() {
-		return 40;
+		return 20;
 	}
 	public String newHelpInfo() {
 		 return "\n\nCounting Sort\n\n\n"

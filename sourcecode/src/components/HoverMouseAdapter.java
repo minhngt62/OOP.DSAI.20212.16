@@ -1,4 +1,4 @@
-package myswing;
+package components;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

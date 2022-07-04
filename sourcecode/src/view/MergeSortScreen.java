@@ -6,9 +6,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import myswing.MyColor;
-import myswing.MyLabel;
-import myswing.Visualizer;
+
+import components.MyColor;
+import components.MyLabel;
+import components.Visualizer;
 import sorting.MergeSort;
 import utils.ArrayUtils;
 
@@ -56,12 +57,13 @@ public class MergeSortScreen extends SortingScreen{
 		sub.setBackground(new Color(0,0,0,0));
 	    return sub;
 	}
+	
 	@Override
 	public JPanel animation(Visualizer main, Visualizer sub, int[] step) {
 		int width =(int) main.getWidth()/mainArray.length;
 		int height;
-		if (ArrayUtils.max(mainArray) !=0) {
-			height=(int) main.getHeight()/ArrayUtils.max(mainArray);}
+		if (ArrayUtils.max(mainArray) != 0) {
+			height=(int) main.getHeight() / ArrayUtils.max(mainArray);}
 			else {height = 0;}
 		int padding = 5;
 		JPanel animation =  new JPanel() {
