@@ -28,19 +28,14 @@ public class MergeSortScreen extends SortingScreen{
 			int x = 0;
 			int y = 0;
 			int width;
-			int height;
-			int padding = 5;
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				width =(int) getWidth()/array.length;
-				if (ArrayUtils.max(array) !=0) {
-				height=(int) getHeight()/ArrayUtils.max(mainArray);}
-				else {height = 0;}
 				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
 					g.setColor(MyColor.myPINK);
-				    g.fillRect(x, y-i*height+ getHeight(),ArrayUtils.min(width-padding,60),i*height);
+				    g.fillRect(x, y-(int)(i*unitHeight)+ getHeight(),ArrayUtils.min(width-padding,60),(int)(i*unitHeight));
 				    x += ArrayUtils.min(width,60+padding) ;
 				}
 				x = 0;
@@ -54,11 +49,6 @@ public class MergeSortScreen extends SortingScreen{
 	@Override
 	public JPanel animation(Visualizer main, Visualizer sub, int[] step) {
 		int width =(int) main.getWidth()/mainArray.length;
-		int height;
-		if (ArrayUtils.max(mainArray) != 0) {
-			height=(int) main.getHeight() / ArrayUtils.max(mainArray);}
-			else {height = 0;}
-		int padding = 5;
 		JPanel animation =  new JPanel() {
 			int mainIndex;
 			int subIndex;
@@ -71,13 +61,13 @@ public class MergeSortScreen extends SortingScreen{
 					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
-				    		   -main.getArray()[mainIndex]*height
-				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
+				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
+				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),(int)(main.getArray()[mainIndex]*unitHeight));
 				    g.setColor(Color.red);
 				    g.fillRect(subIndex*ArrayUtils.min(width,60+padding)+(sub.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
-				    		   -sub.getArray()[subIndex]*height
-				    		   + sub.getHeight()+270,ArrayUtils.min(width-padding,60),sub.getArray()[subIndex]*height);
+				    		   -(int)(sub.getArray()[subIndex]*unitHeight)
+				    		   + sub.getHeight()+270,ArrayUtils.min(width-padding,60),(int)(sub.getArray()[subIndex]*unitHeight));
 				}
 				
 			}
@@ -101,7 +91,7 @@ public class MergeSortScreen extends SortingScreen{
 		return MyColor.myPINK;
 	}
 	public int getMaxValue() {
-		return 250;
+		return 1000;
 	}
 	public String newHelpInfo() {
 		 return "\n\nMerge Sort\n\n\n"

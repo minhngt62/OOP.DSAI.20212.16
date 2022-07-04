@@ -23,7 +23,6 @@ public class CountingSortScreen extends SortingScreen {
 	public Visualizer sub(int[] array) {
 		Visualizer sub =  new Visualizer(array) {
 			int x =30;
-			int padding  = 5;
 			int width;
 			int counter = 0;
 			@Override
@@ -55,11 +54,7 @@ public class CountingSortScreen extends SortingScreen {
 	public JPanel animation(Visualizer main, Visualizer sub, int[] step) {
 		int mainWidth =(int) main.getWidth()/mainArray.length;
 		int subWidth = (int) (sub.getWidth()-30)/sub.getArray().length;
-		int height;
-		if (ArrayUtils.max(mainArray) !=0) {
-			height=(int) main.getHeight()/ArrayUtils.max(mainArray);}
-			else {height = 0;}
-		int padding = 5;
+		
 		JPanel animation =  new JPanel() {
 			int mainIndex;
 			int subIndex;
@@ -72,8 +67,8 @@ public class CountingSortScreen extends SortingScreen {
 					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(mainWidth,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(mainWidth,60+padding)*mainArray.length)/2,
-				    		   -main.getArray()[mainIndex]*height
-				    		   + main.getHeight(),ArrayUtils.min(mainWidth-padding,60),main.getArray()[mainIndex]*height);
+				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
+				    		   + main.getHeight(),ArrayUtils.min(mainWidth-padding,60),(int)(main.getArray()[mainIndex]*unitHeight));
 				    g.setColor(Color.red);
 				    g.fillRect(subIndex*ArrayUtils.min(subWidth,60+padding)+30,getHeight()-60, ArrayUtils.min(subWidth-padding,60),30);
 				    g.setColor(Color.WHITE);

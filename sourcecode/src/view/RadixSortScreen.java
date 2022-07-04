@@ -24,7 +24,6 @@ public class RadixSortScreen extends SortingScreen {
 	public Visualizer sub(int[] array) {
 		Visualizer sub =  new Visualizer(array) {
 			int x =30;
-			int padding  = 5;
 			int counter = 0;
 			@Override
 			public void paintComponent(Graphics g) {
@@ -53,11 +52,7 @@ public class RadixSortScreen extends SortingScreen {
 	@Override
 	public JPanel animation(Visualizer main, Visualizer sub, int[] step) {
 		int width =(int) main.getWidth()/mainArray.length;
-		int height;
-		if (ArrayUtils.max(mainArray) !=0) {
-			height=(int) main.getHeight()/ArrayUtils.max(mainArray);}
-			else {height = 0;}
-		int padding = 5;
+
 		JPanel animation =  new JPanel() {
 			int mainIndex;
 			int subIndex;
@@ -70,8 +65,8 @@ public class RadixSortScreen extends SortingScreen {
 					g.setColor(MyColor.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
-				    		   -main.getArray()[mainIndex]*height
-				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),main.getArray()[mainIndex]*height);
+				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
+				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),(int)(main.getArray()[mainIndex]*unitHeight));
 				    g.setColor(Color.red);
 				    g.fillRect(subIndex*(60+padding)+30,getHeight()-60, 60,30);
 				    g.setColor(Color.WHITE);
@@ -103,7 +98,7 @@ public class RadixSortScreen extends SortingScreen {
 	}
 	@Override
 	public int getMaxValue() {
-		return 250;
+		return 1000;
 	}
 	public String newHelpInfo() {
 		//TODO modify the text 

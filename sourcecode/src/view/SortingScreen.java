@@ -61,12 +61,18 @@ public abstract class SortingScreen extends BaseScreen {
 	MySideButton btnSort;
 	MyLabel errorLabel;
 	
+	double unitHeight;
+	int padding = 5;
+	
 	public SortingScreen(int[] array) {
 		super();
 		this.mainArray = array;
 		sortingController = new SortingController(this);
 		if (mainArray == null){
-			mainArray = RandomArray.random_array((new Random()).nextInt(10)+10);}
+			mainArray = RandomArray.random_array((new Random()).nextInt(90)+10, getMaxValue());}
+		if (ArrayUtils.max(mainArray) !=0) {
+			unitHeight = ((double)250) / ((double)ArrayUtils.max(mainArray));}
+			else {unitHeight = 0;}
 		addBackBtnToTopBar();
 		add(createCenter());
 		add(createRightSideBar(), BorderLayout.EAST);
@@ -246,11 +252,7 @@ public abstract class SortingScreen extends BaseScreen {
 	}
 	public Visualizer main(int[] array, Color color) {
 		int width =((int) getWidth()-200)/mainArray.length;
-		double height;
-		if (ArrayUtils.max(mainArray) !=0) {
-			height= 250/ArrayUtils.max(mainArray);}
-			else {height = 0;}
-		int padding = 5;
+		
 		Visualizer main =  new Visualizer(array) {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -259,8 +261,8 @@ public abstract class SortingScreen extends BaseScreen {
 					g.setColor(color);
 				    g.fillRect(i*ArrayUtils.min(width,60+padding)+(getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
-				    		   -(int)(getArray()[i]*height)
-				    		   + getHeight(),ArrayUtils.min(width-padding,60),(int)(getArray()[i]*height));
+				    		   -(int)(getArray()[i] * unitHeight)
+				    		   + getHeight(),ArrayUtils.min(width-padding,60),(int)(getArray()[i]*unitHeight));
 				}
 				
 			}

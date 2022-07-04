@@ -16,7 +16,7 @@ public abstract class BaseScreen extends JFrame {
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory
-	String directory = new File("").getAbsoluteFile() + "\\sourcecode\\assets\\";
+	String directory = new File("").getAbsoluteFile() + "\\assets\\";
 	//TODO Help Content for home screen
 	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
