@@ -18,12 +18,13 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
+
+import components.*;
 import sorting.SortingAlgorithm;
 import utils.ArrayUtils;
 import utils.RandomArray;
 import controller.SortingController;
 import controller.BaseController.BackListener;
-import myswing.*;
 
 public abstract class SortingScreen extends BaseScreen {
 	protected int[] mainArray ;
@@ -139,20 +140,20 @@ public abstract class SortingScreen extends BaseScreen {
 		timer =new Timer(1000-defaultSpeed*10,((SortingController)controller).new TimerListener());
 		
 		//play button
-		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 		MyControlButton btnPlay = new MyControlButton(30,45,Color.BLACK,pauseIcon,"Play",(SortingController)controller);
 		//forward button
-		Icon forwardIcon = new ImageIcon(new ImageIcon(directory +"\\resource\\forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon forwardIcon = new ImageIcon(new ImageIcon(directory +"forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnForward = new MyControlButton(30,45,Color.BLACK,forwardIcon,"Forward",(SortingController)controller);
 		//backward button
-		Icon backwardIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon backwardIcon = new ImageIcon(new ImageIcon(directory+"backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnBackward = new MyControlButton(30,45,Color.BLACK,backwardIcon,"Backward",(SortingController)controller);
 		btnBackward.setIcon(backwardIcon);		
 		//end button
-		Icon endIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon endIcon = new ImageIcon(new ImageIcon(directory+"end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnEnd = new MyControlButton(30,45,Color.BLACK,endIcon,"End",(SortingController)controller);
 		//start button
-		Icon startIcon = new ImageIcon(new ImageIcon(directory+"\\resource\\start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon startIcon = new ImageIcon(new ImageIcon(directory+"start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnStart = new MyControlButton(30,45,Color.BLACK,startIcon,"Start",(SortingController)controller);
 				
 		controlPane.add(btnStart);

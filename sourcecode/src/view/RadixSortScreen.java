@@ -5,9 +5,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import myswing.MyColor;
-import myswing.MyLabel;
-import myswing.Visualizer;
+
+import components.MyColor;
+import components.MyLabel;
+import components.Visualizer;
 import sorting.RadixSort;
 import utils.ArrayUtils;
 

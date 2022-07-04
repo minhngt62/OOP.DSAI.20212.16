@@ -2,11 +2,12 @@ package view;
 
 import javax.swing.*;
 
+import components.MyButton;
+
 import java.awt.*;
 import java.io.File;
 
 import controller.BaseController;
-import myswing.MyButton;
 
 public abstract class BaseScreen extends JFrame {	
 	protected static final int WIDTH = 1000;
@@ -15,7 +16,7 @@ public abstract class BaseScreen extends JFrame {
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory
-	String directory = new File("sourcecode")+"";
+	String directory = new File("").getAbsoluteFile() + "\\assets\\";
 	//TODO Help Content for home screen
 	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
@@ -68,7 +69,7 @@ public abstract class BaseScreen extends JFrame {
 		topBar.setPreferredSize(new Dimension(1000,45));
 		topBar.setBorder(BorderFactory.createEmptyBorder(0, 35, 0,40));
 		
-		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\VisualSO_icon.png").getImage().getScaledInstance(180, 30, Image.SCALE_SMOOTH));
+		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"\\VisualSO_icon.png").getImage().getScaledInstance(180, 30, Image.SCALE_SMOOTH));
 		JLabel icon = new JLabel(visualSoIcon);
 		topBar.add(icon,"West");
 		

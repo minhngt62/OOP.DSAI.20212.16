@@ -13,8 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import components.MyButton;
 import controller.HomeController;
-import myswing.MyButton;
 
 public class HomeScreen extends BaseScreen {
 	public HomeScreen() {
@@ -37,7 +37,7 @@ public class HomeScreen extends BaseScreen {
 	
 	JPanel createLogoPane() {
 		JPanel logoPane = new JPanel(new BorderLayout());
-		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
+		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
 		JLabel logo = new JLabel(visualSoIcon);
 		logoPane.add(logo, BorderLayout.CENTER);
 		JLabel infoLabel = new JLabel("Visualizer Sorting Alogorithms");
@@ -78,8 +78,8 @@ public class HomeScreen extends BaseScreen {
 			setVerticalTextPosition(SwingConstants.TOP);
 			setVerticalAlignment(BOTTOM);
 			setHorizontalTextPosition(SwingConstants.CENTER);
-			Icon SortIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\"+String.join("",name.split(" "))+"_icon1.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
-			Icon preSortIcon= new ImageIcon(new ImageIcon(directory+"\\resource\\"+String.join("",name.split(" "))+"_icon.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
+			Icon SortIcon= new ImageIcon(new ImageIcon(directory+String.join("",name.split(" "))+"_icon1.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
+			Icon preSortIcon= new ImageIcon(new ImageIcon(directory+String.join("",name.split(" "))+"_icon.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
 			setRolloverIcon(preSortIcon);
 			setIcon(SortIcon);
 			setFocusable(false);

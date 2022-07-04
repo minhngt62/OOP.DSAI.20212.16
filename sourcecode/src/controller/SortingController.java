@@ -15,10 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import components.MyButton;
 import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
-import myswing.MyButton;
 import utils.ArrayUtils;
 import utils.DataProcessing;
 import utils.RandomArray;
@@ -32,8 +33,8 @@ public class SortingController extends BaseController{
 	public class DemonstrateListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (((JButton )e.getSource()).getText().equals("<")) {
-				((JButton )e.getSource()).setText(">");
+			if (((JButton)e.getSource()).getText().equals("<")) {
+				((JButton)e.getSource()).setText(">");
 				((SortingScreen) window).getDemonstratePane().setVisible(true);
 			}
 			else {
@@ -49,14 +50,14 @@ public class SortingController extends BaseController{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			switch(((JButton )e.getSource()).getText()) {
+			switch(((JButton)e.getSource()).getText()) {
 			case ">":
-				((JButton )e.getSource()).setText("<");
+				((JButton)e.getSource()).setText("<");
 				((SortingScreen) window).getBtnCreate().setVisible(true);
 				((SortingScreen) window).getBtnSort().setVisible(true);
 				break;
 			case "<":
-				((JButton )e.getSource()).setText(">");
+				((JButton)e.getSource()).setText(">");
 				((SortingScreen) window).getBtnCreate().setVisible(false);
 				((SortingScreen) window).getBtnSort().setVisible(false);
 				((SortingScreen) window).getBtnRandom().setVisible(false);
@@ -182,8 +183,8 @@ public class SortingController extends BaseController{
 		}
 	}
 	public class ControlBtnListener implements ActionListener{
-        Icon pauseIcon= new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"\\resource\\pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-		Icon playIcon = new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"\\resource\\play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        Icon pauseIcon= new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon playIcon = new ImageIcon(new ImageIcon(((SortingScreen) window).getDirectory()+"play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
