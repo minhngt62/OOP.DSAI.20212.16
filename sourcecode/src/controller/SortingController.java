@@ -73,12 +73,7 @@ public class SortingController{
 				window.getBtnGo().setVisible(true);
 				break;
 			case "Random":
-				if (window.getMaxValue() != 40) {
-					window.updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10));
-				}
-				else {
-					window.updateMainArray(RandomArray.random_array((new Random()).nextInt(10)+10));
-				}
+				window.updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10,window.getMaxValue()));
 				window.setSorting(false);
 				break;
 			case "Go":
