@@ -119,11 +119,11 @@ public class RadixSortScreen extends SortingScreen {
 			 + "on their radix. For elements with more than one significant digit, it "
 			 + "repeats the bucketing process for each digit while preserving the previous "
 			 + "step's ordering until all digits have been considered.\n\n"
-			 + "Consider the Array has size n and the number of digits in the largest number d\n\n"
+			 + "Consider the Array has size n and the number of digits in the largest number d in base b\n\n"
 			 + "Time Complexity:\n\n"
-			 + "     Worst Case:\n\n"
-			 + "     Best Case:\n\n"
-			 + "     Average case:\n\n"
-			 + "Space Complexity:\n\n";
+			 + "     Worst Case: O(n*d)\n\n"
+			 + "     Best Case: O(n*d)\n\n"
+			 + "     Average case: O(n*d)\n\n"
+			 + "Space Complexity: O(n+d)\n\n";
 	}
 }

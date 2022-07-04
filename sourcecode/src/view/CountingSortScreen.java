@@ -118,11 +118,11 @@ public class CountingSortScreen extends SortingScreen {
 				 + "element in the array. The count is stored in an auxiliary "
 				 + "array and the sorting is done by mapping the count as an index "
 				 + "of the auxiliary array.\n\n"
-				 + "Consider the Array has size n \n\n"
+				 + "Consider the Array n is the number of elements in the input array and k is the range of input. \n\n"
 				 + "Time Complexity:\n\n"
-				 + "     Worst Case:\n\n"
-				 + "     Best Case:\n\n"
-				 + "     Average case:\n\n"
-				 + "Space Complexity:\n\n";
+				 + "     Worst Case: O(n+k)\n\n"
+				 + "     Best Case: O(n)\n\n"
+				 + "     Average case: O(n+k)\n\n"
+				 + "Space Complexity: O(k)\n\n";
 	}
 }
