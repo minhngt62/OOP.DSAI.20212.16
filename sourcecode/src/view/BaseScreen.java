@@ -12,11 +12,11 @@ import controller.BaseController;
 public abstract class BaseScreen extends JFrame {	
 	protected static final int WIDTH = 1000;
 	protected static final int HEIGHT = 700;
-	BaseController controller;
+	BaseController baseController;
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory
-	String directory = new File("").getAbsoluteFile() + "\\assets\\";
+	String directory = new File("").getAbsoluteFile() + "\\sourcecode\\assets\\";
 	//TODO Help Content for home screen
 	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
@@ -53,7 +53,7 @@ public abstract class BaseScreen extends JFrame {
 			                   + "4. Nguyen Xuan Nam\n     Data Validation, Class Diagram, Usecase Diagram, Tester";
 	
 	public BaseScreen() {
-		controller = new BaseController(this);
+		baseController = new BaseController(this);
 		add(createTop(), "North");
 		setTitle("Sorting Visualizer");
 		setSize(WIDTH,HEIGHT);
@@ -80,7 +80,7 @@ public abstract class BaseScreen extends JFrame {
 		btnQuit.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
 		btnQuit.setText("EXIT");
 		btnQuit.setFont(new Font("Sans", Font.BOLD, 17));
-		btnQuit.addActionListener(controller.new ExitListener());
+		btnQuit.addActionListener(baseController.new ExitListener());
 		buttonGroup.add(btnQuit,1,0);
 		
 		topBar.add(buttonGroup,"East");

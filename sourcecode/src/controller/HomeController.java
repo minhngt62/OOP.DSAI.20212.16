@@ -11,10 +11,7 @@ import view.HomeScreen;
 import view.MergeSortScreen;
 import view.RadixSortScreen;
 
-public class HomeController extends BaseController {
-	public HomeController(HomeScreen window) {
-		super(window);
-	}
+public class HomeController{
 	public class SortListener implements ActionListener{
 		int[] array;
 		String name;

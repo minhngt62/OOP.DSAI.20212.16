@@ -17,9 +17,10 @@ import components.MyButton;
 import controller.HomeController;
 
 public class HomeScreen extends BaseScreen {
+	HomeController homeController;
 	public HomeScreen() {
 		super();
-		controller = new HomeController(this);
+		homeController = new HomeController();
 		JPanel homePane = new JPanel(new GridLayout(2,1));
 		add(homePane, BorderLayout.CENTER);
 		homePane.add(createInfoPanel());
@@ -51,11 +52,11 @@ public class HomeScreen extends BaseScreen {
 		JPanel helpPane = new JPanel();
 		MyButton btnHelp = new MyButton(50,30,Color.BLACK); 
 		btnHelp.setText("Help");
-		btnHelp.addActionListener(controller.new HelpAboutListener("Help",helpInfo));
+		btnHelp.addActionListener(baseController.new HelpAboutListener("Help",helpInfo));
 		helpPane.add(btnHelp);
 		MyButton btnAbout = new MyButton(50,30,Color.BLACK); 
 		btnAbout.setText("About");
-		btnAbout.addActionListener(controller.new HelpAboutListener("About",aboutInfo));
+		btnAbout.addActionListener(baseController.new HelpAboutListener("About",aboutInfo));
 		helpPane.add(btnAbout);
 		return helpPane;
 	}
@@ -83,7 +84,7 @@ public class HomeScreen extends BaseScreen {
 			setRolloverIcon(preSortIcon);
 			setIcon(SortIcon);
 			setFocusable(false);
-			addActionListener(((HomeController)controller).new SortListener(name));
+			addActionListener(((HomeController)homeController).new SortListener(name));
 		}
 	}
 	
