@@ -11,6 +11,6 @@ public class MyControlButton extends MyButton{
 		super(x,y,color);
 		setIcon(icon);
 		setId(id);
-		addActionListener(controller.new ControlBtnListener());
+		addActionListener(controller.controlButtonCLicked());
 	}
 }

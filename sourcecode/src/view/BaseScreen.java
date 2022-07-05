@@ -80,7 +80,7 @@ public abstract class BaseScreen extends JFrame {
 		btnQuit.setBorder(BorderFactory.createLineBorder(Color.BLACK, 10));
 		btnQuit.setText("EXIT");
 		btnQuit.setFont(new Font("Sans", Font.BOLD, 17));
-		btnQuit.addActionListener(baseController.new ExitListener());
+		btnQuit.addActionListener(baseController.exitButtonClicked());
 		buttonGroup.add(btnQuit,1,0);
 		
 		topBar.add(buttonGroup,"East");
