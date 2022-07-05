@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import components.MyButton;
+import components.SortButton;
 import controller.HomeController;
 
 public class HomeScreen extends BaseScreen {
@@ -52,41 +53,26 @@ public class HomeScreen extends BaseScreen {
 		JPanel helpPane = new JPanel();
 		MyButton btnHelp = new MyButton(50,30,Color.BLACK); 
 		btnHelp.setText("Help");
-		btnHelp.addActionListener(baseController.new HelpAboutListener("Help",helpInfo));
+		btnHelp.addActionListener(baseController.helpButtonClicked("Help",helpInfo));
 		helpPane.add(btnHelp);
 		MyButton btnAbout = new MyButton(50,30,Color.BLACK); 
 		btnAbout.setText("About");
-		btnAbout.addActionListener(baseController.new HelpAboutListener("About",aboutInfo));
+		btnAbout.addActionListener(baseController.helpButtonClicked("About",aboutInfo));
 		helpPane.add(btnAbout);
 		return helpPane;
 	}
 	
 	JPanel createSortSelectionPane() {
 		JPanel sortSelectionPane = new JPanel(new GridLayout(1,3));
-		SortButton btnMergeSort = new SortButton("Merge Sort");
-		SortButton btnCountingSort = new SortButton("Counting Sort");
-		SortButton btnRadixSort = new SortButton("Radix Sort");
+		SortButton btnMergeSort = new SortButton("Merge Sort",this,homeController);
+		SortButton btnCountingSort = new SortButton("Counting Sort",this,homeController);
+		SortButton btnRadixSort = new SortButton("Radix Sort",this,homeController);
 		sortSelectionPane.add(btnMergeSort);
 		sortSelectionPane.add(btnCountingSort);
 		sortSelectionPane.add(btnRadixSort);
 		return sortSelectionPane;
 	}
-	public class SortButton extends JButton{
-		public SortButton(String name) {
-			super(name);
-			setBackground(Color.BLACK);
-			setForeground(Color.WHITE);
-			setVerticalTextPosition(SwingConstants.TOP);
-			setVerticalAlignment(BOTTOM);
-			setHorizontalTextPosition(SwingConstants.CENTER);
-			Icon SortIcon= new ImageIcon(new ImageIcon(directory+String.join("",name.split(" "))+"_icon1.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
-			Icon preSortIcon= new ImageIcon(new ImageIcon(directory+String.join("",name.split(" "))+"_icon.png").getImage().getScaledInstance(330, 240, Image.SCALE_SMOOTH));
-			setRolloverIcon(preSortIcon);
-			setIcon(SortIcon);
-			setFocusable(false);
-			addActionListener(((HomeController)homeController).new SortListener(name));
-		}
-	}
+
 	
 }
 

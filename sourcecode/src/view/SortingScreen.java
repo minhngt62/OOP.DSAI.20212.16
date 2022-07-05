@@ -78,7 +78,7 @@ public abstract class SortingScreen extends BaseScreen {
 		add(createRightSideBar(), BorderLayout.EAST);
 		add(createLeftSideBar(), BorderLayout.WEST);
 		add(createBottom(), BorderLayout.SOUTH);
-		addComponentListener(sortingController.new WindowResize());
+		addComponentListener(sortingController.changeWindowSize());
 		setVisible(true);
 	}
 	
@@ -142,9 +142,9 @@ public abstract class SortingScreen extends BaseScreen {
 		controlPane.setBackground(Color.BLACK);
 		
 		//process slide
-		processSlider = new MySlider(JSlider.HORIZONTAL,0,0,0,350,20,(sortingController).new ProgressSliderListener());
+		processSlider = new MySlider(JSlider.HORIZONTAL,0,0,0,350,20,sortingController.changeProgressSlider());
 		processSlider.setBorder(BorderFactory.createEmptyBorder(5, 10, 0, 0));
-		timer =new Timer(1000-defaultSpeed*10,(sortingController).new TimerListener());
+		timer =new Timer(1000-defaultSpeed*10,sortingController.setTimer());
 		
 		//play button
 		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
@@ -176,7 +176,7 @@ public abstract class SortingScreen extends BaseScreen {
 		//speed pane
 		JPanel speedPane = new JPanel(new BorderLayout());
 		JLabel count = new JLabel(Integer.toString(defaultSpeed));
-		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,defaultSpeed,150,20,sortingController.new SpeedSliderListener(count));
+		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,defaultSpeed,150,20,sortingController.changeSpeed(count));
 
 		speedPane.setPreferredSize(new Dimension(255,45));
 		speedPane.setBackground(Color.BLACK);
@@ -196,12 +196,12 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnHelp = new MyButton(50,45,Color.BLACK);
 		btnHelp.setText("Help");
 		btnHelp.setBorder(BorderFactory.createEmptyBorder(0,0,12,0));
-		btnHelp.addActionListener(baseController.new HelpAboutListener("Help", newHelpInfo()));
+		btnHelp.addActionListener(baseController.helpButtonClicked("Help", newHelpInfo()));
 		//About button
 		MyButton btnAbout = new MyButton(50,45,Color.BLACK);
 		btnAbout.setText("About");
 		btnAbout.setBorder(BorderFactory.createEmptyBorder(0,0,12,0));
-		btnAbout.addActionListener(baseController.new HelpAboutListener("About",aboutInfo));
+		btnAbout.addActionListener(baseController.helpButtonClicked("About",aboutInfo));
 		guidePane.add(btnHelp);
 		guidePane.add(btnAbout);
 		return guidePane;
@@ -217,7 +217,7 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnGenData = new MyButton(45,65,MyColor.myBLUE);
 		btnGenData.setText(">");
 		btnGenData.setFont(new Font("Sora",Font.BOLD,22));
-		btnGenData.addActionListener(sortingController.new LeftSideBarBtnListener());
+		btnGenData.addActionListener(sortingController.leftSideButtonClicked());
 		leftSideBar.add(btnGenData,BorderLayout.SOUTH);
 		return leftSideBar;
 	}
@@ -232,7 +232,7 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnDemonstrate = new MyButton(45,65,MyColor.myGREEN);
 		btnDemonstrate.setText("<");
 		btnDemonstrate.setFont(new Font("Sora",Font.BOLD,22));
-		btnDemonstrate.addActionListener(sortingController.new DemonstrateListener());
+		btnDemonstrate.addActionListener(sortingController.rightSideButtonClicked());
 		rightSideBar.add(btnDemonstrate,"South");
 		return rightSideBar;
 	}
@@ -247,7 +247,7 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnBack = new MyButton(80,45,Color.BLACK);
 		btnBack.setText("Back");
 		btnBack.setFont(new Font("Sans", Font.BOLD, 17));
-		btnBack.addActionListener(baseController.new BackListener());
+		btnBack.addActionListener(baseController.backButtonClicked());
 		buttonGroup.add(btnBack,2,0);
 	}
 	public Visualizer main(int[] array, Color color) {
