@@ -25,7 +25,7 @@ import javax.swing.Timer;
 import components.*;
 import sorting.SortingAlgorithm;
 import utils.ArrayUtils;
-import utils.RandomArray;
+import data.*;
 import controller.SortingController;
 
 public abstract class SortingScreen extends BaseScreen {
@@ -72,7 +72,7 @@ public abstract class SortingScreen extends BaseScreen {
 		this.mainArray = array;
 		sortingController = new SortingController(this);
 		if (mainArray == null){
-			mainArray = RandomArray.random_array((new Random()).nextInt(90)+10, getMaxValue());}
+			mainArray = CreateData.randomArray((new Random()).nextInt(90)+10, getMaxValue());}
 		if (ArrayUtils.max(mainArray) !=0) {
 			unitHeight = ((double)250) / ((double)ArrayUtils.max(mainArray));}
 			else {unitHeight = 0;}
