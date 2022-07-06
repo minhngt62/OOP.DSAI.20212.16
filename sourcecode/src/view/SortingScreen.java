@@ -7,7 +7,9 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.Arrays;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -81,6 +83,12 @@ public abstract class SortingScreen extends BaseScreen {
 		add(createBottom(), BorderLayout.SOUTH);
 		addComponentListener(sortingController.changeWindowSize());
 		setVisible(true);
+		addMouseListener(new MouseAdapter() {
+			@Override 
+			public void mouseClicked(MouseEvent e){
+				((SortingScreen)e.getSource()).requestFocus();
+			}
+		});
 	}
 	
 	private JLayeredPane createCenter() {
@@ -110,18 +118,9 @@ public abstract class SortingScreen extends BaseScreen {
 		A = new MyLabel("A =");
 		visualizer.add(A,JLayeredPane.MODAL_LAYER);
 		//input array belong to create button
-		inputArrayField = new MyTextField();
-		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
 		inputArrayField = new MyTextField(placeholder);
-		visualizer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				inputArrayField.setCaretColor(Color.WHITE);
-				if (inputArrayField.getText().equals("")) {
-					inputArrayField.setText(placeholder);
-				}
-			}
-		});
+		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
+
 		//go button belong to create button
 		btnGo = new MySideButton(50,28,MyColor.myBLUE,"Go",SwingConstants.CENTER,sortingController);
 		visualizer.add(btnGo,JLayeredPane.MODAL_LAYER);
@@ -155,6 +154,9 @@ public abstract class SortingScreen extends BaseScreen {
 		//process slide
 		processSlider = new MySlider(JSlider.HORIZONTAL,0,0,0,350,20,sortingController.changeProgressSlider());
 		processSlider.setBorder(BorderFactory.createEmptyBorder(5, 10, 0, 0));
+		for (MouseListener ml: processSlider.getMouseListeners()) {
+			processSlider.removeMouseListener(ml);
+		}
 		timer =new Timer(1000-defaultSpeed*10,sortingController.setTimer());
 		
 		//play button
