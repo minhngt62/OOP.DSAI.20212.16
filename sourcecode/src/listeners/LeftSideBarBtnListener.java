@@ -8,14 +8,15 @@ import javax.swing.JButton;
 import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
-import utils.ArrayUtils;
 import data.*;
 import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
 	private boolean sorted = false;
-	public LeftSideBarBtnListener(SortingScreen window) {
+	private CreateData data;
+	public LeftSideBarBtnListener(SortingScreen window, CreateData data) {
 		super(window);
+		this.data = data;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -41,7 +42,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			window.getBtnGo().setVisible(true);
 			break;
 		case "Random":
-			window.updateMainArray(CreateData.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
+			window.updateMainArray(data.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
 			window.setSorting(false);
 			break;
 		case "Go":
@@ -51,12 +52,10 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			}
 			window.setSorting(false);
             try {
-				
-				window.updateMainArray(CreateData.StringToIntArray(arr,SortingScreen.MAX_NUMBER,window.getMaxValue()));
+				window.updateMainArray(data.StringToIntArray(arr,SortingScreen.MAX_NUMBER,window.getMaxValue()));
 			
 			} catch (DataTypeException e1) {
-				window.getErrorLabel().setText(e1.getMessage());
-				
+				window.getErrorLabel().setText(e1.getMessage());	
 			} catch (NullException e2) {
 				window.getErrorLabel().setText(e2.getMessage());
 			} catch (OutOfBoundException e3) {

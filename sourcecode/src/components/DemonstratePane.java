@@ -14,7 +14,7 @@ public class DemonstratePane extends JTextArea{
 		setForeground(Color.WHITE);
 		setText(sortInfo);
 		setEditable(false);
-		setFocusable(false);
+		setFocusable(true);
 		setLineWrap(true);
 		setWrapStyleWord(true);
 		setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
