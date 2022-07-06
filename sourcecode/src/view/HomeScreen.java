@@ -29,7 +29,7 @@ public class HomeScreen extends BaseScreen {
 		homePane.setBorder(BorderFactory.createEmptyBorder(0, 0, 45, 0));
 	}
 	
-	JPanel createInfoPanel() {
+	private JPanel createInfoPanel() {
 		JPanel infoPane = new JPanel(new BorderLayout()); 
 		infoPane.add(createLogoPane());
 		infoPane.add(createHelpPane(),BorderLayout.SOUTH);
@@ -37,7 +37,7 @@ public class HomeScreen extends BaseScreen {
 		return infoPane;
 	}
 	
-	JPanel createLogoPane() {
+	private JPanel createLogoPane() {
 		JPanel logoPane = new JPanel(new BorderLayout());
 		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
 		JLabel logo = new JLabel(visualSoIcon);
@@ -49,7 +49,7 @@ public class HomeScreen extends BaseScreen {
 		return logoPane;
 	}
 	
-	JPanel createHelpPane() {
+	private JPanel createHelpPane() {
 		JPanel helpPane = new JPanel();
 		MyButton btnHelp = new MyButton(50,30,Color.BLACK); 
 		btnHelp.setText("Help");
@@ -62,7 +62,7 @@ public class HomeScreen extends BaseScreen {
 		return helpPane;
 	}
 	
-	JPanel createSortSelectionPane() {
+	private JPanel createSortSelectionPane() {
 		JPanel sortSelectionPane = new JPanel(new GridLayout(1,3));
 		SortButton btnMergeSort = new SortButton("Merge Sort",this,homeController);
 		SortButton btnCountingSort = new SortButton("Counting Sort",this,homeController);

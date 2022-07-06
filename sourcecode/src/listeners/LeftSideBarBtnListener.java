@@ -14,6 +14,7 @@ import utils.RandomArray;
 import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
+	private boolean sorted = false;
 	public LeftSideBarBtnListener(SortingScreen window) {
 		super(window);
 	}
@@ -78,18 +79,21 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			}
 			break;
 		case "Sort":
-			window.setSorting(true);
-			window.getErrorLabel().setVisible(false);
-			window.getAlgo().sort();
-			window.setStep(window.getAlgo().getNumSteps());
-			window.setMainArrayStep(window.getAlgo().getArrayLog());
-			window.setSubArrayStep(window.getAlgo().getTempLog());
-			window.setAnimationArrayStep(window.getAlgo().getPointerLog());
-			window.setInfoArrayStep(window.getAlgo().getGuideLog());
-			window.getProcessSlider().setMaximum(window.getStep());
-			if (window.isPlay()) {
-			   window.getTimer().stop();
-			   window.getTimer().start();}		
+			if (sorted == false) {
+				sorted = true;
+				window.setSorting(true);
+				window.getErrorLabel().setVisible(false);
+				window.getAlgo().sort();
+				window.setStep(window.getAlgo().getNumSteps());
+				window.setMainArrayStep(window.getAlgo().getArrayLog());
+				window.setSubArrayStep(window.getAlgo().getTempLog());
+				window.setAnimationArrayStep(window.getAlgo().getPointerLog());
+				window.setInfoArrayStep(window.getAlgo().getGuideLog());
+				window.getProcessSlider().setMaximum(window.getStep());
+				if (window.isPlay()) {
+				   window.getTimer().stop();
+				   window.getTimer().start();}	
+			}
 			break;
 		}
 	}
