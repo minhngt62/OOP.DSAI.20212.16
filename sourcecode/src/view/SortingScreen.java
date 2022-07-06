@@ -60,6 +60,7 @@ public abstract class SortingScreen extends BaseScreen {
 	MySideButton btnGo;
 	MySideButton btnSort;
 	MyLabel errorLabel;
+	public final String placeholder = "Ex: 1, 2, 3, 4, 8";
 	
 	protected double unitHeight;
 	protected int padding = 5;
@@ -111,6 +112,16 @@ public abstract class SortingScreen extends BaseScreen {
 		//input array belong to create button
 		inputArrayField = new MyTextField();
 		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
+		inputArrayField = new MyTextField(placeholder);
+		visualizer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				inputArrayField.setCaretColor(Color.WHITE);
+				if (inputArrayField.getText().equals("")) {
+					inputArrayField.setText(placeholder);
+				}
+			}
+		});
 		//go button belong to create button
 		btnGo = new MySideButton(50,28,MyColor.myBLUE,"Go",SwingConstants.CENTER,sortingController);
 		visualizer.add(btnGo,JLayeredPane.MODAL_LAYER);
