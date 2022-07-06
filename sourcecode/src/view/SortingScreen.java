@@ -35,7 +35,7 @@ public abstract class SortingScreen extends BaseScreen {
 	protected String[] infoArrayStep;
 
 	protected int step;
-	protected String sortInfo;
+	protected String sortInfo = "Welcome to our Sorting Algorithms Visualizer";
 	protected int defaultSpeed = 50;
 	protected boolean isPlay = true;    //if playing
 	protected boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
@@ -61,8 +61,8 @@ public abstract class SortingScreen extends BaseScreen {
 	MySideButton btnSort;
 	MyLabel errorLabel;
 	
-	double unitHeight;
-	int padding = 5;
+	protected double unitHeight;
+	protected int padding = 5;
 	
 	public SortingScreen(int[] array) {
 		super();
@@ -82,7 +82,7 @@ public abstract class SortingScreen extends BaseScreen {
 		setVisible(true);
 	}
 	
-	JLayeredPane createCenter() {
+	private JLayeredPane createCenter() {
 		//VISUALIZER
 		visualizer = new JLayeredPane();
 		container = new JPanel();
@@ -124,7 +124,7 @@ public abstract class SortingScreen extends BaseScreen {
 		return visualizer;
 	}
 	
-	JPanel createBottom() {
+	private JPanel createBottom() {
 		//CONTROL BAR
 		JPanel controlBar = new JPanel(new BorderLayout());
 		controlBar.setPreferredSize(new Dimension(1000,45));
@@ -136,7 +136,7 @@ public abstract class SortingScreen extends BaseScreen {
 		return controlBar;
 	}
 	
-	JPanel createControlPane() {
+	private JPanel createControlPane() {
 		//controlpane
 		JPanel controlPane = new JPanel(new FlowLayout(FlowLayout.CENTER,0,0));	
 		controlPane.setBackground(Color.BLACK);
@@ -172,7 +172,7 @@ public abstract class SortingScreen extends BaseScreen {
 		
 		return controlPane;
 	}
-	JPanel createSpeedPane() {
+	private JPanel createSpeedPane() {
 		//speed pane
 		JPanel speedPane = new JPanel(new BorderLayout());
 		JLabel count = new JLabel(Integer.toString(defaultSpeed));
@@ -187,7 +187,7 @@ public abstract class SortingScreen extends BaseScreen {
 		speedPane.add(count,BorderLayout.EAST);
 		return speedPane;
 	}
-	JPanel createGuidePane() {
+	private JPanel createGuidePane() {
 		//guidepane
 		JPanel guidePane = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		guidePane.setPreferredSize(new Dimension(180,45));
@@ -207,7 +207,7 @@ public abstract class SortingScreen extends BaseScreen {
 		return guidePane;
 	}
 	
-	JPanel createLeftSideBar() {
+	private JPanel createLeftSideBar() {
 		//LEFTSIDEBAR 
 		JPanel leftSideBar = new JPanel(new BorderLayout());
 		leftSideBar.setPreferredSize(new Dimension(45,610));
@@ -222,7 +222,7 @@ public abstract class SortingScreen extends BaseScreen {
 		return leftSideBar;
 	}
 	
-	JPanel createRightSideBar() {
+	private JPanel createRightSideBar() {
 		//RIGHTSIDEBAR
 		JPanel rightSideBar = new JPanel(new BorderLayout());
 		rightSideBar.setPreferredSize(new Dimension(45,610));
@@ -277,13 +277,6 @@ public abstract class SortingScreen extends BaseScreen {
 	public abstract int getMaxValue();
 	public abstract String newHelpInfo();
 		
-	public int[] getMainArray() {
-		return mainArray;
-	}
-	public void setMainArray(int[] mainArray) {
-		this.mainArray =mainArray;
-	}
-
 	public int getDefaultSpeed() {
 		return this.defaultSpeed;
 	}
@@ -293,12 +286,7 @@ public abstract class SortingScreen extends BaseScreen {
 	public void setStep(int step) {
 		this.step = step;
 	}
-	public String getSortInfo() {
-		return sortInfo;
-	}
-	public void setSortInfo(String sortInfo) {
-		this.sortInfo = sortInfo;
-	}
+
 	public boolean isPlay() {
 		return isPlay;
 	}
@@ -320,9 +308,6 @@ public abstract class SortingScreen extends BaseScreen {
 	public JSlider getProcessSlider() {
 		return processSlider;
 	}
-	public void setProcessSlider(MySlider processSlider) {
-		this.processSlider = processSlider;
-	}
 
 	public void setDefaultSpeed(int defaultSpeed) {
 		this.defaultSpeed = defaultSpeed;
@@ -330,15 +315,11 @@ public abstract class SortingScreen extends BaseScreen {
 	public MyButton getBtnCreate() {
 		return btnCreate;
 	}
-	public void setBtnCreate(MySideButton btnCreate) {
-		this.btnCreate = btnCreate;
-	}
+
 	public MyButton getBtnRandom() {
 		return btnRandom;
 	}
-	public void setBtnRandom(MySideButton btnRandom) {
-		this.btnRandom = btnRandom;
-	}
+
 	public JLabel getA() {
 		return A;
 	}
@@ -348,34 +329,23 @@ public abstract class SortingScreen extends BaseScreen {
 	public JTextField getInputArrayField() {
 		return inputArrayField;
 	}
-	public void setInputArrayField(MyTextField inputArrayField) {
-		this.inputArrayField = inputArrayField;
-	}
+
 	public MyButton getBtnGo() {
 		return btnGo;
 	}
-	public void setBtnGo(MySideButton btnGo) {
-		this.btnGo = btnGo;
-	}
+
 	public MyButton getBtnSort() {
 		return btnSort;
 	}
-	public void setBtnSort(MySideButton btnSort) {
-		this.btnSort = btnSort;
-	}
+
 	public Timer getTimer() {
 		return timer;
 	}
-	public void setTimer(Timer timer) {
-		this.timer = timer;
-	}
-
+	
 	public JLayeredPane getVisualizer() {
 		return visualizer;
 	}
-	public void setVisualizer(JLayeredPane visualizer) {
-		this.visualizer = visualizer;
-	}
+
 	public Visualizer getMain() {
 		return main;
 	}
@@ -397,10 +367,7 @@ public abstract class SortingScreen extends BaseScreen {
 	public DemonstratePane getDemonstratePane() {
 		return demonstratePane;
 	}
-	public void setDemonstratePane(DemonstratePane demonstratePane) {
-		this.demonstratePane = demonstratePane;
-	}
-
+	
 	public int[][] getMainArrayStep() {
 		return mainArrayStep;
 	}
@@ -445,16 +412,8 @@ public abstract class SortingScreen extends BaseScreen {
 		return errorLabel;
 	}
 
-	public void setErrorLabel(MyLabel errorLabel) {
-		this.errorLabel = errorLabel;
-	}
-
 	public SortingAlgorithm getAlgo() {
 		return algo;
 	}
 
-	public void setAlgo(SortingAlgorithm algo) {
-		this.algo = algo;
-	}
-	
 }

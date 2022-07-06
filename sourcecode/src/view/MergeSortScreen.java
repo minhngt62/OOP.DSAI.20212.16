@@ -17,8 +17,7 @@ public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen(int[] array) {
 		super(array);
 		createName("MERGE SORT");
-		int[] array_copy = mainArray.clone();
-		algo = new MergeSort(array_copy);
+		algo = new MergeSort(mainArray);
 	}
 
 

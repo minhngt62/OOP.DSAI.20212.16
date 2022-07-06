@@ -16,8 +16,7 @@ public class RadixSortScreen extends SortingScreen {
 	public RadixSortScreen(int[] array) {
 		super(array);
 		createName("RADIX SORT");
-		int[] array_copy = mainArray.clone();
-		algo = new RadixSort(array_copy);
+		algo = new RadixSort(mainArray);
 	}
 	
 	@Override

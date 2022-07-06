@@ -15,8 +15,7 @@ public class CountingSortScreen extends SortingScreen {
 	public CountingSortScreen(int[] array) {
 		super(array);
 		createName("COUNTING SORT");
-		int[] array_copy = mainArray.clone();
-		algo = new CountingSort(array_copy);
+		algo = new CountingSort(mainArray);
 	}
 
 	@Override

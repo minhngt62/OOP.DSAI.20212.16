@@ -16,7 +16,7 @@ public abstract class BaseScreen extends JFrame {
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory
-	String directory = new File("").getAbsoluteFile() + "\\assets\\";
+	protected String directory = new File("").getAbsoluteFile() + "\\assets\\";
 	//TODO Help Content for home screen
 	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
@@ -63,7 +63,7 @@ public abstract class BaseScreen extends JFrame {
 		
 	}
 	
-	JPanel createTop() {
+	private JPanel createTop() {
 		topBar = new JPanel(new BorderLayout());
 		topBar.setBackground(Color.BLACK);
 		topBar.setPreferredSize(new Dimension(1000,45));
@@ -90,9 +90,4 @@ public abstract class BaseScreen extends JFrame {
 	public String getDirectory() {
 		return directory;
 	}
-
-	public void setDirectory(String directory) {
-		this.directory = directory;
-	}
-
 }
