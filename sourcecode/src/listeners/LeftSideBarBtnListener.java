@@ -47,6 +47,9 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			break;
 		case "Go":
 			String arr = window.getInputArrayField().getText();
+			if (arr.equals(window.placeholder)) {
+				arr = "";
+			}
 			window.setSorting(false);
             try {
 				if (DataProcessing.isNullOrEmpty(arr) == true || DataProcessing.StringToIntArray(arr).length <= 0){
