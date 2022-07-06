@@ -9,8 +9,7 @@ import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
 import utils.ArrayUtils;
-import utils.DataProcessing;
-import utils.RandomArray;
+import data.*;
 import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
@@ -42,27 +41,16 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			window.getBtnGo().setVisible(true);
 			break;
 		case "Random":
-			window.updateMainArray(RandomArray.random_array((new Random()).nextInt(90)+10,window.getMaxValue()));
+			window.updateMainArray(CreateData.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
 			window.setSorting(false);
 			break;
 		case "Go":
 			String arr = window.getInputArrayField().getText();
 			window.setSorting(false);
             try {
-				if (DataProcessing.isNullOrEmpty(arr) == true || DataProcessing.StringToIntArray(arr).length <= 0){
-					throw new NullException("Array is empty. Please type it");
-				}
-            	int[] array = DataProcessing.StringToIntArray(arr);
-            	int length = array.length;
-				if (length >SortingScreen.MAX_NUMBER) {
-					throw new OutOfBoundException("The array must has under "+SortingScreen.MAX_NUMBER+" components");
-				}
-				if (ArrayUtils.max(array) > window.getMaxValue()) {
-					throw new OutOfBoundException("The the maximum number of the array is "+window.getMaxValue());
-				}
-				else {
-					window.updateMainArray(array);
-				}
+				
+				window.updateMainArray(CreateData.StringToIntArray(arr,SortingScreen.MAX_NUMBER,window.getMaxValue()));
+			
 			} catch (DataTypeException e1) {
 				window.getErrorLabel().setText(e1.getMessage());
 				
