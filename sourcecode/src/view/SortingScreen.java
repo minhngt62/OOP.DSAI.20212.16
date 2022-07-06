@@ -43,8 +43,9 @@ public abstract class SortingScreen extends BaseScreen {
 	protected boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
 	protected int curStep = 0;
 	public static final int MAX_NUMBER = 100;
-	SortingController sortingController;
 	
+	SortingController sortingController;
+	CreateData data;
 	SortingAlgorithm algo;
 	
 	JLayeredPane visualizer;
@@ -70,9 +71,10 @@ public abstract class SortingScreen extends BaseScreen {
 	public SortingScreen(int[] array) {
 		super();
 		this.mainArray = array;
-		sortingController = new SortingController(this);
+		data =new CreateData();
+		sortingController = new SortingController(this,data);
 		if (mainArray == null){
-			mainArray = CreateData.randomArray((new Random()).nextInt(90)+10, getMaxValue());}
+			mainArray = data.randomArray((new Random()).nextInt(90)+10, getMaxValue());}
 		if (ArrayUtils.max(mainArray) !=0) {
 			unitHeight = ((double)250) / ((double)ArrayUtils.max(mainArray));}
 			else {unitHeight = 0;}

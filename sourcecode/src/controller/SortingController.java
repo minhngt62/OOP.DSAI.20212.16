@@ -1,6 +1,8 @@
 package controller;
 
 import javax.swing.JLabel;
+
+import data.CreateData;
 import listeners.ControlBtnListener;
 import listeners.DemonstrateListener;
 import listeners.LeftSideBarBtnListener;
@@ -12,8 +14,10 @@ import view.SortingScreen;
 
 public class SortingController{
 	SortingScreen window;
-	public SortingController(SortingScreen window) {
+	CreateData data;
+	public SortingController(SortingScreen window, CreateData data) {
 		this.window = window;
+		this.data = data;
 	}
 	
 	public WindowResize changeWindowSize() {
@@ -32,7 +36,7 @@ public class SortingController{
 		return new DemonstrateListener(window);
 	}
 	public LeftSideBarBtnListener leftSideButtonClicked() {
-		return new LeftSideBarBtnListener(window);
+		return new LeftSideBarBtnListener(window,data);
 	}
 	public TimerListener setTimer() {
 		return new TimerListener(window);

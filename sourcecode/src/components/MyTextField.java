@@ -40,6 +40,7 @@ public class MyTextField extends JTextField {
 			public void focusGained(FocusEvent e) {
 				setCaretColor(Color.WHITE);
 				setForeground(Color.WHITE);
+				setFont(new Font(getFont().getFamily(),Font.PLAIN,getFont().getSize()));
 				if (getText().equals(placeholder)) {
 					setText("");
 				}

@@ -1,6 +1,5 @@
 package data;
 
-import java.net.PortUnreachableException;
 import java.util.Random;
 
 import exception.DataTypeException;
@@ -8,7 +7,7 @@ import exception.NullException;
 import exception.OutOfBoundException;
 
 public class CreateData{
-    public static int[] randomArray(int n, int maxValue){
+    public int[] randomArray(int n, int maxValue){
         int[] result = new int[n];
         for (int i = 0; i < result.length; i++){
             Random generator = new Random();
@@ -23,15 +22,15 @@ public class CreateData{
         return result ;
     }
 
-    public static boolean isNullOrEmpty(String str) {
+    public boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
 
-    public static boolean isNumber(String str) {
+    public boolean isNumber(String str) {
         return str.chars().allMatch(Character::isDigit);
     }
 
-    public static int[] StringToIntArray(String str, int qtBound, int valueBound) throws DataTypeException, OutOfBoundException, NullException{
+    public int[] StringToIntArray(String str, int qtBound, int valueBound) throws DataTypeException, OutOfBoundException, NullException{
         String str1 = str;
         str1 = str1.replaceAll(" ","");
         String[] tokens = str1.split(",");
@@ -67,7 +66,7 @@ public class CreateData{
 
     }
 
-    public static boolean notIncludes(int[] m, int n){
+    public boolean notIncludes(int[] m, int n){
         for (int i = 0; i < m.length; i++){
             if (m[i] == n){
                 return false;
