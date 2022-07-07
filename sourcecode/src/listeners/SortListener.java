@@ -21,15 +21,15 @@ public class SortListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch(name) {
 		case "Merge Sort":
-			new MergeSortScreen(array);
+			new MergeSortScreen();
 			SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 			break;
 		case "Counting Sort":
-			new CountingSortScreen(array);
+			new CountingSortScreen();
 			SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 			break;
 		case "Radix Sort":
-			new RadixSortScreen(array);
+			new RadixSortScreen();
 			SwingUtilities.windowForComponent(((JButton)e.getSource())).dispose();
 			break;
 		}

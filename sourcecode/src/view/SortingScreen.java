@@ -29,25 +29,10 @@ import data.*;
 import controller.SortingController;
 
 public abstract class SortingScreen extends BaseScreen {
-	protected int[] mainArray ;
-	
-	protected int[][] mainArrayStep;
-	protected int[][] subArrayStep;
-	protected int[][] animationArrayStep;
-	protected String[] infoArrayStep;
 
-	protected int step;
-	protected String sortInfo = "Welcome to our Sorting Algorithms Visualizer";
-	protected int defaultSpeed = 50;
-	protected boolean isPlay = true;    //if playing
-	protected boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
-	protected int curStep = 0;
-	public static final int MAX_NUMBER = 100;
-	
 	SortingController sortingController;
-	CreateData data;
-	SortingAlgorithm algo;
-	
+	protected int[] mainArray ;
+	protected String sortInfo = "Welcome to our Sorting Algorithms Visualizer";
 	JLayeredPane visualizer;
 	JPanel container;
     Visualizer main;
@@ -68,13 +53,11 @@ public abstract class SortingScreen extends BaseScreen {
 	protected double unitHeight;
 	protected int padding = 5;
 	
-	public SortingScreen(int[] array) {
+	public SortingScreen() {
 		super();
-		this.mainArray = array;
-		data =new CreateData();
-		sortingController = new SortingController(this,data);
-		if (mainArray == null){
-			mainArray = data.randomArray((new Random()).nextInt(90)+10, getMaxValue());}
+		sortingController = new SortingController(this);
+		setMainArray(null);
+
 		if (ArrayUtils.max(mainArray) !=0) {
 			unitHeight = ((double)250) / ((double)ArrayUtils.max(mainArray));}
 			else {unitHeight = 0;}
@@ -159,7 +142,7 @@ public abstract class SortingScreen extends BaseScreen {
 		for (MouseListener ml: processSlider.getMouseListeners()) {
 			processSlider.removeMouseListener(ml);
 		}
-		timer =new Timer(1000-defaultSpeed*10,sortingController.setTimer());
+		timer =new Timer(1000-sortingController.getDefaultSpeed()*10,sortingController.setTimer());
 		
 		//play button
 		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
@@ -190,8 +173,8 @@ public abstract class SortingScreen extends BaseScreen {
 	private JPanel createSpeedPane() {
 		//speed pane
 		JPanel speedPane = new JPanel(new BorderLayout());
-		JLabel count = new JLabel(Integer.toString(defaultSpeed));
-		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,defaultSpeed,150,20,sortingController.changeSpeed(count));
+		JLabel count = new JLabel(Integer.toString(sortingController.getDefaultSpeed()));
+		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,sortingController.getDefaultSpeed(),150,20,sortingController.changeSpeed(count));
 
 		speedPane.setPreferredSize(new Dimension(255,45));
 		speedPane.setBackground(Color.BLACK);
@@ -266,6 +249,7 @@ public abstract class SortingScreen extends BaseScreen {
 		buttonGroup.add(btnBack,2,0);
 	}
 	public Visualizer main(int[] array, Color color) {
+
 		int width =((int) getWidth()-200)/mainArray.length;
 		
 		Visualizer main =  new Visualizer(array) {
@@ -291,42 +275,26 @@ public abstract class SortingScreen extends BaseScreen {
 	public abstract Color getColor();
 	public abstract int getMaxValue();
 	public abstract String newHelpInfo();
-		
-	public int getDefaultSpeed() {
-		return this.defaultSpeed;
+	
+	
+	
+	public int[] getMainArray() {
+		return mainArray;
 	}
-	public int getStep() {
-		return step;
-	}
-	public void setStep(int step) {
-		this.step = step;
-	}
-
-	public boolean isPlay() {
-		return isPlay;
-	}
-	public void setPlay(boolean isPlay) {
-		this.isPlay = isPlay;
-	}
-	public boolean isSorting() {
-		return isSorting;
-	}
-	public void setSorting(boolean isSorting) {
-		this.isSorting = isSorting;
-	}
-	public int getCurStep() {
-		return curStep;
-	}
-	public void setCurStep(int curStep) {
-		this.curStep = curStep;
-	}
+	
+	public void setMainArray(int[] array) {
+		if (mainArray ==null) {
+			mainArray= sortingController.getData().randomArray((new Random()).nextInt(90)+10,getMaxValue());
+		}
+		else {
+			this.mainArray = array;}
+		}
+	
 	public JSlider getProcessSlider() {
 		return processSlider;
 	}
 
-	public void setDefaultSpeed(int defaultSpeed) {
-		this.defaultSpeed = defaultSpeed;
-	}
+
 	public MyButton getBtnCreate() {
 		return btnCreate;
 	}
@@ -383,38 +351,6 @@ public abstract class SortingScreen extends BaseScreen {
 		return demonstratePane;
 	}
 	
-	public int[][] getMainArrayStep() {
-		return mainArrayStep;
-	}
-
-	public void setMainArrayStep(int[][] mainArrayStep) {
-		this.mainArrayStep = mainArrayStep;
-	}
-
-	public int[][] getSubArrayStep() {
-		return subArrayStep;
-	}
-
-	public void setSubArrayStep(int[][] subArrayStep) {
-		this.subArrayStep = subArrayStep;
-	}
-
-	public int[][] getAnimationArrayStep() {
-		return animationArrayStep;
-	}
-
-	public void setAnimationArrayStep(int[][] animationArrayStep) {
-		this.animationArrayStep = animationArrayStep;
-	}
-
-	public String[] getInfoArrayStep() {
-		return infoArrayStep;
-	}
-
-	public void setInfoArrayStep(String[] infoArrayStep) {
-		this.infoArrayStep = infoArrayStep;
-	}
-
 	public JPanel getContainer1() {
 		return container;
 	}
@@ -427,8 +363,8 @@ public abstract class SortingScreen extends BaseScreen {
 		return errorLabel;
 	}
 
-	public SortingAlgorithm getAlgo() {
-		return algo;
-	}
 
+	public SortingController getController() {
+		return sortingController;
+	}
 }

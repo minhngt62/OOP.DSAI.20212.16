@@ -53,7 +53,7 @@ public abstract class BaseScreen extends JFrame {
 			                   + "4. Nguyen Xuan Nam\n     Data Validation, Class Diagram, Usecase Diagram, Tester";
 	
 	public BaseScreen() {
-		baseController = new BaseController(this);
+		baseController = new BaseController();
 		add(createTop(), "North");
 		setTitle("Sorting Visualizer");
 		setSize(WIDTH,HEIGHT);

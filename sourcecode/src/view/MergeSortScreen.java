@@ -14,10 +14,10 @@ import sorting.MergeSort;
 import utils.ArrayUtils;
 
 public class MergeSortScreen extends SortingScreen{
-	public MergeSortScreen(int[] array) {
-		super(array);
+	public MergeSortScreen() {
+		super();
 		createName("MERGE SORT");
-		algo = new MergeSort(mainArray);
+		sortingController.setAlgo( new MergeSort(mainArray));
 	}
 
 
@@ -77,7 +77,12 @@ public class MergeSortScreen extends SortingScreen{
 	}
 	@Override
 	public void updateMainArray(int[] array) {
-		MergeSortScreen a = new MergeSortScreen(array);
+		MergeSortScreen a = new MergeSortScreen(){
+			@Override
+			public void setMainArray(int[] arr) {
+				this.mainArray = array;
+			}		
+		};
 		if (this.getExtendedState()==MAXIMIZED_BOTH) {
 			a.setExtendedState(MAXIMIZED_BOTH);
 		}
