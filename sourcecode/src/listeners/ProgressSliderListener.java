@@ -15,6 +15,7 @@ public class ProgressSliderListener extends MyChangeListener{
 	}
 	@Override
 	public void stateChanged(ChangeEvent e) {
+		if( controller.getInfoArrayStep() != null) {
         window.getDemonstratePane().setText(controller.getInfoArrayStep()[controller.getCurStep()]);
         
         window.getVisualizer().remove(window.getAnimation());
@@ -39,5 +40,6 @@ public class ProgressSliderListener extends MyChangeListener{
 	    window.getContainer1().add(window.getSub());
 	    window.getVisualizer().add(window.getContainer1(), JLayeredPane.DEFAULT_LAYER);
 	    controller.setCurStep( window.getProcessSlider().getValue());
+		}
 	}
 }

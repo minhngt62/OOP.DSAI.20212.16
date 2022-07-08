@@ -48,14 +48,14 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			break;
 		case "Random":
 			window.updateMainArray(data.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
-			controller.setSorting(false);
+			//controller.setSorting(false);
 			break;
 		case "Go":
 			String arr = window.getInputArrayField().getText();
 			if (arr.equals(window.placeholder)) {
 				arr = "";
 			}
-			controller.setSorting(false);
+			//controller.setSorting(false);
             try {
 				window.updateMainArray(data.StringToIntArray(arr,SortingController.MAX_NUMBER,window.getMaxValue()));
 			

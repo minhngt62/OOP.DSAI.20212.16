@@ -139,9 +139,6 @@ public abstract class SortingScreen extends BaseScreen {
 		//process slide
 		processSlider = new MySlider(JSlider.HORIZONTAL,0,0,0,350,20,sortingController.changeProgressSlider());
 		processSlider.setBorder(BorderFactory.createEmptyBorder(5, 10, 0, 0));
-		for (MouseListener ml: processSlider.getMouseListeners()) {
-			processSlider.removeMouseListener(ml);
-		}
 		timer =new Timer(1000-sortingController.getDefaultSpeed()*10,sortingController.setTimer());
 		
 		//play button
