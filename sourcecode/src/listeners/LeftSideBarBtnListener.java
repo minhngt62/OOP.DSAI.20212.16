@@ -5,18 +5,23 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
+import controller.SortingController;
 import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
+import sorting.SortingAlgorithm;
 import data.*;
+import view.RadixSortScreen;
 import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
 	private boolean sorted = false;
+	SortingController controller;
 	private CreateData data;
-	public LeftSideBarBtnListener(SortingScreen window, CreateData data) {
+	public LeftSideBarBtnListener(SortingScreen window, CreateData data, SortingController controller) {
 		super(window);
 		this.data = data;
+		this.controller= controller;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -43,16 +48,16 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			break;
 		case "Random":
 			window.updateMainArray(data.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
-			window.setSorting(false);
+			//controller.setSorting(false);
 			break;
 		case "Go":
 			String arr = window.getInputArrayField().getText();
 			if (arr.equals(window.placeholder)) {
 				arr = "";
 			}
-			window.setSorting(false);
+			//controller.setSorting(false);
             try {
-				window.updateMainArray(data.StringToIntArray(arr,SortingScreen.MAX_NUMBER,window.getMaxValue()));
+				window.updateMainArray(data.StringToIntArray(arr,SortingController.MAX_NUMBER,window.getMaxValue()));
 			
 			} catch (DataTypeException e1) {
 				window.getErrorLabel().setText(e1.getMessage());	
@@ -71,16 +76,16 @@ public class LeftSideBarBtnListener extends MyActionListener{
 		case "Sort":
 			if (sorted == false) {
 				sorted = true;
-				window.setSorting(true);
+				controller.setSorting(true);
 				window.getErrorLabel().setVisible(false);
-				window.getAlgo().sort();
-				window.setStep(window.getAlgo().getNumSteps());
-				window.setMainArrayStep(window.getAlgo().getArrayLog());
-				window.setSubArrayStep(window.getAlgo().getTempLog());
-				window.setAnimationArrayStep(window.getAlgo().getPointerLog());
-				window.setInfoArrayStep(window.getAlgo().getGuideLog());
-				window.getProcessSlider().setMaximum(window.getStep());
-				if (window.isPlay()) {
+				controller.getAlgo().sort();
+				controller.setStep(controller.getAlgo().getNumSteps());
+				controller.setMainArrayStep(controller.getAlgo().getArrayLog());
+				controller.setSubArrayStep(controller.getAlgo().getTempLog());
+				controller.setAnimationArrayStep(controller.getAlgo().getPointerLog());
+				controller.setInfoArrayStep(controller.getAlgo().getGuideLog());
+				window.getProcessSlider().setMaximum(controller.getStep());
+				if (controller.isPlay()) {
 				   window.getTimer().stop();
 				   window.getTimer().start();}	
 			}

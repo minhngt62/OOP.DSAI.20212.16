@@ -13,10 +13,10 @@ import sorting.RadixSort;
 import utils.ArrayUtils;
 
 public class RadixSortScreen extends SortingScreen {
-	public RadixSortScreen(int[] array) {
-		super(array);
+	public RadixSortScreen() {
+		super();
 		createName("RADIX SORT");
-		algo = new RadixSort(mainArray);
+		sortingController.setAlgo(new RadixSort(mainArray));
 	}
 	
 	@Override
@@ -82,7 +82,12 @@ public class RadixSortScreen extends SortingScreen {
 	
 	@Override
 	public void updateMainArray(int[] array) {
-		RadixSortScreen a = new RadixSortScreen(array);
+		RadixSortScreen a = new RadixSortScreen() {
+			@Override
+			public void setMainArray(int[] arr) {
+				this.mainArray = array;
+			}		
+		};
 		if (this.getExtendedState()==MAXIMIZED_BOTH) {
 			a.setExtendedState(MAXIMIZED_BOTH);
 		}

@@ -8,14 +8,15 @@ import javax.swing.JPanel;
 
 import components.MyColor;
 import components.Visualizer;
+import controller.SortingController;
 import sorting.CountingSort;
 import utils.ArrayUtils;
 
 public class CountingSortScreen extends SortingScreen {
-	public CountingSortScreen(int[] array) {
-		super(array);
+	public CountingSortScreen() {
+		super();
 		createName("COUNTING SORT");
-		algo = new CountingSort(mainArray);
+		sortingController.setAlgo(new CountingSort(mainArray));
 	}
 
 	@Override
@@ -83,7 +84,12 @@ public class CountingSortScreen extends SortingScreen {
 	}
 	@Override
 	public void updateMainArray(int[] array) {
-		CountingSortScreen a = new CountingSortScreen(array);
+		CountingSortScreen a = new CountingSortScreen(){
+			@Override
+			public void setMainArray(int[] arr) {
+				this.mainArray = array;
+			}		
+		};
 		if (this.getExtendedState()==MAXIMIZED_BOTH) {
 			a.setExtendedState(MAXIMIZED_BOTH);
 		}

@@ -7,11 +7,6 @@ import view.BaseScreen;
 
 
 public class BaseController {
-	BaseScreen window;
-	public BaseController(BaseScreen window) {
-		this.window = window;
-	}	
-
 	public HelpAboutListener helpButtonClicked(String name,String helpInfo) {
 		return new HelpAboutListener(name,helpInfo);
 	}
