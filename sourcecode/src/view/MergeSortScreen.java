@@ -7,17 +7,17 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-import components.MyColor;
 import components.MyLabel;
 import components.Visualizer;
 import sorting.MergeSort;
 import utils.ArrayUtils;
+import utils.ColorUtils;
 
 public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen() {
 		super();
 		createName("MERGE SORT");
-		sortingController.setAlgo( new MergeSort(mainArray));
+		sortingController.setAlgo(new MergeSort(mainArray));
 	}
 
 
@@ -33,7 +33,7 @@ public class MergeSortScreen extends SortingScreen{
 				width =(int) getWidth()/array.length;
 				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
-					g.setColor(MyColor.myPINK);
+					g.setColor(ColorUtils.myPINK);
 				    g.fillRect(x, y-(int)(i*unitHeight)+ getHeight(),ArrayUtils.min(width-padding,60),(int)(i*unitHeight));
 				    x += ArrayUtils.min(width,60+padding) ;
 				}
@@ -54,21 +54,22 @@ public class MergeSortScreen extends SortingScreen{
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				if(step[0] >= 0&& step[1]>=0) {
-				    mainIndex =step[0];
-				    subIndex = step[1];
-					g.setColor(MyColor.myGREEN);
+				if(step[0] >= 0) {
+				    mainIndex = step[0];
+					g.setColor(ColorUtils.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
 				    		   + main.getHeight(),ArrayUtils.min(width-padding,60),(int)(main.getArray()[mainIndex]*unitHeight));
-				    g.setColor(Color.red);
+				}
+				if (step[1] >= 0) {
+					subIndex = step[1];
+					g.setColor(Color.red);
 				    g.fillRect(subIndex*ArrayUtils.min(width,60+padding)+(sub.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -(int)(sub.getArray()[subIndex]*unitHeight)
 				    		   + sub.getHeight()+270,ArrayUtils.min(width-padding,60),(int)(sub.getArray()[subIndex]*unitHeight));
-				}
-				
+				}	
 			}
 		};
 		animation.setBounds(45, 30,getWidth()-200, 520);
@@ -92,7 +93,7 @@ public class MergeSortScreen extends SortingScreen{
 	}
 	@Override
 	public Color getColor() {
-		return MyColor.myPINK;
+		return ColorUtils.myPINK;
 	}
 	public int getMaxValue() {
 		return 1000;

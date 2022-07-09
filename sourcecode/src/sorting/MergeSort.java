@@ -17,7 +17,7 @@ public class MergeSort extends SortingAlgorithm {
 		if (start < end) {
 			int mid = start + ((end - start) / 2);
 			
-			addLogs(inputArray, new int[inputArray.length], new int[] {-1, -1}, 
+			addLogs(inputArray, new int[inputArray.length], new int[] {mid, -1}, 
 					"Split the array (index " + start + " to " + end + ") into partitions (at index " + mid + ")");
 			mergeSort(start, mid);
 			mergeSort(mid + 1, end);
@@ -63,7 +63,7 @@ public class MergeSort extends SortingAlgorithm {
 			k++;
 			l++;
 		}
-		while (r <= mid) {
+		while (r <= end) {
 			inputArray[k] = partArray[r];
 			addLogs(inputArray, partArray, new int[] {k, r},
 					"Since left partition is empty, we take " + inputArray[k] + " (right partition)");
