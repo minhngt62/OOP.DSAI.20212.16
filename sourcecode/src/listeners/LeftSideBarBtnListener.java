@@ -1,27 +1,25 @@
 package listeners;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent; 
 import java.util.Random;
 
 import javax.swing.JButton;
 
 import controller.SortingController;
+import data.DataGuard;
 import exception.DataTypeException;
 import exception.NullException;
 import exception.OutOfBoundException;
-import sorting.SortingAlgorithm;
-import data.*;
-import view.RadixSortScreen;
 import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
 	private boolean sorted = false;
 	SortingController controller;
-	private CreateData data;
-	public LeftSideBarBtnListener(SortingScreen window, CreateData data, SortingController controller) {
+	private DataGuard data;
+	public LeftSideBarBtnListener(SortingScreen window, DataGuard data, SortingController controller) {
 		super(window);
 		this.data = data;
-		this.controller= controller;
+		this.controller = controller;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -47,7 +45,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			window.getBtnGo().setVisible(true);
 			break;
 		case "Random":
-			window.updateMainArray(data.randomArray((new Random()).nextInt(90)+10,window.getMaxValue()));
+			window.updateMainArray(data.randomArray(SortingController.MAX_NUMBER, window.getMaxValue()));
 			//controller.setSorting(false);
 			break;
 		case "Go":
@@ -57,7 +55,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			}
 			//controller.setSorting(false);
             try {
-				window.updateMainArray(data.StringToIntArray(arr,SortingController.MAX_NUMBER,window.getMaxValue()));
+				window.updateMainArray(data.parseString(arr, SortingController.MAX_NUMBER, window.getMaxValue()));
 			
 			} catch (DataTypeException e1) {
 				window.getErrorLabel().setText(e1.getMessage());	

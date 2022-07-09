@@ -6,11 +6,11 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import components.MyColor;
 import components.Visualizer;
 import controller.SortingController;
 import sorting.CountingSort;
 import utils.ArrayUtils;
+import utils.ColorUtils;
 
 public class CountingSortScreen extends SortingScreen {
 	public CountingSortScreen() {
@@ -31,7 +31,7 @@ public class CountingSortScreen extends SortingScreen {
 				width =(int) (getWidth()-30)/array.length;
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
-					g.setColor(MyColor.myORANGE);
+					g.setColor(ColorUtils.myORANGE);
 				    g.fillRect(x, getHeight()-60,ArrayUtils.min(width-padding,60),30);
 				    g.setColor(Color.BLACK);
 				    g.drawLine(x,getHeight()-30 , x+ArrayUtils.min(width-padding,60),getHeight()-30);
@@ -64,7 +64,7 @@ public class CountingSortScreen extends SortingScreen {
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(MyColor.myGREEN);
+					g.setColor(ColorUtils.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(mainWidth,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(mainWidth,60+padding)*mainArray.length)/2,
 				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
@@ -99,7 +99,7 @@ public class CountingSortScreen extends SortingScreen {
 	}
 	@Override
 	public Color getColor() {
-		return MyColor.myORANGE;
+		return ColorUtils.myORANGE;
 	}
 	public int getMaxValue() {
 		return 20;

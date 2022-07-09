@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
+import utils.ColorUtils;
+
 class HoverMouseAdapter extends MouseAdapter{
 	JButton button;
 	public HoverMouseAdapter(JButton btn) {
@@ -15,6 +17,6 @@ class HoverMouseAdapter extends MouseAdapter{
 	    button.setBackground(Color.BLACK);
 	}
 	public void mouseExited(MouseEvent evt){
-		button.setBackground(MyColor.myBLUE);
+		button.setBackground(ColorUtils.myBLUE);
 	}
 }

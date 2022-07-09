@@ -6,11 +6,11 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-import components.MyColor;
 import components.MyLabel;
 import components.Visualizer;
 import sorting.RadixSort;
 import utils.ArrayUtils;
+import utils.ColorUtils;
 
 public class RadixSortScreen extends SortingScreen {
 	public RadixSortScreen() {
@@ -29,7 +29,7 @@ public class RadixSortScreen extends SortingScreen {
 				super.paintComponent(g);
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
-					g.setColor(MyColor.myYELLOW);
+					g.setColor(ColorUtils.myYELLOW);
 				    g.fillRect(x, getHeight()-60,60,30);
 				    g.setColor(Color.BLACK);
 				    g.drawLine(x,getHeight()-30 , x+60,getHeight()-30);
@@ -61,7 +61,7 @@ public class RadixSortScreen extends SortingScreen {
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(MyColor.myGREEN);
+					g.setColor(ColorUtils.myGREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
@@ -98,7 +98,7 @@ public class RadixSortScreen extends SortingScreen {
 	
 	@Override
 	public Color getColor() {
-		return MyColor.myYELLOW;
+		return ColorUtils.myYELLOW;
 	}
 	@Override
 	public int getMaxValue() {

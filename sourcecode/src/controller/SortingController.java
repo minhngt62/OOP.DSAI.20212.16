@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
-import data.CreateData;
+import data.DataGuard;
 import listeners.ControlBtnListener;
 import listeners.DemonstrateListener;
 import listeners.LeftSideBarBtnListener;
@@ -18,7 +18,7 @@ import view.SortingScreen;
 
 public class SortingController{
 	SortingScreen sortingScreen;
-	CreateData data;
+	DataGuard data;
 	SortingAlgorithm algo;
 	
 
@@ -38,7 +38,7 @@ public class SortingController{
 		
 	public SortingController(SortingScreen sortingScreen) {
 		this.sortingScreen = sortingScreen;
-		this.data = new CreateData();
+		this.data = new DataGuard();
 	}
 	
 	public WindowResize changeWindowSize() {
@@ -46,24 +46,24 @@ public class SortingController{
 	}
 	
 	public SpeedSliderListener changeSpeed(JLabel count) {
-		return new SpeedSliderListener(sortingScreen,count,this);
+		return new SpeedSliderListener(sortingScreen, count, this);
 	}
 	
 	public ProgressSliderListener changeProgressSlider() {
-		return new ProgressSliderListener(sortingScreen,this);
+		return new ProgressSliderListener(sortingScreen, this);
 	}
 	
 	public DemonstrateListener rightSideButtonClicked() {
 		return new DemonstrateListener(sortingScreen);
 	}
 	public LeftSideBarBtnListener leftSideButtonClicked() {
-		return new LeftSideBarBtnListener(sortingScreen,data,this);
+		return new LeftSideBarBtnListener(sortingScreen, data, this);
 	}
 	public TimerListener setTimer() {
-		return new TimerListener(sortingScreen,this);
+		return new TimerListener(sortingScreen, this);
 	}
 	public ControlBtnListener controlButtonCLicked() {
-		return new ControlBtnListener(sortingScreen,this);
+		return new ControlBtnListener(sortingScreen, this);
 	}
 
 	public int[][] getMainArrayStep() {
@@ -134,8 +134,8 @@ public class SortingController{
 	public void setAlgo(SortingAlgorithm algo) {
 		this.algo =algo;
 	}
-	public CreateData getData() {
-		return new CreateData() ;
+	public DataGuard getData() {
+		return new DataGuard() ;
 	}
 
 }
