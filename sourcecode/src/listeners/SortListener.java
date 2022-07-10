@@ -11,7 +11,6 @@ import view.MergeSortScreen;
 import view.RadixSortScreen;
 
 public class SortListener implements ActionListener{
-	private int[] array;
 	private String name;
 	public SortListener(String name) {
 		super();

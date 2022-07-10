@@ -71,16 +71,4 @@ public class MergeSort extends SortingAlgorithm {
 			r++;
 		}
 	}
-	
-	// test
-	public static void main(String[] args) {
-		int[] array = new int[] {3, 3, 2, 1, 1, 2, 0};
-		MergeSort sorter = new MergeSort(array);
-		sorter.sort();
-		for (String e : sorter.getGuideLog()) {
-			System.out.println(e);
-		}
-	}
-	
-	
 }

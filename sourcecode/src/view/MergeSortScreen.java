@@ -1,18 +1,16 @@
 package view;
 
-
-import java.awt.BorderLayout;
+ 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-import components.MyLabel;
 import components.Visualizer;
 import sorting.MergeSort;
 import utils.ArrayUtils;
 import utils.ColorUtils;
 
+@SuppressWarnings("serial")
 public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen() {
 		super();

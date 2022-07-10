@@ -9,8 +9,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -23,11 +21,11 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import components.*;
-import sorting.SortingAlgorithm;
 import utils.ArrayUtils;
 import utils.ColorUtils;
 import controller.SortingController;
 
+@SuppressWarnings("serial")
 public abstract class SortingScreen extends BaseScreen {
 
 	SortingController sortingController;

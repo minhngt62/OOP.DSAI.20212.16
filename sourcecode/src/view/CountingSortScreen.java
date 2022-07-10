@@ -1,17 +1,17 @@
 package view;
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
 import components.Visualizer;
-import controller.SortingController;
 import sorting.CountingSort;
 import utils.ArrayUtils;
 import utils.ColorUtils;
 
+@SuppressWarnings("serial")
 public class CountingSortScreen extends SortingScreen {
 	public CountingSortScreen() {
 		super();

@@ -38,15 +38,4 @@ public class CountingSort extends SortingAlgorithm {
 		
 		return counts;
 	}
-	
-	// test
-	public static void main(String[] args) {
-		int[] array = new int[] {3, 3, 2, 1, 1, 2, 0};
-		CountingSort sorter = new CountingSort(array);
-		sorter.sort();
-		System.out.println(sorter.numSteps);
-		for (String e : sorter.guideLog) {
-			System.out.println(e);
-		}
-	}
 }

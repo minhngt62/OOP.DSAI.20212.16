@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -8,15 +8,14 @@ import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 import components.MyButton;
 import components.SortButton;
 import controller.HomeController;
 
+@SuppressWarnings("serial")
 public class HomeScreen extends BaseScreen {
 	HomeController homeController;
 	public HomeScreen() {

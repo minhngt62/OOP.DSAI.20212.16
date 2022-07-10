@@ -1,17 +1,16 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-import components.MyLabel;
 import components.Visualizer;
 import sorting.RadixSort;
 import utils.ArrayUtils;
 import utils.ColorUtils;
 
+@SuppressWarnings("serial")
 public class RadixSortScreen extends SortingScreen {
 	public RadixSortScreen() {
 		super();

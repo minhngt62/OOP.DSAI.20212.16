@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.Random;
-
 import javax.swing.JLabel;
 
 import data.DataGuard;
@@ -13,7 +11,6 @@ import listeners.SpeedSliderListener;
 import listeners.TimerListener;
 import listeners.WindowResize;
 import sorting.SortingAlgorithm;
-import view.RadixSortScreen;
 import view.SortingScreen;
 
 public class SortingController{

@@ -9,6 +9,7 @@ import java.io.File;
 
 import controller.BaseController;
 
+@SuppressWarnings("serial")
 public abstract class BaseScreen extends JFrame {	
 	protected static final int WIDTH = 1000;
 	protected static final int HEIGHT = 700;
