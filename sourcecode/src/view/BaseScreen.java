@@ -42,9 +42,9 @@ public abstract class BaseScreen extends JFrame {
 	//TODO About content
 	protected String aboutInfo = "\nThis project is done by Team 16 in OOP class 2022 of Hanoi University of Science and Technology "
 			                   + "with the support of:\n\n"
-			                   + "1.Dr. Nguyen Thu Trang\n"
+			                   + "1.Dr. Nguyen Thi Thu Trang\n"
 			                   + "  Senior Lecture, Member of SOICT Coroperation.\n\n"
-			                   + "2.Ms. Nguyen Huong Giang and Mr. Vuong Dinh An\n"
+			                   + "2.Ms. Nguyen Thi Thu Giang and Mr. Vuong Dinh An\n"
 			                   + "  Student of Hanoi University of Science and Technology\n\n\n"
 			                   + "Our team includes:\n\n"
 			                   + "1. Nguyen Tong Minh\n     Leader, Sorting Alogrithms, Class Diagram, Usecase Diagram, Tester\n\n"
