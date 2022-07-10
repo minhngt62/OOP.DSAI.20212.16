@@ -40,17 +40,17 @@ public abstract class BaseScreen extends JFrame {
 			                  + "the right side and flow controller at the bottom.\n"
 			                  + "Have fun!";
 	//TODO About content
-	protected String aboutInfo = "\nThis project is done by Team 16 in OOP class 2022 of Hanoi University of Science and Technology "
+	protected String aboutInfo = "\nVisualSO, a sorting visulizer, is made by Team 16, Object-oriented Programming course (HUST20221) "
 			                   + "with the support of:\n\n"
 			                   + "1.Dr. Nguyen Thi Thu Trang\n"
 			                   + "  Senior Lecture, Member of SOICT Coroperation.\n\n"
 			                   + "2.Ms. Nguyen Thi Thu Giang and Mr. Vuong Dinh An\n"
 			                   + "  Student of Hanoi University of Science and Technology\n\n\n"
 			                   + "Our team includes:\n\n"
-			                   + "1. Nguyen Tong Minh\n     Leader, Sorting Alogrithms, Class Diagram, Usecase Diagram, Tester\n\n"
-			                   + "2. Ly Nhat Nam\n     Sorting Algorithms Visualizer, Class Diagram, Usecase Diagram, Tester\n\n"
-			                   + "3. Pham Thanh Nam\n     Home Screen, Class Diagram, Usecase Diagram, Tester\n\n"
-			                   + "4. Nguyen Xuan Nam\n     Data Validation, Class Diagram, Usecase Diagram, Tester";
+			                   + "1. Nguyen Tong Minh\n     20204885 - Elitech DS&AI K65\n\n"
+			                   + "2. Ly Nhat Nam\n     20204886 - Elitech DS&AI K65\n\n"
+			                   + "3. Pham Thanh Nam\n     20204921 - Elitech DS&AI K65\n\n"
+			                   + "4. Nguyen Xuan Nam\n     20200422 - Elitech DS&AI K65";
 	
 	public BaseScreen() {
 		baseController = new BaseController();
