@@ -17,23 +17,21 @@ import view.RadixSortScreen;
 import view.SortingScreen;
 
 public class SortingController{
-	SortingScreen sortingScreen;
-	DataGuard data;
-	SortingAlgorithm algo;
+	private SortingScreen sortingScreen;
+	private DataGuard data;
+	private SortingAlgorithm algo;
 	
+	private int[][] mainArrayStep;
+	private int[][] subArrayStep;
+	private int[][] animationArrayStep;
+	private String[] infoArrayStep;
 
-	
-	protected int[][] mainArrayStep;
-	protected int[][] subArrayStep;
-	protected int[][] animationArrayStep;
-	protected String[] infoArrayStep;
+	private int step;
 
-	protected int step;
-
-	protected int defaultSpeed = 50;
-	protected boolean isPlay = true;    //if playing
-	protected boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
-	protected int curStep = 0;
+	private int defaultSpeed = 50;
+	private boolean isPlay = true;    //if playing
+	private boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
+	private int curStep = 0;
 	public static final int MAX_NUMBER = 100;
 		
 	public SortingController(SortingScreen sortingScreen) {
@@ -132,10 +130,9 @@ public class SortingController{
 		return algo;
 	}
 	public void setAlgo(SortingAlgorithm algo) {
-		this.algo =algo;
+		this.algo = algo;
 	}
 	public DataGuard getData() {
 		return new DataGuard() ;
 	}
-
 }

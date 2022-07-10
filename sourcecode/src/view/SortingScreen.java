@@ -48,7 +48,7 @@ public abstract class SortingScreen extends BaseScreen {
 	MySideButton btnGo;
 	MySideButton btnSort;
 	MyLabel errorLabel;
-	public final String placeholder = "Ex: 1, 2, 3, 4, 8";
+	public final String placeHolder = "Ex: 1, 2, 3, 4, 8";
 	
 	protected double unitHeight;
 	protected int padding = 5;
@@ -103,7 +103,7 @@ public abstract class SortingScreen extends BaseScreen {
 		A = new MyLabel("A =");
 		visualizer.add(A,JLayeredPane.MODAL_LAYER);
 		//input array belong to create button
-		inputArrayField = new MyTextField(placeholder);
+		inputArrayField = new MyTextField(placeHolder);
 		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
 
 		//go button belong to create button

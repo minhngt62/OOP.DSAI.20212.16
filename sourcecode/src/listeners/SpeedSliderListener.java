@@ -8,8 +8,8 @@ import controller.SortingController;
 import view.SortingScreen;
 
 public class SpeedSliderListener extends MyChangeListener{
-	JLabel count;
-	SortingController controller;
+	private JLabel count;
+	private SortingController controller;
 	public SpeedSliderListener(SortingScreen window,JLabel count, SortingController controller) {
 		super(window);
 		this.count = count;

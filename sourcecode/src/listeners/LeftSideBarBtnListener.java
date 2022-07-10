@@ -14,13 +14,15 @@ import view.SortingScreen;
 
 public class LeftSideBarBtnListener extends MyActionListener{
 	private boolean sorted = false;
-	SortingController controller;
+	private SortingController controller;
 	private DataGuard data;
+	
 	public LeftSideBarBtnListener(SortingScreen window, DataGuard data, SortingController controller) {
 		super(window);
 		this.data = data;
 		this.controller = controller;
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(((JButton)e.getSource()).getText()) {
@@ -50,7 +52,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			break;
 		case "Go":
 			String arr = window.getInputArrayField().getText();
-			if (arr.equals(window.placeholder)) {
+			if (arr.equals(window.placeHolder)) {
 				arr = "";
 			}
 			//controller.setSorting(false);

@@ -13,7 +13,7 @@ import controller.SortingController;
 import view.SortingScreen;
 
 public class ControlBtnListener extends MyActionListener{
-	SortingController controller;
+	private SortingController controller;
 	public ControlBtnListener(SortingScreen window,SortingController controller) {
 		super(window);
 		this.controller = controller;
