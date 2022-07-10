@@ -8,7 +8,7 @@ import controller.SortingController;
 import view.SortingScreen;
 
 public class TimerListener extends MyActionListener{
-	SortingController controller;
+	private SortingController controller;
 	public TimerListener(SortingScreen window, SortingController controller) {
 		super(window);
 		this.controller= controller;

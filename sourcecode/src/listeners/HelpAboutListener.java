@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 public class HelpAboutListener implements ActionListener{
-	String helpInfo;
-	String name;
+	private String helpInfo;
+	private String name;
 	public HelpAboutListener(String name,String helpInfo ) {
 		super();
 		this.name = name;

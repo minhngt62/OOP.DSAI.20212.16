@@ -16,7 +16,7 @@ public class DataGuard {
         return randArray ;
     }
 
-    private static boolean isNullOrEmpty(String str) {
+    private boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
 
