@@ -1,6 +1,6 @@
 package test.utils;
 
-import utils.ArrayUtils;
+import visualso.util.ArrayUtils;
 
 public class ArrayUtilsTest {
 	public static void main(String[] args) {

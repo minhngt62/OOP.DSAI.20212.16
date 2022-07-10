@@ -1,9 +1,9 @@
 package test.data;
 
-import data.DataGuard;
-import exception.DataTypeException;
-import exception.NullException;
-import exception.OutOfBoundException;
+import visualso.data.DataGuard;
+import visualso.exception.DataTypeException;
+import visualso.exception.NullException;
+import visualso.exception.OutOfBoundException;
 
 public class DataGuardTest {
 	public static void main(String[] args) {

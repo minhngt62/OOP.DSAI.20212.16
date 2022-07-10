@@ -1,7 +1,8 @@
 package test.sorting;
 
 import java.util.Scanner;
-import sorting.RadixSort;
+
+import visualso.sorting.RadixSort;
 
 public class RadixSortTest {
 	public static void main(String[] args) {

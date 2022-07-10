@@ -1,7 +1,8 @@
 package test.sorting;
 
 import java.util.Scanner;
-import sorting.CountingSort;
+
+import visualso.sorting.CountingSort;
 
 public class CountingSortTest {
 	public static void main(String[] args) {

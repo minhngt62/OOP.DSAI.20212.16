@@ -2,7 +2,7 @@ package test.sorting;
 
 import java.util.Scanner;
 
-import sorting.MergeSort;
+import visualso.sorting.MergeSort;
 
 public class MergeSortTest {
 	public static void main(String[] args) {
