@@ -36,12 +36,4 @@ public class ArrayUtils {
 		}
 		return resizedArray;
 	}
-	
-	public static void slice(int[] fillArray, int[] array, int start, int end) {
-		int j = 0;
-		for (int i = start; i < end; i++) { 
-			array[i] = fillArray[j];
-			j++;
-		}
-	}
 }
