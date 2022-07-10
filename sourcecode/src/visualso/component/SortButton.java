@@ -2,6 +2,8 @@ package visualso.component;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -25,5 +27,14 @@ public class SortButton extends JButton{
 		setIcon(SortIcon);
 		setFocusable(false);
 		addActionListener(homeController.sortSelection(name));
+		addComponentListener(new ComponentAdapter() {  
+            @Override
+            public void componentResized(ComponentEvent e) {
+                JButton btn = (JButton) e.getComponent();
+                btn.setRolloverIcon(new ImageIcon(((ImageIcon)preSortIcon).getImage().getScaledInstance(btn.getWidth(),btn.getHeight()-45, java.awt.Image.SCALE_SMOOTH)));
+                btn.setIcon(new ImageIcon(((ImageIcon)SortIcon).getImage().getScaledInstance(btn.getWidth(),btn.getHeight()-45, java.awt.Image.SCALE_SMOOTH)));
+            }
+            
+        });
 	}
 }
