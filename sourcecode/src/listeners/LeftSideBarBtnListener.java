@@ -47,7 +47,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			window.getBtnGo().setVisible(true);
 			break;
 		case "Random":
-			window.updateMainArray(data.randomArray(SortingController.MAX_NUMBER, window.getMaxValue()));
+			window.updateMainArray(data.randomArray(SortingController.MAX_LENGTH, window.getMaxValue()));
 			//controller.setSorting(false);
 			break;
 		case "Go":
@@ -57,7 +57,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			}
 			//controller.setSorting(false);
             try {
-				window.updateMainArray(data.parseString(arr, SortingController.MAX_NUMBER, window.getMaxValue()));
+				window.updateMainArray(data.parseString(arr, SortingController.MAX_LENGTH, window.getMaxValue()));
 			
 			} catch (DataTypeException e1) {
 				window.getErrorLabel().setText(e1.getMessage());	
@@ -78,12 +78,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 				sorted = true;
 				controller.setSorting(true);
 				window.getErrorLabel().setVisible(false);
-				controller.getAlgo().sort();
-				controller.setStep(controller.getAlgo().getNumSteps());
-				controller.setMainArrayStep(controller.getAlgo().getArrayLog());
-				controller.setSubArrayStep(controller.getAlgo().getTempLog());
-				controller.setAnimationArrayStep(controller.getAlgo().getPointerLog());
-				controller.setInfoArrayStep(controller.getAlgo().getGuideLog());
+				controller.getModel().sort();
 				window.getProcessSlider().setMaximum(controller.getStep());
 				if (controller.isPlay()) {
 				   window.getTimer().stop();

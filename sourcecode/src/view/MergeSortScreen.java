@@ -17,7 +17,7 @@ public class MergeSortScreen extends SortingScreen{
 	public MergeSortScreen() {
 		super();
 		createName("MERGE SORT");
-		sortingController.setAlgo(new MergeSort(mainArray));
+		sortingController.setModel(new MergeSort(mainArray));
 	}
 
 

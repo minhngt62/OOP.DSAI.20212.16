@@ -17,11 +17,11 @@ public class SpeedSliderListener extends MyChangeListener{
 	}
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		   controller.setDefaultSpeed(((JSlider) e.getSource()).getValue());
-		   count.setText(Integer.toString(controller.getDefaultSpeed()));
+		   controller.setSpeed(((JSlider) e.getSource()).getValue());
+		   count.setText(Integer.toString(controller.getSpeed()));
 		   if (controller.isSorting()) {
 		       window.getTimer().stop();
-		       window.getTimer().setDelay(1000-controller.getDefaultSpeed()*10);
+		       window.getTimer().setDelay(1000-controller.getSpeed()*10);
 		       window.getTimer().start();
 		       if (!controller.isPlay()) {
 		    	   window.getTimer().stop();

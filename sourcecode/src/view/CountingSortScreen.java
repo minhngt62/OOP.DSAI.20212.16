@@ -16,7 +16,7 @@ public class CountingSortScreen extends SortingScreen {
 	public CountingSortScreen() {
 		super();
 		createName("COUNTING SORT");
-		sortingController.setAlgo(new CountingSort(mainArray));
+		sortingController.setModel(new CountingSort(mainArray));
 	}
 
 	@Override

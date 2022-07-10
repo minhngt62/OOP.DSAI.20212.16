@@ -16,7 +16,7 @@ public class RadixSortScreen extends SortingScreen {
 	public RadixSortScreen() {
 		super();
 		createName("RADIX SORT");
-		sortingController.setAlgo(new RadixSort(mainArray));
+		sortingController.setModel(new RadixSort(mainArray));
 	}
 	
 	@Override
