@@ -45,7 +45,7 @@ public abstract class BaseScreen extends JFrame {
 			                   + "1.Dr. Nguyen Thi Thu Trang\n"
 			                   + "  Senior Lecture, Hanoi University of Science and Technology\n\n"
 			                   + "2.Ms. Nguyen Thi Thu Giang and Mr. Vuong Dinh An\n"
-			                   + "  Teaching Assistants, Student of Hanoi University of Science and Technology\n\n\n"
+			                   + "  Teaching Assistants, Hanoi University of Science and Technology\n\n\n"
 			                   + "Our team includes:\n\n"
 			                   + "1. Nguyen Tong Minh\n     20204885 - Elitech DS&AI K65\n\n"
 			                   + "2. Ly Nhat Nam\n     20204886 - Elitech DS&AI K65\n\n"
