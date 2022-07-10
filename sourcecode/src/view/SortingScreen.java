@@ -139,7 +139,7 @@ public abstract class SortingScreen extends BaseScreen {
 		//process slide
 		processSlider = new MySlider(JSlider.HORIZONTAL,0,0,0,350,20,sortingController.changeProgressSlider());
 		processSlider.setBorder(BorderFactory.createEmptyBorder(5, 10, 0, 0));
-		timer =new Timer(1000-sortingController.getDefaultSpeed()*10,sortingController.setTimer());
+		timer =new Timer(1000-sortingController.getSpeed()*10,sortingController.setTimer());
 		
 		//play button
 		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
@@ -170,8 +170,8 @@ public abstract class SortingScreen extends BaseScreen {
 	private JPanel createSpeedPane() {
 		//speed pane
 		JPanel speedPane = new JPanel(new BorderLayout());
-		JLabel count = new JLabel(Integer.toString(sortingController.getDefaultSpeed()));
-		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,sortingController.getDefaultSpeed(),150,20,sortingController.changeSpeed(count));
+		JLabel count = new JLabel(Integer.toString(sortingController.getSpeed()));
+		MySlider speedSlider = new MySlider(JSlider.HORIZONTAL,0,100,sortingController.getSpeed(),150,20,sortingController.changeSpeed(count));
 
 		speedPane.setPreferredSize(new Dimension(255,45));
 		speedPane.setBackground(Color.BLACK);
@@ -281,7 +281,7 @@ public abstract class SortingScreen extends BaseScreen {
 	
 	public void setMainArray(int[] array) {
 		if (mainArray == null) {
-			mainArray = sortingController.getData().randomArray(SortingController.MAX_NUMBER, getMaxValue());
+			mainArray = sortingController.getData().randomArray(SortingController.MAX_LENGTH, getMaxValue());
 		}
 		else {
 			this.mainArray = array;}

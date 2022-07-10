@@ -15,24 +15,24 @@ public class ProgressSliderListener extends MyChangeListener{
 	}
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		if( controller.getInfoArrayStep() != null) {
-        window.getDemonstratePane().setText(controller.getInfoArrayStep()[controller.getCurStep()]);
+		if( controller.getGuideStates() != null) {
+        window.getDemonstratePane().setText(controller.getGuideStates()[controller.getCurStep()]);
         
         window.getVisualizer().remove(window.getAnimation());
         window.getVisualizer().remove(window.getContainer1());
 	    
 	    
-	    window.setMain(window.main(controller.getMainArrayStep()[controller.getCurStep()],window.getColor()));
+	    window.setMain(window.main(controller.getArrayStates()[controller.getCurStep()],window.getColor()));
         window.getMain().setBounds(0, 0, window.getWidth()-200, 250);
         
-        window.setSub(window.sub(controller.getSubArrayStep()[controller.getCurStep()]));
+        window.setSub(window.sub(controller.getTempStates()[controller.getCurStep()]));
 	    window.getSub().setBounds(0, 270, window.getWidth()-200, 250);
 	    
 	    window.setContainer(new JPanel(null));
 	    window.getContainer1().setBounds(45, 30, window.getWidth()-200, 522);
 	    
         window.setAnimation(window.animation(window.getMain(), window.getSub()
-	    		, controller.getAnimationArrayStep()[controller.getCurStep()]));
+	    		, controller.getPointerStates()[controller.getCurStep()]));
 		window.getAnimation().setBounds(45, 30, window.getWidth()-200, 520);
 	    
 	    window.getVisualizer().add(window.getAnimation(), JLayeredPane.PALETTE_LAYER);

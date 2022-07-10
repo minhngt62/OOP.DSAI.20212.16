@@ -19,20 +19,13 @@ import view.SortingScreen;
 public class SortingController{
 	private SortingScreen sortingScreen;
 	private DataGuard data;
-	private SortingAlgorithm algo;
-	
-	private int[][] mainArrayStep;
-	private int[][] subArrayStep;
-	private int[][] animationArrayStep;
-	private String[] infoArrayStep;
+	private SortingAlgorithm model;
 
-	private int step;
-
-	private int defaultSpeed = 50;
+	private int speed = 50;
 	private boolean isPlay = true;    //if playing
 	private boolean isSorting = false;  // if in sorting process, else all the manipulate button will be ignored
 	private int curStep = 0;
-	public static final int MAX_NUMBER = 100;
+	public static final int MAX_LENGTH = 100;
 		
 	public SortingController(SortingScreen sortingScreen) {
 		this.sortingScreen = sortingScreen;
@@ -63,51 +56,29 @@ public class SortingController{
 	public ControlBtnListener controlButtonCLicked() {
 		return new ControlBtnListener(sortingScreen, this);
 	}
-
-	public int[][] getMainArrayStep() {
-		return mainArrayStep;
+	
+	public int[][] getArrayStates() {
+		return model.getArrayLog();
 	}
-
-	public void setMainArrayStep(int[][] mainArrayStep) {
-		this.mainArrayStep = mainArrayStep;
+	public int[][] getTempStates() {
+		return model.getTempLog();
 	}
-
-	public int[][] getSubArrayStep() {
-		return subArrayStep;
+	public int[][] getPointerStates() {
+		return model.getPointerLog();
 	}
-
-	public void setSubArrayStep(int[][] subArrayStep) {
-		this.subArrayStep = subArrayStep;
-	}
-
-	public int[][] getAnimationArrayStep() {
-		return animationArrayStep;
-	}
-
-	public void setAnimationArrayStep(int[][] animationArrayStep) {
-		this.animationArrayStep = animationArrayStep;
-	}
-
-	public String[] getInfoArrayStep() {
-		return infoArrayStep;
-	}
-
-	public void setInfoArrayStep(String[] infoArrayStep) {
-		this.infoArrayStep = infoArrayStep;
-	}
-	public void setDefaultSpeed(int defaultSpeed) {
-		this.defaultSpeed = defaultSpeed;
-	}
-	public int getDefaultSpeed() {
-		return this.defaultSpeed;
+	public String[] getGuideStates() {
+		return model.getGuideLog();
 	}
 	public int getStep() {
-		return step;
-	}
-	public void setStep(int step) {
-		this.step = step;
+		return model.getNumSteps();
 	}
 
+	public void setSpeed(int defaultSpeed) {
+		this.speed = defaultSpeed;
+	}
+	public int getSpeed() {
+		return this.speed;
+	}
 	public boolean isPlay() {
 		return isPlay;
 	}
@@ -126,11 +97,11 @@ public class SortingController{
 	public void setCurStep(int curStep) {
 		this.curStep = curStep;
 	}
-	public SortingAlgorithm getAlgo() {
-		return algo;
+	public SortingAlgorithm getModel() {
+		return model;
 	}
-	public void setAlgo(SortingAlgorithm algo) {
-		this.algo = algo;
+	public void setModel(SortingAlgorithm model) {
+		this.model = model;
 	}
 	public DataGuard getData() {
 		return new DataGuard() ;
