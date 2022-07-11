@@ -4,21 +4,21 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 
-import visualso.view.SortingScreen;
+import visualso.controller.SortingController;
 
 public class DemonstrateListener extends MyActionListener{
-	public DemonstrateListener(SortingScreen window) {
-		super(window);
+	public DemonstrateListener(SortingController controller) {
+		super(controller);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton)e.getSource()).getText().equals("<")) {
 			((JButton)e.getSource()).setText(">");
-			window.getDemonstratePane().setVisible(true);
+			controller.getView().getDemonstratePane().setVisible(true);
 		}
 		else {
 			((JButton )e.getSource()).setText("<");
-			window.getDemonstratePane().setVisible(false);
+			controller.getView().getDemonstratePane().setVisible(false);
 		}
 	}
 }

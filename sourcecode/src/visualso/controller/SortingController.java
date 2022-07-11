@@ -30,28 +30,25 @@ public class SortingController{
 	}
 	
 	public WindowResize changeWindowSize() {
-		return new WindowResize(sortingScreen);
+		return new WindowResize(this);
 	}
-	
 	public SpeedSliderListener changeSpeed(JLabel count) {
-		return new SpeedSliderListener(sortingScreen, count, this);
+		return new SpeedSliderListener(count, this);
 	}
-	
 	public ProgressSliderListener changeProgressSlider() {
-		return new ProgressSliderListener(sortingScreen, this);
+		return new ProgressSliderListener(this);
 	}
-	
 	public DemonstrateListener rightSideButtonClicked() {
-		return new DemonstrateListener(sortingScreen);
+		return new DemonstrateListener(this);
 	}
 	public LeftSideBarBtnListener leftSideButtonClicked() {
-		return new LeftSideBarBtnListener(sortingScreen, data, this);
+		return new LeftSideBarBtnListener(this);
 	}
 	public TimerListener setTimer() {
-		return new TimerListener(sortingScreen, this);
+		return new TimerListener(this);
 	}
 	public ControlBtnListener controlButtonCLicked() {
-		return new ControlBtnListener(sortingScreen, this);
+		return new ControlBtnListener(this);
 	}
 	
 	public int[][] getArrayStates() {
@@ -94,6 +91,7 @@ public class SortingController{
 	public void setCurStep(int curStep) {
 		this.curStep = curStep;
 	}
+	
 	public SortingAlgorithm getModel() {
 		return model;
 	}
@@ -102,5 +100,8 @@ public class SortingController{
 	}
 	public DataGuard getData() {
 		return new DataGuard() ;
+	}
+	public SortingScreen getView() {
+		return sortingScreen;
 	}
 }
