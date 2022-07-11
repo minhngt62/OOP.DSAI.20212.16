@@ -148,20 +148,20 @@ public abstract class SortingScreen extends BaseScreen {
 		timer =new Timer(1000-sortingController.getSpeed()*10,sortingController.setTimer());
 		
 		//play button
-		Icon pauseIcon= new ImageIcon(new ImageIcon(directory+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+		Icon pauseIcon= new ImageIcon(new ImageIcon(ASSET_PATH+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 		MyControlButton btnPlay = new MyControlButton(30,45,Color.BLACK,pauseIcon,"Play",sortingController);
 		//forward button
-		Icon forwardIcon = new ImageIcon(new ImageIcon(directory +"forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon forwardIcon = new ImageIcon(new ImageIcon(ASSET_PATH +"forward.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnForward = new MyControlButton(30,45,Color.BLACK,forwardIcon,"Forward",sortingController);
 		//backward button
-		Icon backwardIcon = new ImageIcon(new ImageIcon(directory+"backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon backwardIcon = new ImageIcon(new ImageIcon(ASSET_PATH+"backward.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnBackward = new MyControlButton(30,45,Color.BLACK,backwardIcon,"Backward",sortingController);
 		btnBackward.setIcon(backwardIcon);		
 		//end button
-		Icon endIcon = new ImageIcon(new ImageIcon(directory+"end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon endIcon = new ImageIcon(new ImageIcon(ASSET_PATH+"end.jpg").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnEnd = new MyControlButton(30,45,Color.BLACK,endIcon,"End",sortingController);
 		//start button
-		Icon startIcon = new ImageIcon(new ImageIcon(directory+"start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
+		Icon startIcon = new ImageIcon(new ImageIcon(ASSET_PATH+"start.png").getImage().getScaledInstance(18, 18, Image.SCALE_SMOOTH));
 		MyControlButton btnStart = new MyControlButton(30,45,Color.BLACK,startIcon,"Start",sortingController);
 				
 		controlPane.add(btnStart);

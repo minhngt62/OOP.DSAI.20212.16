@@ -17,7 +17,7 @@ import visualso.controller.HomeController;
 
 @SuppressWarnings("serial")
 public class HomeScreen extends BaseScreen {
-	HomeController homeController;
+	private HomeController homeController;
 	public HomeScreen() {
 		super();
 		homeController = new HomeController();
@@ -38,7 +38,7 @@ public class HomeScreen extends BaseScreen {
 	
 	private JPanel createLogoPane() {
 		JPanel logoPane = new JPanel(new BorderLayout());
-		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
+		Icon visualSoIcon= new ImageIcon(new ImageIcon(ASSET_PATH+"VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
 		JLabel logo = new JLabel(visualSoIcon);
 		logoPane.add(logo, BorderLayout.CENTER);
 		JLabel infoLabel = new JLabel("Visualizer Sorting Alogorithms");
