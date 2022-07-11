@@ -1,11 +1,10 @@
 package visualso.listener;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent; 
 
 import javax.swing.Timer;
 
 import visualso.controller.SortingController;
-import visualso.view.SortingScreen;
 
 public class TimerListener extends MyActionListener{
 	public TimerListener(SortingController controller) {
