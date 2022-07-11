@@ -10,15 +10,15 @@ import visualso.controller.BaseController;
 
 @SuppressWarnings("serial")
 public abstract class BaseScreen extends JFrame {	
-	protected static final int WIDTH = 1000;
-	protected static final int HEIGHT = 700;
+	static final int WIDTH = 1000;
+	static final int HEIGHT = 700;
 	BaseController baseController;
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory
-	protected String directory = new File("").getAbsoluteFile() + "\\assets\\";
+	public static final String ASSET_PATH = new File("").getAbsoluteFile() + "\\assets\\";
 	//TODO Help Content for home screen
-	protected String helpInfo = "Sorting Alogorithms is a basic concept that every "
+	String helpInfo = "Sorting Alogorithms is a basic concept that every "
 			                  + "programmer should have known.\n \n "
 			                  + "There are a a lot of sorting algorithms, "
 			                  + "but to be suitable with our project, we only focus on 3 algorithms: \n"
@@ -40,7 +40,7 @@ public abstract class BaseScreen extends JFrame {
 			                  + "the right side and flow controller at the bottom.\n"
 			                  + "Have fun!";
 	//TODO About content
-	protected String aboutInfo = "\nVisualSO, a sorting visulizer, is made by Team 16, Object-oriented Programming course (HUST20221) "
+	String aboutInfo = "\nVisualSO, a sorting visulizer, is made by Team 16, Object-oriented Programming course (HUST20221) "
 			                   + "with the support of:\n\n"
 			                   + "1.Dr. Nguyen Thi Thu Trang\n"
 			                   + "  Senior Lecture, Hanoi University of Science and Technology\n\n"
@@ -69,7 +69,7 @@ public abstract class BaseScreen extends JFrame {
 		topBar.setPreferredSize(new Dimension(1000,45));
 		topBar.setBorder(BorderFactory.createEmptyBorder(0, 35, 0,40));
 		
-		Icon visualSoIcon= new ImageIcon(new ImageIcon(directory+"\\VisualSO_icon.png").getImage().getScaledInstance(180, 30, Image.SCALE_SMOOTH));
+		Icon visualSoIcon= new ImageIcon(new ImageIcon(ASSET_PATH+"\\VisualSO_icon.png").getImage().getScaledInstance(180, 30, Image.SCALE_SMOOTH));
 		JLabel icon = new JLabel(visualSoIcon);
 		topBar.add(icon,"West");
 		
@@ -88,6 +88,6 @@ public abstract class BaseScreen extends JFrame {
 	}
 
 	public String getDirectory() {
-		return directory;
+		return ASSET_PATH;
 	}
 }
