@@ -7,7 +7,7 @@ import visualso.exception.NullException;
 import visualso.exception.OutOfBoundException;
 
 public class DataGuard {
-    public int[] randomArray(int qtBound, int maxValue) {
+    public static int[] randomArray(int qtBound, int maxValue) {
     	Random generator = new Random();
         int[] randArray = new int[generator.nextInt(2, qtBound)];
         for (int i = 0; i < randArray.length; i++) {
@@ -16,11 +16,11 @@ public class DataGuard {
         return randArray ;
     }
 
-    private boolean isNullOrEmpty(String str) {
+    private static boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
 
-    public int[] parseString(String str, int qtBound, int valueBound) 
+    public static int[] parseString(String str, int qtBound, int valueBound) 
     		throws DataTypeException, OutOfBoundException, NullException {
         String str1 = str;
         str1 = str1.replaceAll(" ","");

@@ -29,6 +29,7 @@ import visualso.component.MySlider;
 import visualso.component.MyTextField;
 import visualso.component.Visualizer;
 import visualso.controller.SortingController;
+import visualso.data.DataGuard;
 import visualso.util.ArrayUtils;
 import visualso.util.ColorUtils;
 
@@ -286,7 +287,7 @@ public abstract class SortingScreen extends BaseScreen {
 	
 	public void setMainArray(int[] array) {
 		if (mainArray == null) {
-			mainArray = sortingController.getData().randomArray(SortingController.MAX_LENGTH, getMaxValue());
+			mainArray = DataGuard.randomArray(SortingController.MAX_LENGTH, getMaxValue());
 		}
 		else {
 			this.mainArray = array;}

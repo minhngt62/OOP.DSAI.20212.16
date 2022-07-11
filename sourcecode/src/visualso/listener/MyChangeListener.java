@@ -1,14 +1,14 @@
 package visualso.listener;
 
-import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeEvent; 
 import javax.swing.event.ChangeListener;
 
-import visualso.view.SortingScreen;
+import visualso.controller.SortingController;
 
 public abstract class MyChangeListener implements ChangeListener {
-	SortingScreen window;
-	public MyChangeListener(SortingScreen window) {
-		this.window = window;
+	SortingController controller;
+	public MyChangeListener(SortingController controller) {
+		this.controller = controller;
 	}
 	@Override
 	public void stateChanged(ChangeEvent e) {
