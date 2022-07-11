@@ -14,8 +14,8 @@ public class ControlBtnListener extends MyActionListener{
 	public ControlBtnListener(SortingController controller) {
 		super(controller);
 	}
-    Icon pauseIcon= new ImageIcon(new ImageIcon(controller.getView().getDirectory()+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
-	Icon playIcon = new ImageIcon(new ImageIcon(controller.getView().getDirectory()+"play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+    private Icon pauseIcon= new ImageIcon(new ImageIcon(controller.getView().getDirectory()+"pause.png").getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+	private Icon playIcon = new ImageIcon(new ImageIcon(controller.getView().getDirectory()+"play.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
