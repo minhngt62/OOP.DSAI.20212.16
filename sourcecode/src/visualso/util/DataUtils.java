@@ -1,4 +1,4 @@
-package visualso.data;
+package visualso.util;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import visualso.exception.DataTypeException;
 import visualso.exception.NullException;
 import visualso.exception.OutOfBoundException;
 
-public class DataGuard {
+public class DataUtils {
     public static int[] randomArray(int qtBound, int maxValue) {
     	Random generator = new Random();
         int[] randArray = new int[generator.nextInt(2, qtBound)];

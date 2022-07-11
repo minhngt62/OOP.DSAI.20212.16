@@ -1,13 +1,13 @@
-package test.data;
+package test.utils;
 
-import visualso.data.DataGuard;
 import visualso.exception.DataTypeException;
 import visualso.exception.NullException;
 import visualso.exception.OutOfBoundException;
+import visualso.util.DataUtils;
 
 public class DataGuardTest {
 	public static void main(String[] args) {
-		DataGuard dataHandler = new DataGuard();
+		DataUtils dataHandler = new DataUtils();
 		
 		// Random array test
 		int[] randomArray = dataHandler.randomArray(20, 50);

@@ -2,7 +2,6 @@ package visualso.controller;
 
 import javax.swing.JLabel;
 
-import visualso.data.DataGuard;
 import visualso.listener.ControlBtnListener;
 import visualso.listener.DemonstrateListener;
 import visualso.listener.LeftSideBarBtnListener;
@@ -11,6 +10,7 @@ import visualso.listener.SpeedSliderListener;
 import visualso.listener.TimerListener;
 import visualso.listener.WindowResize;
 import visualso.sorting.SortingAlgorithm;
+import visualso.util.DataUtils;
 import visualso.view.SortingScreen;
 
 public class SortingController{
@@ -96,8 +96,8 @@ public class SortingController{
 	public void setModel(SortingAlgorithm model) {
 		this.sortingModel = model;
 	}
-	public DataGuard getData() {
-		return new DataGuard() ;
+	public DataUtils getData() {
+		return new DataUtils() ;
 	}
 	public SortingScreen getView() {
 		return sortingScreen;
