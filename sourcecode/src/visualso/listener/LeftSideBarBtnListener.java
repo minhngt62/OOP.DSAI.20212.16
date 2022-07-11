@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 import visualso.controller.SortingController;
-import visualso.data.DataGuard;
 import visualso.exception.DataTypeException;
 import visualso.exception.NullException;
 import visualso.exception.OutOfBoundException;
+import visualso.util.DataUtils;
 
 public class LeftSideBarBtnListener extends MyActionListener{
 	private boolean sorted = false;
@@ -41,7 +41,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			controller.getView().getBtnGo().setVisible(true);
 			break;
 		case "Random":
-			controller.getView().updateMainArray(DataGuard.randomArray(SortingController.MAX_LENGTH, controller.getView().getMaxValue()));
+			controller.getView().updateMainArray(DataUtils.randomArray(SortingController.MAX_LENGTH, controller.getView().getMaxValue()));
 			//controller.setSorting(false);
 			break;
 		case "Go":
@@ -51,7 +51,7 @@ public class LeftSideBarBtnListener extends MyActionListener{
 			}
 			//controller.setSorting(false);
             try {
-            	controller.getView().updateMainArray(DataGuard.parseString(arr, SortingController.MAX_LENGTH, controller.getView().getMaxValue()));
+            	controller.getView().updateMainArray(DataUtils.parseString(arr, SortingController.MAX_LENGTH, controller.getView().getMaxValue()));
 			
 			} catch (DataTypeException e1) {
 				controller.getView().getErrorLabel().setText(e1.getMessage());	
