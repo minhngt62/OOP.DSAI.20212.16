@@ -15,8 +15,7 @@ import visualso.view.SortingScreen;
 
 public class SortingController{
 	private SortingScreen sortingScreen;
-	private DataGuard data;
-	private SortingAlgorithm model;
+	private SortingAlgorithm sortingModel;
 
 	private int speed = 50;
 	private boolean isPlay = true;    //if playing
@@ -26,7 +25,6 @@ public class SortingController{
 		
 	public SortingController(SortingScreen sortingScreen) {
 		this.sortingScreen = sortingScreen;
-		this.data = new DataGuard();
 	}
 	
 	public WindowResize changeWindowSize() {
@@ -52,19 +50,19 @@ public class SortingController{
 	}
 	
 	public int[][] getArrayStates() {
-		return model.getArrayLog();
+		return sortingModel.getArrayLog();
 	}
 	public int[][] getTempStates() {
-		return model.getTempLog();
+		return sortingModel.getTempLog();
 	}
 	public int[][] getPointerStates() {
-		return model.getPointerLog();
+		return sortingModel.getPointerLog();
 	}
 	public String[] getGuideStates() {
-		return model.getGuideLog();
+		return sortingModel.getGuideLog();
 	}
 	public int getStep() {
-		return model.getNumSteps();
+		return sortingModel.getNumSteps();
 	}
 
 	public void setSpeed(int defaultSpeed) {
@@ -93,10 +91,10 @@ public class SortingController{
 	}
 	
 	public SortingAlgorithm getModel() {
-		return model;
+		return sortingModel;
 	}
 	public void setModel(SortingAlgorithm model) {
-		this.model = model;
+		this.sortingModel = model;
 	}
 	public DataGuard getData() {
 		return new DataGuard() ;
