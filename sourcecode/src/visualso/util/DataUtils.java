@@ -10,9 +10,9 @@ import visualso.exception.OutOfBoundException;
 public class DataUtils {
     public static int[] randomArray(int qtBound, int maxValue) {
     	Random generator = new Random();
-        int[] randArray = new int[generator.nextInt(2, qtBound)];
+        int[] randArray = new int[generator.nextInt(qtBound + 1) + 2];
         for (int i = 0; i < randArray.length; i++) {
-        	randArray[i] = generator.nextInt(1, maxValue);
+        	randArray[i] = generator.nextInt(maxValue + 1) + 1;
         }
         return randArray ;
     }
@@ -23,9 +23,8 @@ public class DataUtils {
 
     public static int[] parseString(String str, int qtBound, int valueBound) 
     		throws DataTypeException, OutOfBoundException, NullException {
-        String str1 = str;
-        str1 = str1.replaceAll(" ","");
-        String[] tokens = str1.split(",");
+        str = str.replaceAll(" ","");
+        String[] tokens = str.split(",");
         if (tokens.length == 1) {
             tokens = str.split(" ");
         }
@@ -39,8 +38,8 @@ public class DataUtils {
         }
 
         try {
-            for (int i = 0; i <tokens.length; i++) {
-                if (new BigInteger(tokens[i]).compareTo(new BigInteger("1000"))>0) {
+            for (int i = 0; i < tokens.length; i++) {
+                if (new BigInteger(tokens[i]).compareTo(new BigInteger(valueBound + "")) > 0) {
                 	throw new OutOfBoundException("A valid array only has max value smaller than " + valueBound);
                 }
                 inputArray[i] = Integer.parseInt(tokens[i]);
