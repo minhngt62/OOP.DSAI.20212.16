@@ -17,30 +17,30 @@ public abstract class BaseScreen extends JFrame {
 	JPanel buttonGroup;
 	//File directory
 	public static final String ASSET_PATH = new File("").getAbsoluteFile() + "\\assets\\";
-	//TODO Help Content for home screen
-	String helpInfo = "Sorting Alogorithms is a basic concept that every "
+
+	String helpInfo = "Sorting Alogorithm is a basic concept that every "
 			                  + "programmer should have known.\n \n "
-			                  + "There are a a lot of sorting algorithms, "
+			                  + "There are a lot of sorting algorithms, "
 			                  + "but to be suitable with our project, we only focus on 3 algorithms: \n"
 			                  + "+ Merge Sort\n"
 			                  + "+ Counting Sort\n"
 			                  + "+ Radix Sort\n \n"
-			                  + "This's app invented aiming to the purpose of visualizing "
+			                  + "This application invented aiming to the purpose of visualizing "
 			                  + "these alogrithms in a colorful way to help "
 			                  + "user understand this concept easier and meet our class "
 			                  + "project needs.\n \n"
 			                  + "Without loss of generality, we assume that we will sort only Integers, "
 			                  + "not necessarily distinct, in non-decreasing order in this visualization.\n\n"
 			                  + "Our app is inspired of Visualgo so we named it as VisualSO as "
-			                  + "Visual Sorting algOrithms.\n \n"
+			                  + "Visual Sorting algorithms.\n \n"
 			                  + "Everything you need is:\n "
 			                  + "1.Choosing one of 3 algorithms in the blocks to start your journey\n "
 			                  + "2.Create your own array or random array by the leftside button\n "
 			                  + "3.Click Sort and view it visualizes, the explanation will be demonstrate on "
 			                  + "the right side and flow controller at the bottom.\n"
 			                  + "Have fun!";
-	//TODO About content
-	String aboutInfo = "\nVisualSO, a sorting visulizer, is made by Team 16, Object-oriented Programming course (HUST20221) "
+
+	String aboutInfo = "\nVisualSO, a sorting visualizer, is made by Team 16, Object-oriented Programming course (HUST20212) "
 			                   + "with the support of:\n\n"
 			                   + "1.Dr. Nguyen Thi Thu Trang\n"
 			                   + "  Senior Lecture, Hanoi University of Science and Technology\n\n"
