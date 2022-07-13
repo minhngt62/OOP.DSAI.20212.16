@@ -18,7 +18,7 @@ array. In the scope of the software, the application will explain three sorting 
 - Diagrams [`design`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/design)
 - README.md [`README.md`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/README.md)
 
-#### 2. Lý Nhật Nam - 20204886 (Email: nam.lt204886@sis.hust.edu.vn)
+#### 2. Lý Nhật Nam - 20204886 (Email: nam.ln204886@sis.hust.edu.vn)
 - Package [`sourcecode/src/visualso/view`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/view) (exclude [`HomeScreen.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/view/HomeScreen.java))
 - Package [`sourcecode/src/visualso/component`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/component) 
 - Package [`sourcecode/src/visualso/controller`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/controller) (exclude [`HomeController.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/controller/HomeController.java))
