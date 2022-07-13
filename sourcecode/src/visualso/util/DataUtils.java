@@ -10,9 +10,9 @@ import visualso.exception.OutOfBoundException;
 public class DataUtils {
     public static int[] randomArray(int qtBound, int maxValue) {
     	Random generator = new Random();
-        int[] randArray = new int[generator.nextInt(qtBound + 1) + 2];
+        int[] randArray = new int[generator.nextInt(qtBound - 1) + 2];
         for (int i = 0; i < randArray.length; i++) {
-        	randArray[i] = generator.nextInt(maxValue + 1) + 1;
+        	randArray[i] = generator.nextInt(maxValue) + 1;
         }
         return randArray ;
     }
