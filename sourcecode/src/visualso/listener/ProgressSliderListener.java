@@ -12,7 +12,7 @@ public class ProgressSliderListener extends MyChangeListener{
 	}
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		if( controller.getGuideStates() != null) {
+		if( controller.getGuideStates() != null && controller.isSorting()) {
 			controller.getView().getDemonstratePane().setText(controller.getGuideStates()[controller.getCurStep()]);
         
 			controller.getView().getVisualizer().remove(controller.getView().getAnimation());

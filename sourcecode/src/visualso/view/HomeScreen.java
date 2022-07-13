@@ -41,7 +41,7 @@ public class HomeScreen extends BaseScreen {
 		Icon visualSoIcon= new ImageIcon(new ImageIcon(ASSET_PATH+"VisualSO_icon1.png").getImage().getScaledInstance(420, 70, Image.SCALE_SMOOTH));
 		JLabel logo = new JLabel(visualSoIcon);
 		logoPane.add(logo, BorderLayout.CENTER);
-		JLabel infoLabel = new JLabel("Visualizer Sorting Alogorithms");
+		JLabel infoLabel = new JLabel("Visualizer Sorting Algorithms");
 		JPanel desc = new JPanel();
 		desc.add(infoLabel);
 		logoPane.add(desc, BorderLayout.SOUTH);
