@@ -11,7 +11,7 @@ array. In the scope of the software, the application will explain three sorting 
 
 ### Assignment of members
 
-#### 1. Nguyễn Tống Minh - 20204885 (Email: mint.nt204885@sis.hust.edu.vn) (L)
+#### 1. Nguyễn Tống Minh - 20204885 (Email: minh.nt204885@sis.hust.edu.vn) (L)
 - Package [`sourcecode/src/test`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/test)
 - Package [`sourcecode/src/visualso/sorting`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/sorting)
 - Class [`sourcecode/src/visualso/util/ArrayUtils.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/util/ArrayUtils.java)
