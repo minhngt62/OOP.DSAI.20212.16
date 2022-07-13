@@ -1,7 +1,8 @@
 package visualso.controller;
 
-import javax.swing.JLabel; 
+import javax.swing.JLabel;
 
+import visualso.listener.BackListener;
 import visualso.listener.ControlBtnListener;
 import visualso.listener.DemonstrateListener;
 import visualso.listener.LeftSideBarBtnListener;
@@ -46,6 +47,9 @@ public class SortingController{
 	}
 	public ControlBtnListener controlButtonCLicked() {
 		return new ControlBtnListener(this);
+	}
+	public BackListener backButtonClicked() {
+		return new BackListener();
 	}
 	
 	public int[][] getArrayStates() {

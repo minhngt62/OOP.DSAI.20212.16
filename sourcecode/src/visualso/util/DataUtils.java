@@ -1,5 +1,6 @@
 package visualso.util;
 
+import java.math.BigInteger;
 import java.util.Random;
 
 import visualso.exception.DataTypeException;
@@ -39,11 +40,12 @@ public class DataUtils {
 
         try {
             for (int i = 0; i <tokens.length; i++) {
+                if (new BigInteger(tokens[i]).compareTo(new BigInteger("1000"))>0) {
+                	throw new OutOfBoundException("A valid array only has max value smaller than " + valueBound);
+                }
                 inputArray[i] = Integer.parseInt(tokens[i]);
                 if (inputArray[i] < 0) {
                     throw new NumberFormatException();
-                } else if (inputArray[i] > valueBound) {
-                	throw new OutOfBoundException("A valid array only has the max value smaller than " + valueBound);
                 }
             }
         } catch (NumberFormatException e) {

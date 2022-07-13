@@ -248,7 +248,7 @@ public abstract class SortingScreen extends BaseScreen {
 		MyButton btnBack = new MyButton(80,45,Color.BLACK);
 		btnBack.setText("Back");
 		btnBack.setFont(new Font("Sans", Font.BOLD, 17));
-		btnBack.addActionListener(baseController.backButtonClicked());
+		btnBack.addActionListener(sortingController.backButtonClicked());
 		buttonGroup.add(btnBack,2,0);
 	}
 	public Visualizer main(int[] array, Color color) {
