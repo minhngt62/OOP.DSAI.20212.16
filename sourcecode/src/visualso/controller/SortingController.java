@@ -65,7 +65,7 @@ public class SortingController{
 		return sortingModel.getGuideLog();
 	}
 	public int getStep() {
-		return sortingModel.getNumSteps();
+		return sortingModel.getNumSteps() - 1;
 	}
 
 	public void setSpeed(int defaultSpeed) {

@@ -13,6 +13,7 @@ public class ProgressSliderListener extends MyChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		if( controller.getGuideStates() != null && controller.isSorting()) {
+      controller.setCurStep(controller.getView().getProcessSlider().getValue());
 			controller.getView().getDemonstratePane().setText(controller.getGuideStates()[controller.getCurStep()]);
         
 			controller.getView().getVisualizer().remove(controller.getView().getAnimation());
@@ -36,7 +37,6 @@ public class ProgressSliderListener extends MyChangeListener{
 			controller.getView().getContainer1().add(controller.getView().getMain());
 			controller.getView().getContainer1().add(controller.getView().getSub());
 			controller.getView().getVisualizer().add(controller.getView().getContainer1(), JLayeredPane.DEFAULT_LAYER);
-	    controller.setCurStep(controller.getView().getProcessSlider().getValue());
 		}
 	}
 }

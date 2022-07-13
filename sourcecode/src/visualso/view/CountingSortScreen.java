@@ -105,7 +105,7 @@ public class CountingSortScreen extends SortingScreen {
 		return 20;
 	}
 	public String newHelpInfo() {
-		 return "\n\nCounting Sort\n\n\n"
+		 return "\nCounting Sort\n\n"
 				 + "Counting sort is a sorting algorithm that sorts the elements of"
 				 + " an array by counting the number of occurrences of each unique "
 				 + "element in the array. The count is stored in an auxiliary "
@@ -116,6 +116,8 @@ public class CountingSortScreen extends SortingScreen {
 				 + "     Worst Case: O(n+k)\n\n"
 				 + "     Best Case: O(n)\n\n"
 				 + "     Average case: O(n+k)\n\n"
-				 + "Space Complexity: O(k)\n\n";
+				 + "Space Complexity: O(k)\n\n"
+				 + "The array size in Counting Sort used for visualization has a max size of 100 elements.\n"
+				 + "A valid array in Counting Sort only has the max value is 20, and it is non-negative numbers.";
 	}
 }

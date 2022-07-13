@@ -97,7 +97,7 @@ public class MergeSortScreen extends SortingScreen{
 		return 1000;
 	}
 	public String newHelpInfo() {
-		 return "\n\nMerge Sort\n\n\n"
+		 return "\nMerge Sort\n\n"
 				 + "Merge sort is one of the most efficient sorting algorithms. "
 				 + "It is based on the divide-and-conquer strategy - breaks down a big problem into smaller,"
 				 + "more manageable pieces that look similar to the initial problem. "
@@ -108,6 +108,8 @@ public class MergeSortScreen extends SortingScreen{
 				 + "     Worst Case: O(n*log(n))\n\n"
 				 + "     Best Case: O(n*log(n))\n\n"
 				 + "     Average case: O(n*log(n))\n\n"
-				 + "Space Complexity: O(n)\n\n"; 
+				 + "Space Complexity: O(n)\n\n"
+				 + "The array size in Merge Sort used for visualization has a max size of 100 elements.\n"
+				 + "A valid array in Merge Sort only has the max value is 1000, and it is non-negative numbers.";
 	}
 }

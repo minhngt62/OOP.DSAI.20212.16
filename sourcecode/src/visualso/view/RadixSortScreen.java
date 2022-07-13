@@ -105,7 +105,7 @@ public class RadixSortScreen extends SortingScreen {
 	}
 	public String newHelpInfo() {
 		//TODO modify the text 
-		return "\n\nRadix Sort\n\n\n"
+		return "\nRadix Sort\n\n"
 			 + "Radix sort algorithm is a non-comparative sorting algorithm in computer "
 			 + "science. It avoids comparison by creating and categorizing elements based "
 			 + "on their radix. For elements with more than one significant digit, it "
@@ -116,6 +116,8 @@ public class RadixSortScreen extends SortingScreen {
 			 + "     Worst Case: O(n*d)\n\n"
 			 + "     Best Case: O(n*d)\n\n"
 			 + "     Average case: O(n*d)\n\n"
-			 + "Space Complexity: O(n+d)\n\n";
+			 + "Space Complexity: O(n+d)\n\n"
+			 + "The array size in Radix Sort used for visualization has a max size of 100 elements.\n"
+			 + "A valid array in Radix Sort only has the max value is 1000, and it is non-negative numbers.";
 	}
 }
