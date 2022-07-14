@@ -17,6 +17,7 @@ array. In the scope of the software, the application will explain three sorting 
 - Class [`sourcecode/src/visualso/util/ArrayUtils.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/util/ArrayUtils.java)
 - Diagrams [`design`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/design)
 - README.md [`README.md`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/README.md)
+- *Pull request feedback*
 
 #### 2. Lý Nhật Nam - 20204886 (Email: nam.ln204886@sis.hust.edu.vn)
 - Package [`sourcecode/src/visualso/view`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/view) (exclude [`HomeScreen.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/view/HomeScreen.java))
@@ -24,6 +25,7 @@ array. In the scope of the software, the application will explain three sorting 
 - Package [`sourcecode/src/visualso/listener`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/listener) (exclude [`SortListener.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/listener/SortListener.java))
 - Class [`sourcecode/src/visualso/util/ColorUtils.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/util/ColorUtils.java)
 - *Report writer*
+- *Pull request feedback*
 
 #### 3. Phạm Thanh Nam - 20204921 (Email: nam.pt204921@sis.hust.edu.vn)
 - Package [`sourcecode/src/visualso/component`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/component) (50%)
@@ -31,12 +33,14 @@ array. In the scope of the software, the application will explain three sorting 
 - Class [`sourcecode/src/visualso/controller/HomeController.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/controller/HomeController.java)
 - Class [`sourcecode/src/visualso/listener/SortListener.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/listener/SortListener.java)
 - *Report writer*
+- *Pull request feedback*
 
 #### 4. Nguyễn Xuân Nam - 20200422 (Email: nam.nx200422@sis.hust.edu.vn)
 - Package [`sourcecode/src/visualso/component`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/component) (50%)
 - Package [`sourcecode/src/visualso/exception`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/exception)
 - Class [`sourcecode/src/visualso/util/DataUtils.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/util/DataUtils.java)
 - *Presentation designer*
+- *Exception handler*
 
 ---
 
