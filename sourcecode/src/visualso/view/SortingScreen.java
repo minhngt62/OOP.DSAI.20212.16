@@ -99,11 +99,11 @@ public abstract class SortingScreen extends BaseScreen {
 		visualizer.add(errorLabel, JLayeredPane.DRAG_LAYER);
 		//LEFTSIDEBAR
 		//create button "Create(A)" belong to generate data button
-		btnCreate = new MySideButton(150,33,ColorUtils.myBLUE,"Create(A)",SwingConstants.LEFT,sortingController);
+		btnCreate = new MySideButton(150,33,ColorUtils.MY_BLUE,"Create(A)",SwingConstants.LEFT,sortingController);
 		btnCreate.setBorder(BorderFactory.createEmptyBorder(0,5,0,0));
 		visualizer.add(btnCreate,JLayeredPane.MODAL_LAYER);
 		//random button belong to create button
-		btnRandom = new MySideButton(78,28,ColorUtils.myBLUE,"Random",SwingConstants.CENTER,sortingController);
+		btnRandom = new MySideButton(78,28,ColorUtils.MY_BLUE,"Random",SwingConstants.CENTER,sortingController);
 		visualizer.add(btnRandom,JLayeredPane.MODAL_LAYER);
 		//A= label belong to create button
 		A = new MyLabel("A =");
@@ -113,14 +113,14 @@ public abstract class SortingScreen extends BaseScreen {
 		visualizer.add(inputArrayField,JLayeredPane.MODAL_LAYER);
 
 		//go button belong to create button
-		btnGo = new MySideButton(50,28,ColorUtils.myBLUE,"Go",SwingConstants.CENTER,sortingController);
+		btnGo = new MySideButton(50,28,ColorUtils.MY_BLUE,"Go",SwingConstants.CENTER,sortingController);
 		visualizer.add(btnGo,JLayeredPane.MODAL_LAYER);
 		//sort button belong to generate data button
-		btnSort =new MySideButton(150,32,ColorUtils.myBLUE,"Sort",SwingConstants.LEFT,sortingController);
+		btnSort =new MySideButton(150,32,ColorUtils.MY_BLUE,"Sort",SwingConstants.LEFT,sortingController);
 		btnSort.setBorder(BorderFactory.createEmptyBorder(0,5,0,0));
 		visualizer.add(btnSort,JLayeredPane.MODAL_LAYER);
 		//RIGHTSIDEBAR
-		demonstratePane =  new DemonstratePane(380,65,ColorUtils.myGREEN, sortInfo);
+		demonstratePane =  new DemonstratePane(380,65,ColorUtils.MY_GREEN, sortInfo);
 		visualizer.add(demonstratePane,JLayeredPane.MODAL_LAYER);
 		return visualizer;
 	}
@@ -215,7 +215,7 @@ public abstract class SortingScreen extends BaseScreen {
 		leftSideBar.setBackground(Color.BLACK);
 		leftSideBar.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
 		//Generate data button ">" belong to leftsidebar
-		MyButton btnGenData = new MyButton(45,65,ColorUtils.myBLUE);
+		MyButton btnGenData = new MyButton(45,65,ColorUtils.MY_BLUE);
 		btnGenData.setText(">");
 		btnGenData.setFont(new Font("Sora",Font.BOLD,22));
 		btnGenData.addActionListener(sortingController.leftSideButtonClicked());
@@ -230,7 +230,7 @@ public abstract class SortingScreen extends BaseScreen {
 		rightSideBar.setBackground(Color.BLACK);
 		rightSideBar.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
 		//demonstrate button "<" belong to rightsidebar
-		MyButton btnDemonstrate = new MyButton(45,65,ColorUtils.myGREEN);
+		MyButton btnDemonstrate = new MyButton(45,65,ColorUtils.MY_GREEN);
 		btnDemonstrate.setText("<");
 		btnDemonstrate.setFont(new Font("Sora",Font.BOLD,22));
 		btnDemonstrate.addActionListener(sortingController.rightSideButtonClicked());

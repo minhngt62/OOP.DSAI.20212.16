@@ -31,7 +31,7 @@ public class CountingSortScreen extends SortingScreen {
 				width =(int) (getWidth()-30)/array.length;
 				for (int i: array) {
 					Font oldFont = g.getFont(); 
-					g.setColor(ColorUtils.myORANGE);
+					g.setColor(ColorUtils.MY_ORANGE);
 				    g.fillRect(x, getHeight()-60,ArrayUtils.min(width-padding,60),30);
 				    g.setColor(Color.BLACK);
 				    g.drawLine(x,getHeight()-30 , x+ArrayUtils.min(width-padding,60),getHeight()-30);
@@ -64,7 +64,7 @@ public class CountingSortScreen extends SortingScreen {
 				if(step[0] >= 0&& step[1]>=0) {
 				    mainIndex =step[0];
 				    subIndex = step[1];
-					g.setColor(ColorUtils.myGREEN);
+					g.setColor(ColorUtils.MY_GREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(mainWidth,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(mainWidth,60+padding)*mainArray.length)/2,
 				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
@@ -99,7 +99,7 @@ public class CountingSortScreen extends SortingScreen {
 	}
 	@Override
 	public Color getColor() {
-		return ColorUtils.myORANGE;
+		return ColorUtils.MY_ORANGE;
 	}
 	public int getMaxValue() {
 		return 20;

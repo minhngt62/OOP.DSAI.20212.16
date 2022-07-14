@@ -31,7 +31,7 @@ public class MergeSortScreen extends SortingScreen{
 				width =(int) getWidth()/array.length;
 				x = (getWidth()- ArrayUtils.min(width,60+padding)*array.length)/2;
 				for (int i:array) {
-					g.setColor(ColorUtils.myPINK);
+					g.setColor(ColorUtils.MY_PINK);
 				    g.fillRect(x, y-(int)(i*unitHeight)+ getHeight(),ArrayUtils.min(width-padding,60),(int)(i*unitHeight));
 				    x += ArrayUtils.min(width,60+padding) ;
 				}
@@ -54,7 +54,7 @@ public class MergeSortScreen extends SortingScreen{
 				super.paintComponent(g);
 				if(step[0] >= 0) {
 				    mainIndex = step[0];
-					g.setColor(ColorUtils.myGREEN);
+					g.setColor(ColorUtils.MY_GREEN);
 				    g.fillRect(mainIndex*ArrayUtils.min(width,60+padding)+(main.getWidth()
 				    		   -ArrayUtils.min(width,60+padding)*mainArray.length)/2,
 				    		   -(int)(main.getArray()[mainIndex]*unitHeight)
@@ -91,7 +91,7 @@ public class MergeSortScreen extends SortingScreen{
 	}
 	@Override
 	public Color getColor() {
-		return ColorUtils.myPINK;
+		return ColorUtils.MY_PINK;
 	}
 	public int getMaxValue() {
 		return 1000;

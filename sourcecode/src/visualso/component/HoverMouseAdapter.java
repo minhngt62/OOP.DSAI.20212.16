@@ -17,6 +17,6 @@ class HoverMouseAdapter extends MouseAdapter{
 	    button.setBackground(Color.BLACK);
 	}
 	public void mouseExited(MouseEvent evt){
-		button.setBackground(ColorUtils.myBLUE);
+		button.setBackground(ColorUtils.MY_BLUE);
 	}
 }
