@@ -16,7 +16,7 @@ array. In the scope of the software, the application will explain three sorting 
 - Package [`sourcecode/src/visualso/sorting`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/sourcecode/src/visualso/sorting)
 - Class [`sourcecode/src/visualso/util/ArrayUtils.java`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/sourcecode/src/visualso/util/ArrayUtils.java)
 - Diagrams [`design`](https://github.com/minhngt62/OOP.DSAI.20212.16/tree/main/design)
-- README.md [`README.md`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/README.md)
+- README.md [`README.md`](https://github.com/minhngt62/OOP.DSAI.20212.16/blob/main/README.md) (introduction video)
 - *Pull request feedback: Assess whether coding following the agreed OO schema and conventions.*
 
 #### 2. Lý Nhật Nam - 20204886 (Email: nam.ln204886@sis.hust.edu.vn)
