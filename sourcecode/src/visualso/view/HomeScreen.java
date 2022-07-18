@@ -17,7 +17,7 @@ import visualso.controller.HomeController;
 
 @SuppressWarnings("serial")
 public class HomeScreen extends BaseScreen {
-	private HomeController homeController;
+	private final HomeController homeController;
 	public HomeScreen() {
 		super();
 		homeController = new HomeController();

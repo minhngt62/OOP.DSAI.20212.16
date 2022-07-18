@@ -14,7 +14,7 @@ import visualso.sorting.SortingAlgorithm;
 import visualso.view.SortingScreen;
 
 public class SortingController{
-	private SortingScreen sortingScreen;
+	private final SortingScreen sortingScreen;
 	private SortingAlgorithm sortingModel;
 
 	private int speed = 50;
