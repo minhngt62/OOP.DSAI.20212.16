@@ -12,7 +12,7 @@ import visualso.controller.BaseController;
 public abstract class BaseScreen extends JFrame {	
 	static final int WIDTH = 1000;
 	static final int HEIGHT = 700;
-	BaseController baseController;
+	final BaseController baseController;
 	JPanel topBar;
 	JPanel buttonGroup;
 	//File directory

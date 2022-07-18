@@ -36,7 +36,7 @@ import visualso.util.DataUtils;
 @SuppressWarnings("serial")
 public abstract class SortingScreen extends BaseScreen {
 
-	SortingController sortingController;
+	final SortingController sortingController;
 	protected int[] mainArray ;
 	protected String sortInfo = "Welcome to our Sorting Algorithms Visualizer";
 	JLayeredPane visualizer;
